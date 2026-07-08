@@ -8,6 +8,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -41,6 +42,7 @@ fun PrimaryButton(
     val scale = pressScale(interaction)
     Box(
         modifier = modifier
+            .defaultMinSize(minWidth = 120.dp)
             .graphicsLayer { scaleX = scale; scaleY = scale }
             .clip(shape)
             .background(if (enabled) colors.accent else colors.outline)
@@ -68,6 +70,7 @@ fun SecondaryButton(
     val scale = pressScale(interaction)
     Box(
         modifier = modifier
+            .defaultMinSize(minWidth = 120.dp)
             .graphicsLayer { scaleX = scale; scaleY = scale }
             .clip(CoffeeShapes.pill)
             .background(colors.surface)
