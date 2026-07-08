@@ -15,7 +15,10 @@ import co.coffeery.app.data.model.Grind
 import co.coffeery.app.data.model.StepKind
 import co.coffeery.app.data.model.TempMode
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import org.json.JSONArray
+import org.json.JSONObject
 
 /** Suggested tuning defaults for a category when creating custom gear. */
 data class CategoryDefaults(
@@ -64,6 +67,82 @@ class CoffeeRepository(context: Context, private val db: AppDatabase) {
     suspend fun saveBrewLog(log: BrewLogEntity) = db.brewLogDao().insert(log)
 
     suspend fun deleteBrewLog(id: Long) = db.brewLogDao().deleteById(id)
+
+    // --- Export / Import ---
+    suspend fun exportAllToJson(): String {
+        val recipes = db.recipeDao().observeAll().first()
+        val custom = db.customEquipmentDao().observeAll().first()
+        val logs = db.brewLogDao().observeAll().first()
+        val settings = db.settingsDao().observe().first()
+        val json = JSONObject()
+        json.put("version", 2)
+        json.put("recipes", JSONArray().apply { recipes.forEach { r -> put(JSONObject().apply {
+            put("name", r.name); put("equipmentId", r.equipmentId)
+            put("strength", r.strength.toDouble()); put("roast", r.roast)
+            put("inputByCups", r.inputByCups); put("cups", r.cups)
+            put("waterMl", r.waterMl); put("createdAt", r.createdAt)
+        })})
+        json.put("customEquipment", JSONArray().apply { custom.forEach { c -> put(JSONObject().apply {
+            put("id", c.id); put("name", c.name); put("category", c.category)
+            put("ratioMin", c.ratioMin); put("ratioMax", c.ratioMax)
+            put("ratioDefault", c.ratioDefault); put("tempMode", c.tempMode)
+            put("tempMin", c.tempMin); put("tempMax", c.tempMax)
+            put("grind", c.grind); put("cupMl", c.cupMl)
+            put("hasBloom", c.hasBloom); put("createdAt", c.createdAt)
+        })})
+        if (settings != null) json.put("settings", JSONObject().apply {
+            put("themeMode", settings.themeMode); put("paletteKey", settings.paletteKey)
+            put("language", settings.language)
+        })
+        json.put("brewLogs", JSONArray().apply { logs.forEach { l -> put(JSONObject().apply {
+            put("equipmentId", l.equipmentId); put("equipmentName", l.equipmentName)
+            put("strength", l.strength.toDouble()); put("roast", l.roast)
+            put("ratioDenominator", l.ratioDenominator); put("coffeeGrams", l.coffeeGrams)
+            put("waterMl", l.waterMl); put("grind", l.grind)
+            put("customGrindSize", l.customGrindSize); put("tempCelsius", l.tempCelsius)
+            put("totalDurationSec", l.totalDurationSec); put("rating", l.rating)
+            put("tastingNotes", l.tastingNotes); put("timestamp", l.timestamp)
+        })})
+        return json.toString(2)
+    }
+
+    suspend fun importFromJson(jsonStr: String) {
+        val json = JSONObject(jsonStr)
+        if (json.has("recipes")) {
+            val arr = json.getJSONArray("recipes")
+            for (i in 0 until arr.length()) {
+                val o = arr.getJSONObject(i)
+                db.recipeDao().insert(RecipeEntity(
+                    name = o.getString("name"), equipmentId = o.getString("equipmentId"),
+                    strength = o.getDouble("strength").toFloat(), roast = o.getString("roast"),
+                    inputByCups = o.getBoolean("inputByCups"), cups = o.getInt("cups"),
+                    waterMl = o.getInt("waterMl"), createdAt = o.optLong("createdAt", System.currentTimeMillis()),
+                ))
+            }
+        }
+        if (json.has("customEquipment")) {
+            val arr = json.getJSONArray("customEquipment")
+            for (i in 0 until arr.length()) {
+                val o = arr.getJSONObject(i)
+                db.customEquipmentDao().insert(CustomEquipmentEntity(
+                    id = o.getString("id"), name = o.getString("name"), category = o.getString("category"),
+                    ratioMin = o.getDouble("ratioMin"), ratioMax = o.getDouble("ratioMax"),
+                    ratioDefault = o.getDouble("ratioDefault"), tempMode = o.getString("tempMode"),
+                    tempMin = o.getInt("tempMin"), tempMax = o.getInt("tempMax"),
+                    grind = o.getString("grind"), cupMl = o.getInt("cupMl"),
+                    hasBloom = o.getBoolean("hasBloom"), createdAt = o.optLong("createdAt", System.currentTimeMillis()),
+                ))
+            }
+        }
+        if (json.has("settings")) {
+            val o = json.getJSONObject("settings")
+            db.settingsDao().upsert(SettingsEntity(
+                themeMode = o.optString("themeMode", "system"),
+                paletteKey = o.optString("paletteKey", "TERRACOTTA"),
+                language = o.optString("language", "en"),
+            ))
+        }
+    }
 
     private fun CustomEquipmentEntity.toEquipment(): Equipment {
         val cat = BrewCategory.fromKey(category)

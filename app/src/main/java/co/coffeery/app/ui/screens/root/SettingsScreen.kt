@@ -124,10 +124,10 @@ fun SettingsScreen(vm: AppViewModel) {
 
         SettingsSection(R.string.settings_my_data) {
             ActionRow(stringResource(R.string.settings_export_data)) {
-                Toast.makeText(ctx, "Export coming soon", Toast.LENGTH_SHORT).show()
+                vm.exportData(ctx)
             }
             ActionRow(stringResource(R.string.settings_import_data)) {
-                Toast.makeText(ctx, "Import coming soon", Toast.LENGTH_SHORT).show()
+                vm.importData(ctx)
             }
         }
 

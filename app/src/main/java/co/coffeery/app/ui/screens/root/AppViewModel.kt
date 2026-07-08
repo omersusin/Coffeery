@@ -1,7 +1,13 @@
 package co.coffeery.app.ui.screens.root
 
 import android.app.Application
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.content.Intent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.FileProvider
 import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -208,6 +214,40 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     fun saveBrewLog(log: BrewLogEntity) = viewModelScope.launch { repo.saveBrewLog(log) }
 
     fun deleteBrewLog(id: Long) = viewModelScope.launch { repo.deleteBrewLog(id) }
+
+    // --- Export / Import ---
+    fun exportData(ctx: Context) {
+        viewModelScope.launch {
+            try {
+                val json = repo.exportAllToJson()
+                val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "application/json"
+                    putExtra(Intent.EXTRA_TEXT, json)
+                    putExtra(Intent.EXTRA_SUBJECT, "Coffeery backup")
+                }
+                ctx.startActivity(Intent.createChooser(sendIntent, "Export Coffeery data"))
+            } catch (e: Exception) {
+                Toast.makeText(ctx, "Export failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    fun importData(ctx: Context) {
+        viewModelScope.launch {
+            try {
+                val clipboard = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager
+                val text = clipboard?.primaryClip?.getItemAt(0)?.text?.toString()
+                if (text != null) {
+                    repo.importFromJson(text)
+                    Toast.makeText(ctx, "Data imported. Restart the app.", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(ctx, "Copy JSON backup to clipboard first, then tap Import.", Toast.LENGTH_LONG).show()
+                }
+            } catch (e: Exception) {
+                Toast.makeText(ctx, "Import failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     fun applyBrewLog(log: BrewLogEntity) = _state.update {
         it.copy(
