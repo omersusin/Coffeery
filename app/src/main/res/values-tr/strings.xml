@@ -190,6 +190,9 @@
     <string name="taste_weak_advice">Oranı güçlendirin (daha fazla kahve veya daha az su) ve karıştırmayı artırın. Çekirdeklerin taze olduğundan emin olun.</string>
     <string name="taste_strong_advice">Oranı seyreltin — daha fazla su ekleyin veya bir dahaki sefere biraz daha az kahve kullanın.</string>
     <string name="taste_balanced_advice">Tam isabet. Bu tarifi kaydet ki birebir tekrarlayabilesin.</string>
+    <string name="taste_astringent_advice">Burukluk tanenlerin aşırı ekstraksiyonudur. Öğütümü 1–2 kademe kalınlaştır, su sıcaklığını 2–3°C düşür ve daha nazik dök — demlemenin sonunda kahve yatağını karıştırmaktan kaçın.</string>
+    <string name="taste_dry_advice">Kuru veya kağıtsı tat genellikle durulanmamış filtre veya bayat çekirdekten gelir. Filtre kağıdını sıcak suyla durula ve çekirdeklerin taze olduğundan emin ol (kavurmadan sonra 5–21 gün).</string>
+    <string name="taste_hollow_advice">Düz veya içi boş fincan eksik ekstraksiyona işaret eder. Öğütümü bir kademe incele, su sıcaklığını 2–3°C artır ve bloom veya ana döküm sırasında hafifçe çalkala.</string>
 
     <!-- Öğren kart başlıkları -->
     <string name="learn_c1_title">Altın Fincan (Golden Cup)</string>

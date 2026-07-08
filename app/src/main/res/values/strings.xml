@@ -193,6 +193,9 @@
     <string name="taste_weak_advice">Strengthen the ratio (more coffee or less water) and increase agitation. Check that your beans are fresh.</string>
     <string name="taste_strong_advice">Dilute the ratio — add more water or use slightly less coffee next time.</string>
     <string name="taste_balanced_advice">Nailed it. Save this recipe so you can repeat it exactly.</string>
+    <string name="taste_astringent_advice">Astringency is over-extraction of tannins. Grind coarser by 1–2 steps, drop water temperature 2–3°C, and pour more gently — avoid agitating the bed late in the brew.</string>
+    <string name="taste_dry_advice">Dry or papery notes often come from unrinsed filters or stale beans. Rinse your paper filter with hot water before brewing, and double-check your beans are fresh (5–21 days post-roast).</string>
+    <string name="taste_hollow_advice">Flat or hollow cups mean you\'re missing extraction. Grind a step finer, raise water temperature 2–3°C, and give the bloom or main pour a gentle swirl to boost contact.</string>
 
     <!-- Learn card titles -->
     <string name="learn_c1_title">The Golden Cup</string>
