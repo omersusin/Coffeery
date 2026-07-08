@@ -196,6 +196,18 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun deleteBrewLog(id: Long) = viewModelScope.launch { repo.deleteBrewLog(id) }
 
+    fun applyBrewLog(log: BrewLogEntity) = _state.update {
+        it.copy(
+            selectedEquipmentId = log.equipmentId,
+            strength = log.strength,
+            roast = runCatching { RoastLevel.valueOf(log.roast) }.getOrDefault(RoastLevel.MEDIUM),
+            byCups = false,
+            waterMl = log.waterMl,
+            tab = NavTab.BREW,
+            route = Route.Tabs,
+        )
+    }
+
     companion object {
         fun factory(app: Application): ViewModelProvider.Factory =
             object : ViewModelProvider.Factory {

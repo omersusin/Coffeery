@@ -341,6 +341,9 @@
     <string name="log_grind_hint">örn. Comandante\'de 25, K-Ultra\'da 3.5</string>
     <string name="log_notes">Tadım notları</string>
     <string name="log_notes_hint">Buruk, parlak, çikolata bitişli…</string>
+    <string name="log_reproduce">Tekrar yap</string>
+    <string name="log_best_recipe_label">En iyi %s tarifin</string>
+    <string name="log_best_recipe_tap">Yüklemek için dokun · en iyi demlemelerine göre</string>
 
     <!-- Settings -->
     <string name="settings_title">Ayarlar</string>

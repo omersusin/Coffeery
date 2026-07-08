@@ -344,6 +344,9 @@
     <string name="log_grind_hint">e.g. 25 on Comandante, 3.5 on K-Ultra</string>
     <string name="log_notes">Tasting notes</string>
     <string name="log_notes_hint">Astringent, bright, chocolate finish…</string>
+    <string name="log_reproduce">Reproduce</string>
+    <string name="log_best_recipe_label">Your best %s</string>
+    <string name="log_best_recipe_tap">Tap to load · based on your top brews</string>
 
     <!-- Settings -->
     <string name="settings_title">Settings</string>
