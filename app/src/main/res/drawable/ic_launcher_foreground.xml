@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Coffeery mark: a minimal pour-over cone + carafe in line-art, matching
+         the in-app illustration style. Terracotta accent on dark background. -->
+
+    <!-- Cone (dripper) -->
+    <path
+        android:strokeColor="#E0785B"
+        android:strokeWidth="4"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M39,40 L69,40 L60,58 L48,58 Z" />
+
+    <!-- Drip -->
+    <path
+        android:strokeColor="#E0785B"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M54,58 L54,64" />
+
+    <!-- Carafe -->
+    <path
+        android:strokeColor="#F2C6A0"
+        android:strokeWidth="4"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M45,68 L63,68 L67,82 A8,8 0 0 1 59,90 L49,90 A8,8 0 0 1 41,82 Z" />
+</vector>

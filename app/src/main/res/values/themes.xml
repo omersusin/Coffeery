@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Plain platform theme (no AppCompat / MaterialComponents dependency).
+         Compose renders the entire UI; this theme only provides a borderless,
+         action-bar-less window with a matching background. -->
+    <style name="Theme.Coffeery" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/coffeery_bg_light</item>
+        <item name="android:statusBarColor">@color/coffeery_bg_light</item>
+        <item name="android:navigationBarColor">@color/coffeery_bg_light</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    </style>
+</resources>

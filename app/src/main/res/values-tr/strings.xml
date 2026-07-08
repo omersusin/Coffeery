@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Coffeery</string>
+    <string name="tagline">Her fincanı kusursuz ayarla.</string>
+
+    <!-- Alt navigasyon -->
+    <string name="nav_brew">Demle</string>
+    <string name="nav_equipment">Ekipman</string>
+    <string name="nav_recipes">Tarifler</string>
+    <string name="nav_learn">Öğren</string>
+
+    <!-- Ortak -->
+    <string name="action_continue">Devam</string>
+    <string name="action_save">Kaydet</string>
+    <string name="action_cancel">Vazgeç</string>
+    <string name="action_done">Tamam</string>
+    <string name="action_back">Geri</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_start">Demlemeye başla</string>
+    <string name="action_edit">Düzenle</string>
+    <string name="action_add">Ekle</string>
+    <string name="action_close">Kapat</string>
+    <string name="action_reset">Sıfırla</string>
+    <string name="action_next">İleri</string>
+
+    <!-- Kategoriler -->
+    <string name="cat_pour_over">Süzme</string>
+    <string name="cat_immersion">Daldırma</string>
+    <string name="cat_pressure">Basınçlı</string>
+    <string name="cat_other">Diğer</string>
+    <string name="cat_pour_over_desc">Su, yerçekimiyle kahve yatağından süzülür. Temiz, parlak, köken karakterini öne çıkaran fincanlar.</string>
+    <string name="cat_immersion_desc">Kahve suya tamamen daldırılıp demlenir, sonra ayrılır. Affedici ve dolgun gövdeli.</string>
+    <string name="cat_pressure_desc">Basınç, suyu ince kahveden geçirir. Konsantre ve yoğun.</string>
+    <string name="cat_other_desc">Kendine özgü kuralları olan geleneksel veya özel yöntemler.</string>
+
+    <!-- Ekipman adları -->
+    <string name="equip_v60_name">Hario V60</string>
+    <string name="equip_chemex_name">Chemex</string>
+    <string name="equip_kalita_name">Kalita Wave</string>
+    <string name="equip_frenchpress_name">French Press</string>
+    <string name="equip_aeropress_name">AeroPress</string>
+    <string name="equip_moka_name">Moka Pot</string>
+    <string name="equip_turkish_name">Türk Kahvesi (Cezve)</string>
+    <string name="equip_coldbrew_name">Cold Brew</string>
+    <string name="equip_siphon_name">Siphon</string>
+    <string name="equip_espresso_name">Espresso</string>
+    <string name="equip_clever_name">Clever Dripper</string>
+
+    <!-- Ekipman sloganları -->
+    <string name="equip_v60_tag">Temiz, parlak, hassas</string>
+    <string name="equip_chemex_tag">Çay gibi berrak</string>
+    <string name="equip_kalita_tag">Dengeli ve affedici</string>
+    <string name="equip_frenchpress_tag">Zengin, dolgun gövde</string>
+    <string name="equip_aeropress_tag">Çok yönlü ve taşınabilir</string>
+    <string name="equip_moka_tag">Ocakta güçlü kahve</string>
+    <string name="equip_turkish_tag">Yoğun, filtresiz</string>
+    <string name="equip_coldbrew_tag">Yumuşak, düşük asit</string>
+    <string name="equip_siphon_tag">Gösterişli ve aromatik</string>
+    <string name="equip_espresso_tag">Konsantre shot</string>
+    <string name="equip_clever_tag">En kolay mükemmel kahve</string>
+
+    <!-- Kavrum dereceleri -->
+    <string name="roast_light">Açık</string>
+    <string name="roast_medium">Orta</string>
+    <string name="roast_dark">Koyu</string>
+    <string name="roast_light_desc">Çiçeksi, narenciye, parlak asitlik. Tatlılığı ortaya çıkarmak için biraz daha sıcak demle.</string>
+    <string name="roast_medium_desc">Çikolata, karamel, dengeli. Temel tarif.</string>
+    <string name="roast_dark_desc">Kakao, dumanlı, düşük asit. Daha serin su acılığı dengeler.</string>
+
+    <!-- Öğütüm seviyeleri -->
+    <string name="grind_extra_fine">Çok İnce</string>
+    <string name="grind_fine">İnce</string>
+    <string name="grind_med_fine">Orta-İnce</string>
+    <string name="grind_medium">Orta</string>
+    <string name="grind_med_coarse">Orta-Kaba</string>
+    <string name="grind_coarse">Kaba</string>
+    <string name="grind_extra_coarse">Çok Kaba</string>
+
+    <!-- Öğütüm görsel referansları -->
+    <string name="grindref_extra_fine">Un gibi — parmaklar arasında hissedilmez</string>
+    <string name="grindref_fine">İnce kum gibi</string>
+    <string name="grindref_med_fine">Kum / ince şeker gibi</string>
+    <string name="grindref_medium">Deniz tuzu / ince şeker gibi</string>
+    <string name="grindref_med_coarse">Kosher tuzu gibi</string>
+    <string name="grindref_coarse">İri deniz tuzu gibi</string>
+    <string name="grindref_extra_coarse">Çakıl / iri şeker kristali gibi</string>
+
+    <!-- Hesaplama ekranı -->
+    <string name="calc_title">Tarif</string>
+    <string name="calc_choose_gear">Ekipmanını seç</string>
+    <string name="calc_change">Değiştir</string>
+    <string name="calc_input_cups">Fincan</string>
+    <string name="calc_input_water">Su (ml)</string>
+    <string name="calc_cups_value">%1$d fincan</string>
+    <string name="calc_strength">Sertlik</string>
+    <string name="calc_weaker">Daha hafif</string>
+    <string name="calc_stronger">Daha güçlü</string>
+    <string name="calc_roast">Kavrum derecesi</string>
+    <string name="calc_out_coffee">Kahve</string>
+    <string name="calc_out_water">Su</string>
+    <string name="calc_out_temp">Su sıcaklığı</string>
+    <string name="calc_out_grind">Öğütüm</string>
+    <string name="calc_ratio">Oran</string>
+    <string name="calc_grams">%1$s g</string>
+    <string name="calc_ml">%1$s ml</string>
+    <string name="calc_celsius">%1$s°C</string>
+    <string name="calc_temp_slow">Düşük ateş, kaynamaya yakın</string>
+    <string name="calc_temp_cold">Oda sıcaklığı / buzdolabı</string>
+    <string name="calc_time">Demleme süresi</string>
+
+    <!-- Sertlik bandı etiketleri -->
+    <string name="strength_light_label">hafif, günlük içim</string>
+    <string name="strength_balanced_label">dengeli, standart</string>
+    <string name="strength_strong_label">güçlü, yoğun</string>
+    <string name="strength_ratio_summary">1:%1$s — %2$s</string>
+
+    <!-- Demleme zamanlayıcı -->
+    <string name="brew_title">%1$s demleniyor</string>
+    <string name="brew_step_counter">Adım %1$d / %2$d</string>
+    <string name="brew_tap_start">Zamanlayıcıyı başlatmak için dokun</string>
+    <string name="brew_pause">Duraklat</string>
+    <string name="brew_resume">Devam et</string>
+    <string name="brew_finish">Bitir</string>
+    <string name="brew_next_up">Sıradaki: %1$s</string>
+    <string name="brew_pour_to">Toplam %1$d g\'a kadar dök</string>
+    <string name="brew_complete">Kahvenin tadını çıkar ☕</string>
+    <string name="brew_complete_sub">%1$s ile demlendi</string>
+    <string name="brew_elapsed">Toplam süre</string>
+
+    <!-- Genel demleme adımı başlıkları -->
+    <string name="step_rinse">Filtreyi yıka</string>
+    <string name="step_bloom">Bloom (ön ıslatma)</string>
+    <string name="step_pour">Dök</string>
+    <string name="step_pour_n">%1$d. döküm</string>
+    <string name="step_swirl">Hafifçe çalkala</string>
+    <string name="step_steep">Demle</string>
+    <string name="step_stir">Bir kez karıştır</string>
+    <string name="step_press">Yavaşça bastır</string>
+    <string name="step_plunge">Pistonu bastır</string>
+    <string name="step_drawdown">Süzülmesini bekle</string>
+    <string name="step_skim">Köpüğü al</string>
+    <string name="step_open_valve">Fincana oturt, vanayı aç</string>
+    <string name="step_heat">Düşük ateşte ısıt</string>
+    <string name="step_remove_heat">Ocaktan al</string>
+    <string name="step_serve">Servis et</string>
+    <string name="step_wait">Bekle</string>
+    <string name="step_add_coffee">Kahve ve suyu ekle</string>
+    <string name="step_desc_bloom">Tüm kahveyi %1$d g su ile ıslat ve gazını salmasını bekle.</string>
+    <string name="step_desc_generic">Dökümü takip et ve akışı sabit tut.</string>
+
+    <!-- Tarif kaydetme -->
+    <string name="save_recipe_title">Tarifi kaydet</string>
+    <string name="recipe_name_hint">İsim ver (ör. Sabah kahvem)</string>
+    <string name="recipe_saved">Tarif kaydedildi</string>
+
+    <!-- Tarifler ekranı -->
+    <string name="recipes_title">Kayıtlı tarifler</string>
+    <string name="recipes_empty">Henüz kayıtlı tarif yok.\nBir demleme ayarla ve Kaydet\'e dokun.</string>
+    <string name="recipes_summary">%1$s · %2$s g : %3$s ml</string>
+    <string name="recipes_delete_confirm">Bu tarif silinsin mi?</string>
+
+    <!-- Ekipman ekranı -->
+    <string name="equipment_title">Ekipmanların</string>
+    <string name="equipment_add">Özel ekipman ekle</string>
+    <string name="equipment_your">Özel</string>
+    <string name="equipment_builtin">Yöntemler</string>
+
+    <!-- Özel ekipman ekleme -->
+    <string name="add_equip_title">Özel ekipman ekle</string>
+    <string name="add_equip_name_hint">Ekipman adı</string>
+    <string name="add_equip_pick_category">Hangi aileye ait?</string>
+    <string name="add_equip_suggested">Önerilen başlangıç noktası</string>
+    <string name="add_equip_saved">Özel ekipman eklendi</string>
+
+    <!-- Öğren -->
+    <string name="learn_title">Öğren</string>
+    <string name="learn_intro">Kahve bilgi tabanından kısa, pratik kartlar.</string>
+    <string name="learn_read_more">Oku</string>
+    <string name="learn_troubleshoot_title">Kahven nasıl oldu?</string>
+    <string name="learn_troubleshoot_intro">Nasıl tat verdiğini söyle, bir sonraki için ayar önereyim.</string>
+    <string name="taste_sour">Ekşi</string>
+    <string name="taste_bitter">Acı</string>
+    <string name="taste_weak">Zayıf / boş</string>
+    <string name="taste_strong">Çok güçlü</string>
+    <string name="taste_balanced">Dengeli</string>
+    <string name="taste_sour_advice">Yetersiz ekstraksiyon. Öğütümü biraz inceltin, su sıcaklığını 2–3°C artırın veya süreyi uzatın.</string>
+    <string name="taste_bitter_advice">Fazla ekstraksiyon. Öğütümü biraz kabalaştırın, su sıcaklığını 2–3°C düşürün veya süreyi kısaltın.</string>
+    <string name="taste_weak_advice">Oranı güçlendirin (daha fazla kahve veya daha az su) ve karıştırmayı artırın. Çekirdeklerin taze olduğundan emin olun.</string>
+    <string name="taste_strong_advice">Oranı seyreltin — daha fazla su ekleyin veya bir dahaki sefere biraz daha az kahve kullanın.</string>
+    <string name="taste_balanced_advice">Tam isabet. Bu tarifi kaydet ki birebir tekrarlayabilesin.</string>
+
+    <!-- Öğren kart başlıkları -->
+    <string name="learn_c1_title">Altın Fincan (Golden Cup)</string>
+    <string name="learn_c1_body">Bir kahve çekirdeğinin yalnızca ~%%28–30\'u suda çözünür. İyi bir demleme bu katıların %%18–22\'sini, %%1.15–1.45 sertlikte (TDS) fincana taşır. Aralığın altında kahve ekşi ve ince; üstünde acı ve buruk olur.</string>
+    <string name="learn_c2_title">Öğütüm her şeydir</string>
+    <string name="learn_c2_body">Partikül boyutu ekstraksiyonu belirler. Burr değirmenler kahvenin ~%%75–85\'ini hedef boyutta tutar; bıçaklı değirmenler ince toz ve iri parça saçarak aynı fincanda hem ekşilik hem acılık yaratır. Demlemeden hemen önce öğütün — öğütülmüş kahve 15 dakikada bayatlar.</string>
+    <string name="learn_c3_title">Su, fincanının %%98\'i</string>
+    <string name="learn_c3_body">~150 ppm TDS hedefleyin (SCA: 75–250), genel sertlik 50–175 ppm, alkalinite 40–70 ppm. Klor narin aromatikleri bozar — yapabileceğin en ucuz iyileştirme basit bir karbon filtredir.</string>
+    <string name="learn_c4_title">Su sıcaklığı</string>
+    <string name="learn_c4_body">Çoğu yönteme 90–96°C uyar. Kaynar suyu önce 30–60 saniye dinlendirin. Açık kavrumlar narin aromatikleri korumak için alt sınırı sever; daha serin bir döküm (≈88°C) koyu kavrumun acılığını dengeler.</string>
+    <string name="learn_c5_title">Bloom (ön ıslatma)</string>
+    <string name="learn_c5_body">Taze kahve, suyu iten ve dengesiz ekstraksiyona yol açan CO₂ tutar. Kahve ağırlığının 2–4 katı su dökün ve 30–45 saniye bekleyin. Yatak şişer ve kabarcıklanır — bu gazın çıkışıdır. Süzmede kritik, daldırmada önemsiz.</string>
+    <string name="learn_c6_title">Kavrum ve tazelik</string>
+    <string name="learn_c6_body">Kahve, kavrumdan 5–14 gün sonra tepe formundadır. Filtre kahveyi 7–10 gün, espressoyu 14–21 gün dinlendirin. Çekirdekleri hava geçirmez, opak ve serin saklayın. Oksijen, ışık, ısı ve nem dört düşmandır.</string>
+    <string name="learn_c7_title">Fincanını okumak</string>
+    <string name="learn_c7_body">Ekşi ve keskin → yetersiz ekstraksiyon: daha ince, daha sıcak, daha uzun. Acı ve kuru → fazla ekstraksiyon: daha kaba, daha serin, daha kısa. Düz ve boş → oranı güçlendir ve daha çok karıştır.</string>
+    <string name="learn_c8_title">Çekirdek türleri</string>
+    <string name="learn_c8_body">Arabica (üretimin %%60–70\'i) daha tatlı ve asidik, ~%%1.2 kafein. Robusta (%%30–40) daha güçlü, daha acı, ~%%2.4 kafein ve espresso karışımlarında krema oluşturur.</string>
+    <string name="learn_c9_title">İşleme yöntemleri</string>
+    <string name="learn_c9_body">Washed = temiz ve parlak, köken karakteri önde. Natural = meyvemsi, şarap benzeri, ağır gövde. Honey = arada, şurup benzeri tatlılık. Anaerobik = yoğun, egzotik, deneysel.</string>
+    <string name="learn_c10_title">Önemli ekipmanlar</string>
+    <string name="learn_c10_body">İyi bir burr değirmen en iyi yatırımdır. 0.1 g terazi + zamanlayıcı her demlemeyi tekrarlanabilir kılar. Kuğu boyunlu kettle, eşit süzme yatağı için 2–5 g/sn döküm kontrolü verir.</string>
+</resources>

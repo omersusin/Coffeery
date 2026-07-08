@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Coffeery</string>
+    <string name="tagline">Dial in every cup.</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_brew">Brew</string>
+    <string name="nav_equipment">Gear</string>
+    <string name="nav_recipes">Recipes</string>
+    <string name="nav_learn">Learn</string>
+
+    <!-- Common -->
+    <string name="action_continue">Continue</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_done">Done</string>
+    <string name="action_back">Back</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_start">Start brew</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_add">Add</string>
+    <string name="action_close">Close</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_next">Next</string>
+
+    <!-- Categories -->
+    <string name="cat_pour_over">Pour-over</string>
+    <string name="cat_immersion">Immersion</string>
+    <string name="cat_pressure">Pressure</string>
+    <string name="cat_other">Other</string>
+    <string name="cat_pour_over_desc">Water flows through a bed of grounds by gravity. Clean, bright, origin-forward cups.</string>
+    <string name="cat_immersion_desc">Grounds steep fully submerged in water, then get separated. Forgiving and full-bodied.</string>
+    <string name="cat_pressure_desc">Pressure forces water through fine grounds. Concentrated and intense.</string>
+    <string name="cat_other_desc">Traditional or specialty methods with their own rules.</string>
+
+    <!-- Equipment names -->
+    <string name="equip_v60_name">Hario V60</string>
+    <string name="equip_chemex_name">Chemex</string>
+    <string name="equip_kalita_name">Kalita Wave</string>
+    <string name="equip_frenchpress_name">French Press</string>
+    <string name="equip_aeropress_name">AeroPress</string>
+    <string name="equip_moka_name">Moka Pot</string>
+    <string name="equip_turkish_name">Turkish (Cezve)</string>
+    <string name="equip_coldbrew_name">Cold Brew</string>
+    <string name="equip_siphon_name">Siphon</string>
+    <string name="equip_espresso_name">Espresso</string>
+    <string name="equip_clever_name">Clever Dripper</string>
+
+    <!-- Equipment taglines -->
+    <string name="equip_v60_tag">Clean, bright, precise</string>
+    <string name="equip_chemex_tag">Tea-like clarity</string>
+    <string name="equip_kalita_tag">Balanced &amp; forgiving</string>
+    <string name="equip_frenchpress_tag">Rich, full-bodied</string>
+    <string name="equip_aeropress_tag">Versatile &amp; portable</string>
+    <string name="equip_moka_tag">Bold stovetop</string>
+    <string name="equip_turkish_tag">Intense, unfiltered</string>
+    <string name="equip_coldbrew_tag">Smooth, low-acid</string>
+    <string name="equip_siphon_tag">Theatrical &amp; aromatic</string>
+    <string name="equip_espresso_tag">Concentrated shot</string>
+    <string name="equip_clever_tag">Easiest great cup</string>
+
+    <!-- Roast levels -->
+    <string name="roast_light">Light</string>
+    <string name="roast_medium">Medium</string>
+    <string name="roast_dark">Dark</string>
+    <string name="roast_light_desc">Floral, citrus, bright acidity. Brew a touch hotter to coax sweetness.</string>
+    <string name="roast_medium_desc">Chocolate, caramel, balanced. The baseline recipe.</string>
+    <string name="roast_dark_desc">Cocoa, smoky, low acidity. Cooler water tames bitterness.</string>
+
+    <!-- Grind level names -->
+    <string name="grind_extra_fine">Extra Fine</string>
+    <string name="grind_fine">Fine</string>
+    <string name="grind_med_fine">Medium-Fine</string>
+    <string name="grind_medium">Medium</string>
+    <string name="grind_med_coarse">Medium-Coarse</string>
+    <string name="grind_coarse">Coarse</string>
+    <string name="grind_extra_coarse">Extra Coarse</string>
+
+    <!-- Grind visual references -->
+    <string name="grindref_extra_fine">Like flour — imperceptible between fingers</string>
+    <string name="grindref_fine">Like fine sand</string>
+    <string name="grindref_med_fine">Like sand / fine sugar</string>
+    <string name="grindref_medium">Like sea salt / fine sugar</string>
+    <string name="grindref_med_coarse">Like kosher salt</string>
+    <string name="grindref_coarse">Like coarse sea salt</string>
+    <string name="grindref_extra_coarse">Like gravel / coarse sugar crystals</string>
+
+    <!-- Calculator screen -->
+    <string name="calc_title">Recipe</string>
+    <string name="calc_choose_gear">Choose your gear</string>
+    <string name="calc_change">Change</string>
+    <string name="calc_input_cups">Cups</string>
+    <string name="calc_input_water">Water (ml)</string>
+    <string name="calc_cups_value">%1$d cups</string>
+    <string name="calc_strength">Strength</string>
+    <string name="calc_weaker">Milder</string>
+    <string name="calc_stronger">Bolder</string>
+    <string name="calc_roast">Roast level</string>
+    <string name="calc_out_coffee">Coffee</string>
+    <string name="calc_out_water">Water</string>
+    <string name="calc_out_temp">Water temp</string>
+    <string name="calc_out_grind">Grind</string>
+    <string name="calc_ratio">Ratio</string>
+    <string name="calc_grams">%1$s g</string>
+    <string name="calc_ml">%1$s ml</string>
+    <string name="calc_celsius">%1$s°C</string>
+    <string name="calc_temp_slow">Low heat, near boiling</string>
+    <string name="calc_temp_cold">Room temp / fridge</string>
+    <string name="calc_time">Brew time</string>
+
+    <!-- Strength band labels -->
+    <string name="strength_light_label">light, everyday drinking</string>
+    <string name="strength_balanced_label">balanced, standard</string>
+    <string name="strength_strong_label">strong, intense</string>
+    <string name="strength_ratio_summary">1:%1$s — %2$s</string>
+
+    <!-- Brew timer -->
+    <string name="brew_title">Brewing %1$s</string>
+    <string name="brew_step_counter">Step %1$d of %2$d</string>
+    <string name="brew_tap_start">Tap to start the timer</string>
+    <string name="brew_pause">Pause</string>
+    <string name="brew_resume">Resume</string>
+    <string name="brew_finish">Finish</string>
+    <string name="brew_next_up">Next: %1$s</string>
+    <string name="brew_pour_to">Pour to %1$d g total</string>
+    <string name="brew_complete">Enjoy your coffee ☕</string>
+    <string name="brew_complete_sub">Brewed with %1$s</string>
+    <string name="brew_elapsed">Total elapsed</string>
+
+    <!-- Generic brew step titles -->
+    <string name="step_rinse">Rinse the filter</string>
+    <string name="step_bloom">Bloom</string>
+    <string name="step_pour">Pour</string>
+    <string name="step_pour_n">Pour %1$d</string>
+    <string name="step_swirl">Swirl gently</string>
+    <string name="step_steep">Steep</string>
+    <string name="step_stir">Stir once</string>
+    <string name="step_press">Press slowly</string>
+    <string name="step_plunge">Plunge</string>
+    <string name="step_drawdown">Let it draw down</string>
+    <string name="step_skim">Skim the crust</string>
+    <string name="step_open_valve">Set on cup, open valve</string>
+    <string name="step_heat">Heat on low</string>
+    <string name="step_remove_heat">Remove from heat</string>
+    <string name="step_serve">Serve</string>
+    <string name="step_wait">Wait</string>
+    <string name="step_add_coffee">Add coffee &amp; water</string>
+    <string name="step_desc_bloom">Wet all the grounds with %1$d g water and let the coffee de-gas.</string>
+    <string name="step_desc_generic">Follow the pour and keep the flow steady.</string>
+
+    <!-- Save recipe -->
+    <string name="save_recipe_title">Save recipe</string>
+    <string name="recipe_name_hint">Name it (e.g. Morning cup)</string>
+    <string name="recipe_saved">Recipe saved</string>
+
+    <!-- Recipes screen -->
+    <string name="recipes_title">Saved recipes</string>
+    <string name="recipes_empty">No saved recipes yet.\nDial in a brew and tap Save.</string>
+    <string name="recipes_summary">%1$s · %2$s g : %3$s ml</string>
+    <string name="recipes_delete_confirm">Delete this recipe?</string>
+
+    <!-- Equipment screen -->
+    <string name="equipment_title">Your gear</string>
+    <string name="equipment_add">Add custom gear</string>
+    <string name="equipment_your">Custom</string>
+    <string name="equipment_builtin">Methods</string>
+
+    <!-- Add custom equipment -->
+    <string name="add_equip_title">Add custom gear</string>
+    <string name="add_equip_name_hint">Gear name</string>
+    <string name="add_equip_pick_category">Which family does it belong to?</string>
+    <string name="add_equip_suggested">Suggested starting point</string>
+    <string name="add_equip_saved">Custom gear added</string>
+
+    <!-- Learn -->
+    <string name="learn_title">Learn</string>
+    <string name="learn_intro">Short, practical cards from the coffee knowledge base.</string>
+    <string name="learn_read_more">Read</string>
+    <string name="learn_troubleshoot_title">How was your cup?</string>
+    <string name="learn_troubleshoot_intro">Tell me how it tasted and I\'ll suggest a tweak for next time.</string>
+    <string name="taste_sour">Sour</string>
+    <string name="taste_bitter">Bitter</string>
+    <string name="taste_weak">Weak / hollow</string>
+    <string name="taste_strong">Too strong</string>
+    <string name="taste_balanced">Balanced</string>
+    <string name="taste_sour_advice">Under-extracted. Grind a touch finer, raise the water temperature 2–3°C, or extend the brew time.</string>
+    <string name="taste_bitter_advice">Over-extracted. Grind a touch coarser, drop the water temperature 2–3°C, or shorten the brew time.</string>
+    <string name="taste_weak_advice">Strengthen the ratio (more coffee or less water) and increase agitation. Check that your beans are fresh.</string>
+    <string name="taste_strong_advice">Dilute the ratio — add more water or use slightly less coffee next time.</string>
+    <string name="taste_balanced_advice">Nailed it. Save this recipe so you can repeat it exactly.</string>
+
+    <!-- Learn card titles -->
+    <string name="learn_c1_title">The Golden Cup</string>
+    <string name="learn_c1_body">Only ~28–30%% of a coffee bean is soluble. A great brew extracts 18–22%% of those solids at a strength (TDS) of 1.15–1.45%%. Below the window coffee tastes sour and thin; above it, bitter and astringent.</string>
+    <string name="learn_c2_title">Grind is king</string>
+    <string name="learn_c2_body">Particle size decides extraction. Burr grinders keep ~75–85%% of grounds at the target size; blade grinders scatter fines and boulders, giving you sourness and bitterness in the same cup. Grind right before brewing — ground coffee goes stale within 15 minutes.</string>
+    <string name="learn_c3_title">Water is 98%% of your cup</string>
+    <string name="learn_c3_body">Aim for ~150 ppm TDS (SCA: 75–250), general hardness 50–175 ppm and alkalinity 40–70 ppm. Chlorine ruins delicate aromatics — a simple carbon filter is the cheapest upgrade you can make.</string>
+    <string name="learn_c4_title">Water temperature</string>
+    <string name="learn_c4_body">90–96°C suits most methods. Rest boiling water 30–60 seconds first. Light roasts like the lower end to protect delicate aromatics; a cooler pour (≈88°C) can tame a dark roast\'s bitterness.</string>
+    <string name="learn_c5_title">Bloom</string>
+    <string name="learn_c5_body">Fresh coffee holds CO₂ that repels water and causes uneven extraction. Pour 2–4× the coffee weight in water and wait 30–45 seconds. The bed swells and bubbles — that\'s the gas escaping. Crucial for pour-over, minor for immersion.</string>
+    <string name="learn_c6_title">Roast &amp; freshness</string>
+    <string name="learn_c6_body">Coffee peaks 5–14 days after roasting. Rest filter coffee 7–10 days, espresso 14–21. Store beans airtight, opaque and cool. Oxygen, light, heat and moisture are the four enemies.</string>
+    <string name="learn_c7_title">Reading your cup</string>
+    <string name="learn_c7_body">Sour &amp; sharp → under-extracted: grind finer, hotter, longer. Bitter &amp; dry → over-extracted: grind coarser, cooler, shorter. Flat &amp; hollow → strengthen the ratio and stir more.</string>
+    <string name="learn_c8_title">Bean species</string>
+    <string name="learn_c8_body">Arabica (60–70%% of production) is sweeter and more acidic with ~1.2%% caffeine. Robusta (30–40%%) is bolder, more bitter, ~2.4%% caffeine, and builds crema in espresso blends.</string>
+    <string name="learn_c9_title">Processing</string>
+    <string name="learn_c9_body">Washed = clean and bright, origin-forward. Natural = fruity, wine-like, heavy body. Honey = syrupy sweetness in between. Anaerobic = intense, exotic, experimental.</string>
+    <string name="learn_c10_title">Tools that matter</string>
+    <string name="learn_c10_body">A good burr grinder is the single best investment. A 0.1 g scale + timer make every brew repeatable. A gooseneck kettle gives 2–5 g/s pour control for even pour-over beds.</string>
+</resources>
