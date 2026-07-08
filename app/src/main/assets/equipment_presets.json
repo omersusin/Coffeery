@@ -92,8 +92,8 @@
       "tagKey": "equip_kalita_tag",
       "category": "POUR_OVER",
       "ratioMin": 15.0,
-      "ratioMax": 16.0,
-      "ratioDefault": 15.0,
+      "ratioMax": 17.0,
+      "ratioDefault": 15.5,
       "tempMode": "RANGE",
       "tempMin": 93,
       "tempMax": 96,
@@ -141,13 +141,13 @@
       "tempMax": 96,
       "grind": "COARSE",
       "cupMl": 250,
-      "timeLabel": "4:00",
+      "timeLabel": "4:00-5:30",
       "hasBloom": true,
       "steps": [
         {
           "titleKey": "step_bloom",
           "kind": "BLOOM",
-          "durationSec": 30,
+          "durationSec": 40,
           "waterTargetPct": 0.13
         },
         {
@@ -249,13 +249,13 @@
         {
           "titleKey": "step_heat",
           "kind": "HEAT",
-          "durationSec": 200,
+          "durationSec": 180,
           "waterTargetPct": -1
         },
         {
           "titleKey": "step_remove_heat",
           "kind": "REMOVE_HEAT",
-          "durationSec": 20,
+          "durationSec": 10,
           "waterTargetPct": -1
         },
         {
@@ -375,7 +375,7 @@
         {
           "titleKey": "step_steep",
           "kind": "STEEP",
-          "durationSec": 90,
+          "durationSec": 60,
           "waterTargetPct": -1
         },
         {
@@ -411,7 +411,7 @@
         {
           "titleKey": "step_pour",
           "kind": "PRESS",
-          "durationSec": 27,
+          "durationSec": 22,
           "waterTargetPct": 1.0
         }
       ]
@@ -429,19 +429,19 @@
       "tempMax": 96,
       "grind": "MED_COARSE",
       "cupMl": 250,
-      "timeLabel": "3:30-4:00",
+      "timeLabel": "3:00-4:00",
       "hasBloom": false,
       "steps": [
         {
           "titleKey": "step_add_coffee",
           "kind": "POUR",
-          "durationSec": 15,
+          "durationSec": 20,
           "waterTargetPct": 1.0
         },
         {
           "titleKey": "step_steep",
           "kind": "STEEP",
-          "durationSec": 210,
+          "durationSec": 150,
           "waterTargetPct": -1
         },
         {
@@ -463,21 +463,21 @@
       "nameKey": "equip_switch_name",
       "tagKey": "equip_switch_tag",
       "category": "IMMERSION",
-      "ratioMin": 15.0,
+      "ratioMin": 14.0,
       "ratioMax": 17.0,
-      "ratioDefault": 16.0,
+      "ratioDefault": 15.0,
       "tempMode": "RANGE",
       "tempMin": 90,
-      "tempMax": 96,
+      "tempMax": 95,
       "grind": "MEDIUM",
       "cupMl": 250,
-      "timeLabel": "2:30-3:30",
+      "timeLabel": "2:40-3:30",
       "hasBloom": true,
       "steps": [
         {
           "titleKey": "step_bloom",
           "kind": "BLOOM",
-          "durationSec": 40,
+          "durationSec": 30,
           "waterTargetPct": 0.2
         },
         {
@@ -487,22 +487,28 @@
           "waterTargetPct": 0.6
         },
         {
+          "titleKey": "step_steep",
+          "kind": "STEEP",
+          "durationSec": 45,
+          "waterTargetPct": 0.6
+        },
+        {
+          "titleKey": "step_drawdown",
+          "kind": "DRAWDOWN",
+          "durationSec": 30,
+          "waterTargetPct": 0.6
+        },
+        {
           "titleKey": "step_pour",
           "kind": "POUR",
-          "durationSec": 20,
+          "durationSec": 25,
           "waterTargetPct": 1.0
         },
         {
-          "titleKey": "step_steep",
-          "kind": "STEEP",
-          "durationSec": 60,
-          "waterTargetPct": -1
-        },
-        {
-          "titleKey": "step_open_valve",
+          "titleKey": "step_drawdown",
           "kind": "DRAWDOWN",
           "durationSec": 45,
-          "waterTargetPct": -1
+          "waterTargetPct": 1.0
         }
       ]
     },
@@ -517,9 +523,9 @@
       "tempMode": "RANGE",
       "tempMin": 90,
       "tempMax": 96,
-      "grind": "MEDIUM",
+      "grind": "MED_FINE",
       "cupMl": 250,
-      "timeLabel": "2:30-3:15",
+      "timeLabel": "2:20-3:00",
       "hasBloom": true,
       "steps": [
         {
@@ -543,7 +549,7 @@
         {
           "titleKey": "step_drawdown",
           "kind": "DRAWDOWN",
-          "durationSec": 50,
+          "durationSec": 45,
           "waterTargetPct": -1
         }
       ]
@@ -553,33 +559,33 @@
       "nameKey": "equip_april_name",
       "tagKey": "equip_april_tag",
       "category": "POUR_OVER",
-      "ratioMin": 15.0,
-      "ratioMax": 17.0,
-      "ratioDefault": 16.0,
+      "ratioMin": 14.0,
+      "ratioMax": 16.0,
+      "ratioDefault": 15.0,
       "tempMode": "RANGE",
       "tempMin": 92,
-      "tempMax": 96,
+      "tempMax": 94,
       "grind": "MED_COARSE",
       "cupMl": 250,
-      "timeLabel": "3:00-3:30",
-      "hasBloom": true,
+      "timeLabel": "2:00-2:30",
+      "hasBloom": false,
       "steps": [
         {
-          "titleKey": "step_bloom",
-          "kind": "BLOOM",
-          "durationSec": 45,
-          "waterTargetPct": 0.2
+          "titleKey": "step_pour",
+          "kind": "POUR",
+          "durationSec": 40,
+          "waterTargetPct": 0.5
         },
         {
           "titleKey": "step_pour",
           "kind": "POUR",
-          "durationSec": 55,
+          "durationSec": 40,
           "waterTargetPct": 1.0
         },
         {
           "titleKey": "step_drawdown",
           "kind": "DRAWDOWN",
-          "durationSec": 60,
+          "durationSec": 50,
           "waterTargetPct": -1
         }
       ]
@@ -589,15 +595,15 @@
       "nameKey": "equip_stagg_name",
       "tagKey": "equip_stagg_tag",
       "category": "POUR_OVER",
-      "ratioMin": 15.0,
-      "ratioMax": 17.0,
-      "ratioDefault": 16.0,
+      "ratioMin": 14.0,
+      "ratioMax": 16.0,
+      "ratioDefault": 15.0,
       "tempMode": "RANGE",
       "tempMin": 92,
       "tempMax": 96,
-      "grind": "MEDIUM",
+      "grind": "MED_COARSE",
       "cupMl": 250,
-      "timeLabel": "3:00-4:00",
+      "timeLabel": "3:00-4:30",
       "hasBloom": true,
       "steps": [
         {
@@ -609,19 +615,31 @@
         {
           "titleKey": "step_pour",
           "kind": "POUR",
-          "durationSec": 45,
+          "durationSec": 25,
+          "waterTargetPct": 0.4
+        },
+        {
+          "titleKey": "step_pour",
+          "kind": "POUR",
+          "durationSec": 25,
           "waterTargetPct": 0.6
         },
         {
           "titleKey": "step_pour",
           "kind": "POUR",
-          "durationSec": 45,
+          "durationSec": 25,
+          "waterTargetPct": 0.8
+        },
+        {
+          "titleKey": "step_pour",
+          "kind": "POUR",
+          "durationSec": 30,
           "waterTargetPct": 1.0
         },
         {
           "titleKey": "step_drawdown",
           "kind": "DRAWDOWN",
-          "durationSec": 50,
+          "durationSec": 65,
           "waterTargetPct": -1
         }
       ]
@@ -639,7 +657,7 @@
       "tempMax": 96,
       "grind": "MED_FINE",
       "cupMl": 250,
-      "timeLabel": "2:30-3:00",
+      "timeLabel": "2:00-2:30",
       "hasBloom": true,
       "steps": [
         {
@@ -651,19 +669,19 @@
         {
           "titleKey": "step_pour",
           "kind": "POUR",
-          "durationSec": 50,
+          "durationSec": 35,
           "waterTargetPct": 0.6
         },
         {
           "titleKey": "step_pour",
           "kind": "POUR",
-          "durationSec": 50,
+          "durationSec": 35,
           "waterTargetPct": 1.0
         },
         {
           "titleKey": "step_drawdown",
           "kind": "DRAWDOWN",
-          "durationSec": 50,
+          "durationSec": 35,
           "waterTargetPct": -1
         }
       ]
@@ -679,9 +697,9 @@
       "tempMode": "RANGE",
       "tempMin": 92,
       "tempMax": 96,
-      "grind": "MEDIUM",
+      "grind": "MED_COARSE",
       "cupMl": 250,
-      "timeLabel": "3:00-4:00",
+      "timeLabel": "3:30-4:30",
       "hasBloom": true,
       "steps": [
         {
@@ -705,7 +723,7 @@
         {
           "titleKey": "step_drawdown",
           "kind": "DRAWDOWN",
-          "durationSec": 50,
+          "durationSec": 90,
           "waterTargetPct": -1
         }
       ]
@@ -728,7 +746,7 @@
       "steps": [
         {
           "titleKey": "step_add_coffee",
-          "kind": "POUR",
+          "kind": "WAIT",
           "durationSec": 10,
           "waterTargetPct": -1
         },
@@ -746,7 +764,7 @@
         },
         {
           "titleKey": "step_wait",
-          "kind": "WAIT",
+          "kind": "STEEP",
           "durationSec": 240,
           "waterTargetPct": -1
         },
@@ -763,9 +781,9 @@
       "nameKey": "equip_colddrip_name",
       "tagKey": "equip_colddrip_tag",
       "category": "OTHER",
-      "ratioMin": 8.0,
-      "ratioMax": 12.0,
-      "ratioDefault": 10.0,
+      "ratioMin": 10.0,
+      "ratioMax": 15.0,
+      "ratioDefault": 12.0,
       "tempMode": "COLD",
       "tempMin": 4,
       "tempMax": 25,
@@ -805,20 +823,20 @@
       "nameKey": "equip_percolator_name",
       "tagKey": "equip_percolator_tag",
       "category": "OTHER",
-      "ratioMin": 12.0,
-      "ratioMax": 16.0,
-      "ratioDefault": 14.0,
+      "ratioMin": 14.0,
+      "ratioMax": 17.0,
+      "ratioDefault": 15.0,
       "tempMode": "RANGE",
       "tempMin": 92,
       "tempMax": 96,
       "grind": "COARSE",
       "cupMl": 150,
-      "timeLabel": "5:00-8:00",
+      "timeLabel": "6:00-8:00",
       "hasBloom": false,
       "steps": [
         {
           "titleKey": "step_add_coffee",
-          "kind": "POUR",
+          "kind": "WAIT",
           "durationSec": 15,
           "waterTargetPct": -1
         },
@@ -831,7 +849,31 @@
         {
           "titleKey": "step_heat",
           "kind": "HEAT",
-          "durationSec": 300,
+          "durationSec": 90,
+          "waterTargetPct": -1
+        },
+        {
+          "titleKey": "step_wait",
+          "kind": "STEEP",
+          "durationSec": 40,
+          "waterTargetPct": -1
+        },
+        {
+          "titleKey": "step_heat",
+          "kind": "HEAT",
+          "durationSec": 90,
+          "waterTargetPct": -1
+        },
+        {
+          "titleKey": "step_wait",
+          "kind": "STEEP",
+          "durationSec": 40,
+          "waterTargetPct": -1
+        },
+        {
+          "titleKey": "step_heat",
+          "kind": "HEAT",
+          "durationSec": 90,
           "waterTargetPct": -1
         },
         {
@@ -852,21 +894,21 @@
       "id": "batchbrew",
       "nameKey": "equip_batchbrew_name",
       "tagKey": "equip_batchbrew_tag",
-      "category": "OTHER",
+      "category": "POUR_OVER",
       "ratioMin": 15.0,
       "ratioMax": 18.0,
       "ratioDefault": 16.7,
       "tempMode": "RANGE",
       "tempMin": 92,
       "tempMax": 96,
-      "grind": "MEDIUM",
+      "grind": "MED_COARSE",
       "cupMl": 250,
       "timeLabel": "4:00-6:00",
       "hasBloom": false,
       "steps": [
         {
           "titleKey": "step_add_coffee",
-          "kind": "POUR",
+          "kind": "WAIT",
           "durationSec": 15,
           "waterTargetPct": -1
         },
@@ -878,8 +920,8 @@
         },
         {
           "titleKey": "step_wait",
-          "kind": "WAIT",
-          "durationSec": 300,
+          "kind": "DRAWDOWN",
+          "durationSec": 240,
           "waterTargetPct": -1
         },
         {
@@ -915,7 +957,7 @@
         {
           "titleKey": "step_heat",
           "kind": "HEAT",
-          "durationSec": 180,
+          "durationSec": 140,
           "waterTargetPct": 1.0
         },
         {
@@ -948,34 +990,28 @@
       "ratioDefault": 16.7,
       "tempMode": "RANGE",
       "tempMin": 90,
-      "tempMax": 96,
-      "grind": "MEDIUM",
+      "tempMax": 94,
+      "grind": "MED_FINE",
       "cupMl": 250,
-      "timeLabel": "2:30-3:15",
+      "timeLabel": "2:00-2:45",
       "hasBloom": true,
       "steps": [
         {
           "titleKey": "step_bloom",
           "kind": "BLOOM",
-          "durationSec": 40,
+          "durationSec": 30,
           "waterTargetPct": 0.2
         },
         {
           "titleKey": "step_pour",
           "kind": "POUR",
-          "durationSec": 45,
-          "waterTargetPct": 0.6
-        },
-        {
-          "titleKey": "step_pour",
-          "kind": "POUR",
-          "durationSec": 45,
+          "durationSec": 60,
           "waterTargetPct": 1.0
         },
         {
           "titleKey": "step_drawdown",
           "kind": "DRAWDOWN",
-          "durationSec": 50,
+          "durationSec": 40,
           "waterTargetPct": -1
         }
       ]
@@ -1005,13 +1041,19 @@
         {
           "titleKey": "step_heat",
           "kind": "HEAT",
-          "durationSec": 170,
+          "durationSec": 80,
           "waterTargetPct": -1
         },
         {
           "titleKey": "step_remove_heat",
           "kind": "REMOVE_HEAT",
-          "durationSec": 20,
+          "durationSec": 15,
+          "waterTargetPct": -1
+        },
+        {
+          "titleKey": "step_heat",
+          "kind": "HEAT",
+          "durationSec": 70,
           "waterTargetPct": -1
         },
         {
