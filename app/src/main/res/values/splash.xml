@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Coffeery.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/coffeery_bg_light</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenAnimationDuration">400</item>
+        <item name="postSplashScreenTheme">@style/Theme.Coffeery</item>
+    </style>
+</resources>

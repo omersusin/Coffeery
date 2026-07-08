@@ -64,6 +64,10 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.activity:activity-compose:1.9.2")
 
+    // SplashScreen API — branded launch screen showing the Coffeery icon
+    // and background colour during cold start. Works API 26+ (minSdk 26).
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     // AppCompat — needed for runtime theme/language switching via
     // AppCompatDelegate.setApplicationLocales.
     implementation("androidx.appcompat:appcompat:1.7.0")
