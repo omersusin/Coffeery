@@ -70,6 +70,7 @@ fun SecondaryButton(
         modifier = modifier
             .graphicsLayer { scaleX = scale; scaleY = scale }
             .clip(CoffeeShapes.pill)
+            .background(colors.surface)
             .border(1.5.dp, colors.outline, CoffeeShapes.pill)
             .clickable(interaction, indication = null, enabled = enabled) { onClick() }
             .padding(horizontal = 24.dp, vertical = 15.dp),
@@ -78,7 +79,7 @@ fun SecondaryButton(
         AppText(
             text = text,
             style = CoffeeTheme.type.headline,
-            color = colors.textPrimary,
+            color = if (enabled) colors.textPrimary else colors.textSecondary,
         )
     }
 }

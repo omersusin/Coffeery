@@ -20,6 +20,7 @@ object LearnContent {
         LearnCard(R.string.learn_c9_title, R.string.learn_c9_body, R.string.learn_ch_basics),
         LearnCard(R.string.learn_c6_title, R.string.learn_c6_body, R.string.learn_ch_basics),
         LearnCard(R.string.learn_l1_title, R.string.learn_l1_body, R.string.learn_ch_basics),
+        LearnCard(R.string.learn_l13_title, R.string.learn_l13_body, R.string.learn_ch_basics),
         LearnCard(R.string.learn_c2_title, R.string.learn_c2_body, R.string.learn_ch_grinding),
         LearnCard(R.string.learn_l2_title, R.string.learn_l2_body, R.string.learn_ch_grinding),
         LearnCard(R.string.learn_c3_title, R.string.learn_c3_body, R.string.learn_ch_water),
@@ -28,6 +29,7 @@ object LearnContent {
         LearnCard(R.string.learn_c5_title, R.string.learn_c5_body, R.string.learn_ch_extraction),
         LearnCard(R.string.learn_l3_title, R.string.learn_l3_body, R.string.learn_ch_extraction),
         LearnCard(R.string.learn_l4_title, R.string.learn_l4_body, R.string.learn_ch_extraction),
+        LearnCard(R.string.learn_l14_title, R.string.learn_l14_body, R.string.learn_ch_extraction),
         LearnCard(R.string.learn_l5_title, R.string.learn_l5_body, R.string.learn_ch_methods),
         LearnCard(R.string.learn_l6_title, R.string.learn_l6_body, R.string.learn_ch_methods),
         LearnCard(R.string.learn_l7_title, R.string.learn_l7_body, R.string.learn_ch_milk),
@@ -36,8 +38,10 @@ object LearnContent {
         LearnCard(R.string.learn_l9_title, R.string.learn_l9_body, R.string.learn_ch_tasting),
         LearnCard(R.string.learn_l10_title, R.string.learn_l10_body, R.string.learn_ch_caffeine),
         LearnCard(R.string.learn_l11_title, R.string.learn_l11_body, R.string.learn_ch_caffeine),
+        LearnCard(R.string.learn_l15_title, R.string.learn_l15_body, R.string.learn_ch_caffeine),
         LearnCard(R.string.learn_c10_title, R.string.learn_c10_body, R.string.learn_ch_equipment),
         LearnCard(R.string.learn_l12_title, R.string.learn_l12_body, R.string.learn_ch_equipment),
+        LearnCard(R.string.learn_l16_title, R.string.learn_l16_body, R.string.learn_ch_equipment),
     )
 
     val tasteOptions: List<TasteOption> = listOf(
