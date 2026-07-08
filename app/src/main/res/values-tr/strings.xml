@@ -348,6 +348,26 @@
     <string name="log_best_recipe_label">En iyi %s tarifin</string>
     <string name="log_best_recipe_tap">Yüklemek için dokun · en iyi demlemelerine göre</string>
 
+    <!-- ===== Learn tools v2 ===== -->
+    <string name="learn_extraction_calc_title">Ekstraksiyon Verimi Hesaplayıcı</string>
+    <string name="learn_extraction_calc_desc">Demlemenizin ekstraksiyon verimini hesaplamak için doz, su miktarı ve TDS değerini girin.</string>
+    <string name="learn_extraction_dose_label">Kahve dozu</string>
+    <string name="learn_extraction_water_label">Su miktarı</string>
+    <string name="learn_extraction_tds_label">TDS</string>
+    <string name="learn_extraction_result">Ekstraksiyon Verimi</string>
+    <string name="learn_extraction_ideal">Altın Kupa! %18–22 ideal aralığında.</string>
+    <string name="learn_extraction_under">Az ekstrakte — daha ince öğütün veya demleme süresini artırın.</string>
+    <string name="learn_extraction_over">Aşırı ekstrakte — daha kalın öğütün veya demleme süresini azaltın.</string>
+
+    <string name="learn_water_calc_title">SCA Su Standartları</string>
+    <string name="learn_water_calc_desc">Özel kahve demleme için önerilen su kalitesi parametreleri.</string>
+    <string name="learn_water_tds_label">TDS</string>
+    <string name="learn_water_hardness_label">Genel Sertlik</string>
+    <string name="learn_water_alkalinity_label">Alkalinite</string>
+    <string name="learn_water_ph_label">pH</string>
+    <string name="learn_water_range">Aralık</string>
+    <string name="learn_water_target">Hedef</string>
+
     <!-- Settings -->
     <string name="settings_title">Ayarlar</string>
     <string name="settings_appearance">Görünüm</string>

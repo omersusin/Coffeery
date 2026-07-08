@@ -348,6 +348,26 @@
     <string name="log_best_recipe_label">Your best %s</string>
     <string name="log_best_recipe_tap">Tap to load · based on your top brews</string>
 
+    <!-- ===== Learn tools v2 ===== -->
+    <string name="learn_extraction_calc_title">Extraction Yield Calculator</string>
+    <string name="learn_extraction_calc_desc">Enter dose, water amount and TDS to calculate your brew\'s extraction yield.</string>
+    <string name="learn_extraction_dose_label">Coffee dose</string>
+    <string name="learn_extraction_water_label">Water amount</string>
+    <string name="learn_extraction_tds_label">TDS</string>
+    <string name="learn_extraction_result">Extraction Yield</string>
+    <string name="learn_extraction_ideal">Golden Cup! Right in the 18–22% ideal band.</string>
+    <string name="learn_extraction_under">Under-extracted — grind finer or increase brew time.</string>
+    <string name="learn_extraction_over">Over-extracted — grind coarser or decrease brew time.</string>
+
+    <string name="learn_water_calc_title">SCA Water Standards</string>
+    <string name="learn_water_calc_desc">Recommended water quality parameters for specialty coffee brewing.</string>
+    <string name="learn_water_tds_label">TDS</string>
+    <string name="learn_water_hardness_label">General Hardness</string>
+    <string name="learn_water_alkalinity_label">Alkalinity</string>
+    <string name="learn_water_ph_label">pH</string>
+    <string name="learn_water_range">Range</string>
+    <string name="learn_water_target">Target</string>
+
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_appearance">Appearance</string>

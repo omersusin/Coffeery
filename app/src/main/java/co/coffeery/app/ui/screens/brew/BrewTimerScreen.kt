@@ -2,7 +2,16 @@ package co.coffeery.app.ui.screens.brew
 
 import android.app.Activity
 import android.view.WindowManager
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.EaseInOutCubic
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.scaleIn
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -29,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
@@ -226,14 +236,41 @@ private fun BrewComplete(
     var showSave by remember { mutableStateOf(false) }
     val equipmentName = eq.displayName()
 
+    val infiniteTransition = rememberInfiniteTransition()
+    val pulse by infiniteTransition.animateFloat(
+        initialValue = 1f,
+        targetValue = 1.06f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(800, easing = EaseInOutCubic),
+            repeatMode = RepeatMode.Reverse,
+        ),
+        label = "pulse",
+    )
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Spacer(Modifier.height(40.dp))
-        LineIcon(co.coffeery.app.ui.components.Glyph.CUP, colors.accent, Modifier.size(64.dp))
-        Spacer(Modifier.height(20.dp))
-        AppText(stringResource(R.string.brew_complete), style = CoffeeTheme.type.display, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+        AnimatedVisibility(
+            visible = true,
+            enter = scaleIn(initialScale = 0.6f) + fadeIn(),
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                LineIcon(
+                    co.coffeery.app.ui.components.Glyph.CUP,
+                    colors.accent,
+                    Modifier.scale(pulse).size(64.dp),
+                )
+                Spacer(Modifier.height(20.dp))
+                AppText(
+                    stringResource(R.string.brew_complete),
+                    style = CoffeeTheme.type.display,
+                    align = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        }
         Spacer(Modifier.height(8.dp))
         AppText(
             stringResource(R.string.brew_complete_sub, equipmentName),

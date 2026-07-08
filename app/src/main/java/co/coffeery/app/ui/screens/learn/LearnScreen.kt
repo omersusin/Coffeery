@@ -47,6 +47,10 @@ fun LearnScreen(vm: AppViewModel) {
 
         TroubleshootCard()
 
+        ExtractionCalculatorCard()
+
+        WaterMineralCard()
+
         // Render a chapter header whenever the chapter changes, keeping the
         // card's global index stable for detail navigation.
         var lastChapter = 0
