@@ -13,28 +13,39 @@ Everything is local: no account, no network, no tracking.
 
 ## Highlights
 
-- **24 brewing methods** — V60, Chemex, Kalita Wave, French Press, AeroPress, Moka Pot,
-  Cezve, Ibrik, Cold Brew, Siphon, Espresso, Clever Dripper, Hario Switch,
-  Origami, April, Stagg X, Timemore, Beehouse, Cafec Flower, Phin, Cold Drip,
-  Percolator, Batch Brewer, Napoletana
-- **Custom gear** — add your own brewer with category defaults and auto-generated steps
+- **36 brewing methods** — 24 standard brewers (V60, Chemex, Kalita, French Press,
+  AeroPress, Moka Pot, Cezve, Ibrik, Cold Brew, Siphon, Espresso, Clever, Switch,
+  Origami, April, Stagg X, Timemore, Beehouse, Cafec, Phin, Cold Drip, Percolator,
+  Batch Brewer, Napoletana) + 12 equipment-free methods (Cowboy Coffee, Cupping,
+  Cloth Filter, Sock Coffee, Decoction, Paper Towel, Swedish Egg Coffee, Improvised
+  Turkish, Kopi Tubruk, Arabic Qahwa, Cafe de Olla, Mason Jar Cold Brew)
+- **Custom gear** — add your own brewer with category defaults, auto-generated
+  steps, and a 25-icon picker for visual customization
 - **Live ratio recalculation** — three-field input (coffee / ratio / water) with
   instant cross-recalculation in manual mode, or strength-slider auto mode
 - **Step-by-step brew timer** — per-method timed steps, pour targets, per-pour
-  ±5% water adjustment, merge-pours mode, sound + vibration alerts
+  ±5% water adjustment, merge-pours mode, customizable step durations (bloom/pour/
+  steep/drawdown), auto-advance toggle, sound + vibration alerts
 - **Background brewing** — foreground service with persistent notification keeps
   the timer running when the app is minimized
-- **YouTube tutorials** — every preset links to a verified recipe video
+- **YouTube tutorials** — every method links to a verified recipe video in both
+  English and Turkish (72 total links)
 - **Brew journal** — log every brew with rating, tasting notes, grind size, and
   linked coffee bean; 12-week calendar heatmap, streak counter, analytics card
+- **Caffeine tracker** — daily intake summary with safe-zone indicator
 - **Bean inventory** — track your coffee beans with origin, roaster, roast date
-- **Learn** — 30 knowledge cards across 9 chapters with locked/unlocked step-map,
-  extraction calculator, water mineral reference, and 8-point taste diagnosis
-- **Full i18n** — 423 strings each in English (default) + Turkish
+- **Learn** — 60 knowledge cards across 9 chapters with locked/unlocked step-map,
+  extraction calculator, water chemistry guide, 25-term glossary, 10 rotating pro tips,
+  grind size visual reference, brew troubleshooter, and 20-note flavor wheel
+- **Drinks** — 25 coffee drink recipes with full ingredient steps, 12 coffee
+  variety profiles with origin and flavor notes
+- **Search** — real-time text filter on Equipment, Learn, and Drinks screens
+- **Full i18n** — 728 strings each in English (default) + Turkish
 - **Zero Material Design** — custom `CoffeeColors` / `CoffeeTypography` /
-  `CoffeeShapes` design system, 4 selectable palettes (Terracotta / Espresso /
-  Matcha / Berry) with light + dark variants, 24 hand-drawn Canvas line-art
-  equipment icons, and serif display typography
+  `CoffeeShapes` design system, 8 selectable palettes (Terracotta / Espresso /
+  Matcha / Berry / Crema / Mocha / Caramel / Hazelnut) with light + dark
+  warm gradient backgrounds, 64 hand-drawn Canvas line-art equipment icons,
+  and serif display typography
 
 ## Screens
 
@@ -47,22 +58,22 @@ Everything is local: no account, no network, no tracking.
 
 | Brew Calculator | Timer | Brew Log | Learn | Settings |
 |---|---|---|---|---|
-| Category tabs, auto/manual ratio, strength slider, roast picker, dual-line segmented pills, one-tap save, YouTube links | 72sp hero countdown in 260dp progress ring, per-pour adjustment, merge-pours toggle, vibration + sound, background service, save-to-log dialog with bean picker | Calendar heatmap, streak banner, analytics card, best-recipe suggestion, bean inventory tab | 9-chapter step-map with locked/unlocked/completed states, 30 knowledge cards, extraction calculator, water minerals, taste diagnosis | Palette swatch preview cards, dark/light/system toggle, language switch, data export/import, backup/restore |
+| Category tabs, auto/manual ratio, strength slider, roast picker, dual-line segmented pills, one-tap save, YouTube links | 72sp hero countdown in 260dp progress ring, per-pour adjustment, merge-pours, customizable step durations, auto-advance, vibration + sound, background service, save-to-log dialog with bean picker | Calendar heatmap, streak banner, analytics card, caffeine tracker, best-recipe suggestion, bean inventory tab, CSV export | 9-chapter step-map, 60 lessons, extraction calculator, water chemistry, 25-term glossary, pro tips, grind visual, troubleshooter, flavor wheel | 8 palette swatch preview cards, warm gradient backgrounds, dark/light/system toggle, language switch, brew customization, data export/import |
 
 ## Architecture
 
-MVVM with a single source of truth and unidirectional data flow (single `AppViewModel`, `StateFlow<AppUiState>`).
+MVVM with a single source of truth and unidirectional data flow.
 
 ```
 app/src/main/java/co/coffeery/app/
 ├── data/
-│   ├── local/    Room (5 entities, 5 DAOs, Migration v4→v5), PresetLoader
+│   ├── local/    Room (5 entities, 5 DAOs, Migration v4→v6), PresetLoader
 │   ├── model/    Equipment, BrewStepDef, enums (Grind, RoastLevel, etc.)
-│   └── repo/     CoffeeRepository (built-ins + custom gear, export/import)
+│   └── repo/     CoffeeRepository (built-ins + custom gear, export/import/CSV)
 ├── service/      TimerService (foreground), TimerStopReceiver
 ├── ui/
-│   ├── theme/    Color (8 palette profiles), Type, Shape, Texture
-│   ├── components/ 24 icons, buttons, cards, sliders, segmented controls
+│   ├── theme/    Color (16 palette profiles), Type, Shape, Texture (gradient)
+│   ├── components/ 64 icons, buttons, cards, sliders, segmented controls
 │   └── screens/  brew, equipment, recipes, log, learn, drinks, onboarding, root
 └── util/         BrewMath (recipe engine), Format
 ```
@@ -72,22 +83,20 @@ app/src/main/java/co/coffeery/app/
 | | |
 |---|---|
 | Language | Kotlin 2.3.0 |
-| UI | Jetpack Compose 2025.12.01 (Foundation only) |
-| Compiler SDK | 35 (min 26 / target 35) |
+| UI | Jetpack Compose 2025.12.01 (Foundation only — no Material) |
+| SDK | min 26 / target 35 / compile 35 |
 | Build | Gradle 8.13, AGP 8.13.2, KSP 2.3.9 |
-| DB | Room 2.7.2 |
+| DB | Room 2.7.2 (v6 schema) |
 | Lifecycle | 2.10.0 |
 | JDK (CI) | 17 Temurin |
 | CI/CD | GitHub Actions — debug + release APK on every push |
-| APK | ~6 MB (release, R8 minified + resource shrunk) |
-| Codebase | 6,231 lines Kotlin · 1,084 lines XML · 1,092 lines JSON |
+| APK | 4.7 MB (release, R8 minified + resource shrunk) |
+| Codebase | 6,300+ lines Kotlin · 1,000+ XML · 1,100+ JSON |
+| i18n | 728 strings EN/TR |
 
 ## Build
 
-CI builds both debug and release APKs on every push (see
-`.github/workflows/build.yml`) and uploads them as artifacts.
-
-Locally (Android SDK + JDK 17):
+CI builds both debug and release APKs on every push and uploads them as artifacts.
 
 ```bash
 ./gradlew assembleDebug
