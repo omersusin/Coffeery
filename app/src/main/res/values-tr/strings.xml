@@ -480,14 +480,6 @@
     <string name="onboarding_learn_desc">10 bölümde 60\'tan fazla ders. Temel ekstraksiyon teorisinden ileri espresso tekniklerine kadar. Ekstraksiyon hesaplayıcı, su kimyası rehberi ve tat teşhis araçlarıyla tamamlanır.</string>
     <string name="onboarding_get_started">Başla</string>
     <string name="tap_brew_to_start">Başlamak için Demle\'ye dokun</string>
-    <string name="onboard1_title">Kahveni Keşfet</string>
-    <string name="onboard1_body">Filtre kahvedan espressoya, tüm demleme yöntemlerini keşfet. Favori ekipmanını seç ve mükemmel fincanı yakala.</string>
-    <string name="onboard2_title">Hassas Demleme</string>
-    <string name="onboard2_body">Her yöntem için özel hesaplanmış oranlar, öğütme seviyeleri ve su sıcaklıkları. Kahve-su oranını anında ayarla.</string>
-    <string name="onboard3_title">Demlemeyi Öğren</string>
-    <string name="onboard3_body">30 ders, ekstraksiyon hesaplayıcı ve tat teşhis aracı. Kahve teorisini adım adım öğren.</string>
-    <string name="onboard4_title">Yolculuğunu Kaydet</string>
-    <string name="onboard4_body">Her demlemeyi logla, puanla ve not al. En iyi tariflerini keşfet ve seri oluştur.</string>
     <string name="onboard_next">İleri</string>
     <string name="onboard_skip">Atla</string>
     <string name="onboard_start">Başla</string>
