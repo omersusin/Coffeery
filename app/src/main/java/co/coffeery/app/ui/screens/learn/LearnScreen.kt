@@ -58,7 +58,7 @@ fun LearnScreen(vm: AppViewModel) {
     val state by vm.state.collectAsState()
     val completedChapters = state.completedChapters
 
-    val cardTexts = remember { LearnContent.cards.map { card -> card to (stringResource(card.titleRes) + " " + stringResource(card.bodyRes)) } }
+    val cardTexts = LearnContent.cards.map { card -> card to (stringResource(card.titleRes) + " " + stringResource(card.bodyRes)) }
     val filteredCards = if (searchQuery.isBlank()) {
         LearnContent.cards
     } else {
@@ -134,7 +134,7 @@ fun LearnScreen(vm: AppViewModel) {
                 style = CoffeeTheme.type.body,
                 color = colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                align = androidx.compose.ui.text.style.TextAlign.Center,
             )
         }
 

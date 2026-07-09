@@ -147,7 +147,7 @@ fun EquipmentScreen(state: AppUiState, vm: AppViewModel) {
                 style = CoffeeTheme.type.body,
                 color = colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
+            )
             )
         } else {
             filteredBuiltIns.chunked(2).forEach { pair ->

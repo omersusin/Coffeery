@@ -36,9 +36,7 @@ fun DrinksScreen(vm: AppViewModel) {
     val colors = CoffeeTheme.colors
     var searchQuery by remember { mutableStateOf("") }
 
-    val drinkTexts = remember {
-        DrinkContent.drinks.map { drink -> drink to stringResource(drink.nameRes) }
-    }
+    val drinkTexts = DrinkContent.drinks.map { drink -> drink to stringResource(drink.nameRes) }
     val filteredDrinks = if (searchQuery.isBlank()) {
         DrinkContent.drinks
     } else {
@@ -86,7 +84,7 @@ fun DrinksScreen(vm: AppViewModel) {
                 style = CoffeeTheme.type.body,
                 color = colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
+            )
             )
         }
 
