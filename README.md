@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="assets/logo.svg" width="80" alt="Coffeery logo — pour-over cone + carafe line art">
+  <img src="assets/logo.svg" width="80" alt="Coffeery logo"><br>
+  <img src="https://img.shields.io/github/v/release/omersusin/Coffeery?color=C75B3C" alt="Release">
+  <img src="https://img.shields.io/github/downloads/omersusin/Coffeery/total?color=C75B3C" alt="Downloads">
 </p>
 
 # Coffeery
