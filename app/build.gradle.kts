@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "co.coffeery.app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "co.coffeery.app"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 4
         versionName = "2.2.0"
         vectorDrawables { useSupportLibrary = true }

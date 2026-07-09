@@ -64,7 +64,7 @@ app/src/main/java/co/coffeery/app/
 |---|---|
 | Language | Kotlin 2.3.0 |
 | UI | Jetpack Compose 2026.06.01 (Foundation only) |
-| Compiler SDK | 35 (min 26 / target 35) |
+| Compiler SDK | 36 (min 26 / target 36) |
 | Build | Gradle 8.12, AGP 8.13.2, KSP 2.3.9 |
 | DB | Room 2.8.4 |
 | Lifecycle | 2.11.0 |
