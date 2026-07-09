@@ -437,6 +437,95 @@
     <string name="pro_tip_9">Light roasts need hotter water (96°C) and finer grind. Dark roasts prefer cooler (88°C) and coarser.</string>
     <string name="pro_tip_10">Taste coffee at different temperatures as it cools. Different flavors emerge at different heat levels.</string>
 
+    <!-- Coffee Glossary -->
+    <string name="glossary_title">📖 Coffee Glossary</string>
+    <string name="glossary_term_1">Acidity</string>
+    <string name="glossary_def_1">The bright, tangy quality in coffee perceived on the tongue. Not sourness; desirable acidity adds liveliness and dimension to flavor.</string>
+    <string name="glossary_term_2">Aroma</string>
+    <string name="glossary_def_2">The smell of brewed coffee. The olfactory experience that accounts for much of what we perceive as flavor.</string>
+    <string name="glossary_term_3">Bloom</string>
+    <string name="glossary_def_3">The rapid release of CO₂ when hot water first hits fresh coffee grounds. A 30-45 second pause allows degassing for even extraction.</string>
+    <string name="glossary_term_4">Body</string>
+    <string name="glossary_def_4">The weight or mouthfeel of coffee on the tongue. Described as light/tea-like, medium, or heavy/syrupy.</string>
+    <string name="glossary_term_5">Channeling</string>
+    <string name="glossary_def_5">Uneven water flow through the coffee bed during brewing, creating over-extracted and under-extracted zones simultaneously.</string>
+    <string name="glossary_term_6">Crema</string>
+    <string name="glossary_def_6">The golden-brown foam on top of an espresso shot, created by emulsified oils and CO₂.</string>
+    <string name="glossary_term_7">Cupping</string>
+    <string name="glossary_def_7">The standardized method for evaluating coffee quality. Coffee is steeped in a bowl and tasted with a spoon.</string>
+    <string name="glossary_term_8">Degassing</string>
+    <string name="glossary_def_8">The release of CO₂ from freshly roasted coffee beans over days after roasting.</string>
+    <string name="glossary_term_9">Dialing In</string>
+    <string name="glossary_def_9">The process of adjusting grind, dose, and yield to achieve optimal espresso extraction.</string>
+    <string name="glossary_term_10">Extraction</string>
+    <string name="glossary_def_10">The process of dissolving soluble compounds from coffee grounds into water. Target: 18–22% extraction yield.</string>
+    <string name="glossary_term_11">Fines</string>
+    <string name="glossary_def_11">Very small coffee particles produced during grinding. Excess fines cause clogging and bitterness.</string>
+    <string name="glossary_term_12">First Crack</string>
+    <string name="glossary_def_12">An audible popping sound during roasting (~196°C) when beans expand and release moisture.</string>
+    <string name="glossary_term_13">Grinder Burrs</string>
+    <string name="glossary_def_13">The cutting mechanism in a coffee grinder. Conical or flat burrs produce different particle distributions.</string>
+    <string name="glossary_term_14">Microfoam</string>
+    <string name="glossary_def_14">Velvety steamed milk with tiny, uniform bubbles, essential for latte art.</string>
+    <string name="glossary_term_15">Mouthfeel</string>
+    <string name="glossary_def_15">The tactile sensation of coffee in the mouth, influenced by body, oils, and suspended particles.</string>
+    <string name="glossary_term_16">Over-extraction</string>
+    <string name="glossary_def_16">When too much coffee solubles dissolve, producing bitter, harsh, and astringent flavors (above 22% yield).</string>
+    <string name="glossary_term_17">Puck</string>
+    <string name="glossary_def_17">The compressed disc of coffee grounds in an espresso portafilter after extraction.</string>
+    <string name="glossary_term_18">Quakers</string>
+    <string name="glossary_def_18">Under-ripe or underdeveloped coffee beans that appear pale after roasting and taste peanutty.</string>
+    <string name="glossary_term_19">Ratio</string>
+    <string name="glossary_def_19">The proportion of coffee to water (e.g., 1:16 means 1g coffee per 16g water).</string>
+    <string name="glossary_term_20">Ristretto</string>
+    <string name="glossary_def_20">A "restricted" espresso shot with less water (1:1 to 1:1.5 ratio), yielding a sweeter, more concentrated shot.</string>
+    <string name="glossary_term_21">Shot</string>
+    <string name="glossary_def_21">One serving of espresso, typically 30 ml from 14–18 g of coffee.</string>
+    <string name="glossary_term_22">Tamping</string>
+    <string name="glossary_def_22">Compressing coffee grounds in an espresso portafilter to create even resistance to water flow.</string>
+    <string name="glossary_term_23">Terroir</string>
+    <string name="glossary_def_23">The environmental factors — soil, climate, altitude — that give coffee from a specific region its unique character.</string>
+    <string name="glossary_term_24">TDS</string>
+    <string name="glossary_def_24">Total Dissolved Solids. Measures brew strength. Ideal: 1.15–1.55% for filter coffee.</string>
+    <string name="glossary_term_25">Under-extraction</string>
+    <string name="glossary_def_25">When too few solubles dissolve, resulting in sour, salty, and thin coffee (below 18% yield).</string>
+
+    <!-- Grind size visual reference -->
+    <string name="grind_vis_title">Grind Size Reference</string>
+    <string name="grind_vis_name_extra_coarse">Extra Coarse</string>
+    <string name="grind_vis_desc_extra_coarse">Rock salt consistency. Surface feels like chunky sea salt.</string>
+    <string name="grind_vis_for_extra_coarse">For: Cold brew, cowboy coffee</string>
+    <string name="grind_vis_name_coarse">Coarse</string>
+    <string name="grind_vis_desc_coarse">Sea salt consistency. Individual particles clearly visible.</string>
+    <string name="grind_vis_for_coarse">For: French press, cupping</string>
+    <string name="grind_vis_name_med_coarse">Medium-Coarse</string>
+    <string name="grind_vis_desc_med_coarse">Rough sand. Slightly gritty between fingers.</string>
+    <string name="grind_vis_for_med_coarse">For: Chemex, Clever Dripper</string>
+    <string name="grind_vis_name_medium">Medium</string>
+    <string name="grind_vis_desc_medium">Table salt consistency. Feels like fine sand or regular salt.</string>
+    <string name="grind_vis_for_medium">For: V60, Kalita, drip machines</string>
+    <string name="grind_vis_name_med_fine">Medium-Fine</string>
+    <string name="grind_vis_desc_med_fine">Fine sand. Smoother than salt, slight grit.</string>
+    <string name="grind_vis_for_med_fine">For: AeroPress, pour-over cones</string>
+    <string name="grind_vis_name_fine">Fine</string>
+    <string name="grind_vis_desc_fine">Flour-like but slightly gritty. Very fine, clumps when pressed.</string>
+    <string name="grind_vis_for_fine">For: Espresso, Moka pot</string>
+    <string name="grind_vis_name_extra_fine">Extra Fine</string>
+    <string name="grind_vis_desc_extra_fine">Powder/icing sugar. No discernible grit, like fine talc.</string>
+    <string name="grind_vis_for_extra_fine">For: Turkish coffee</string>
+
+    <!-- Brew troubleshooter -->
+    <string name="brew_troubleshoot_title">🔧 Brew Troubleshooter</string>
+    <string name="brew_troubleshoot_question">How does your coffee taste?</string>
+    <string name="brew_issue_sour">Sour / Under-extracted</string>
+    <string name="brew_issue_bitter">Bitter / Over-extracted</string>
+    <string name="brew_issue_weak">Weak / Watery</string>
+    <string name="brew_issue_dry">Dry / Astringent</string>
+    <string name="brew_issue_sour_advice">Grind finer | Increase temp | Steep longer | Use more agitation</string>
+    <string name="brew_issue_bitter_advice">Grind coarser | Lower temp | Shorten brew time | Less agitation</string>
+    <string name="brew_issue_weak_advice">Use more coffee (stronger ratio) | Grind finer | Check water temp</string>
+    <string name="brew_issue_dry_advice">Grind coarser | Lower temp | Check for channeling | Reduce fines</string>
+
     <string name="ratio_ref_title">Quick Ratio Reference</string>
     <string name="ratio_1_15">☕ 1:15 — Strong, intense, punchy</string>
     <string name="ratio_1_16">☕ 1:16 — Balanced, standard (SCA Golden Cup)</string>
@@ -675,4 +764,11 @@
     <string name="variety_liberica_origin">West Africa / SE Asia</string>
     <string name="variety_liberica_flavor">Smoky, woody, full body</string>
     <string name="variety_liberica_brew">Traditional methods</string>
+
+    <!-- Caffeine tracking -->
+    <string name="caffeine_title">Caffeine</string>
+    <string name="caffeine_today">Today</string>
+    <string name="caffeine_total">mg from %d brews</string>
+    <string name="caffeine_limit">FDA recommends max 400 mg/day</string>
+    <string name="caffeine_none">No brews logged today</string>
 </resources>

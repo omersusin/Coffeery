@@ -99,11 +99,11 @@ private fun bestRecipeFromLogs(logs: List<BrewLogEntity>): BestRecipeSuggestion?
 fun BrewLogScreen(vm: AppViewModel) {
     val state by vm.state.collectAsStateWithLifecycle()
     var section by remember { mutableIntStateOf(0) }
-    val sections = listOf(stringResource(R.string.nav_log), stringResource(R.string.beans_title))
+    val sections = listOf(stringResource(R.string.nav_log), stringResource(R.string.beans_title), stringResource(R.string.caffeine_title))
 
     Column(modifier = Modifier.padding(horizontal = 20.dp).padding(top = 12.dp, bottom = 28.dp)) {
         SegmentedControl(
-            options = listOf(0, 1),
+            options = listOf(0, 1, 2),
             selected = section,
             label = { sections[it] },
             onSelect = { section = it },
@@ -113,6 +113,7 @@ fun BrewLogScreen(vm: AppViewModel) {
         when (section) {
             0 -> BrewLogContent(state, vm)
             1 -> BeanListScreen(vm)
+            2 -> CaffeineContent(state.brewLogs)
         }
     }
 }
@@ -405,6 +406,94 @@ private fun BrewLogCard(log: BrewLogEntity, vm: AppViewModel) {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
                 SecondaryButton(stringResource(R.string.action_cancel), Modifier.weight(1f)) { showDelete = false }
                 PrimaryButton(stringResource(R.string.action_delete), Modifier.weight(1f)) { vm.deleteBrewLog(log.id); showDelete = false }
+            }
+        }
+    }
+}
+
+private fun estimateCaffeine(coffeeGrams: Double, method: String): Int {
+    val mgPerGram = when {
+        method.contains("espresso", true) -> 8.0
+        method.contains("press", true) || method.contains("moka", true) -> 14.0
+        else -> 12.0
+    }
+    return (coffeeGrams * mgPerGram).toInt()
+}
+
+@Composable
+private fun CaffeineContent(brewLogs: List<BrewLogEntity>) {
+    val colors = CoffeeTheme.colors
+    val today = LocalDate.now()
+    val todayLogs = brewLogs.filter {
+        Instant.ofEpochMilli(it.timestamp)
+            .atZone(ZoneId.systemDefault())
+            .toLocalDate() == today
+    }
+
+    if (todayLogs.isEmpty()) {
+        Spacer(Modifier.height(40.dp))
+        AppText(
+            stringResource(R.string.caffeine_none),
+            style = CoffeeTheme.type.body,
+            color = colors.textSecondary,
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp),
+        )
+        return
+    }
+
+    val totalCaffeine = todayLogs.sumOf { estimateCaffeine(it.coffeeGrams, it.equipmentName) }
+    val brewsCount = todayLogs.size
+    val maxMg = 600
+    val fillRatio = (totalCaffeine.coerceAtMost(maxMg).toFloat() / maxMg)
+
+    val barColor = when {
+        totalCaffeine <= 200 -> colors.accentSoft
+        totalCaffeine <= 400 -> colors.accent
+        else -> colors.cremaDark
+    }
+
+    LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
+        item(key = "caffeine_summary") {
+            CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
+                AppText(stringResource(R.string.caffeine_today), style = CoffeeTheme.type.label, color = colors.textSecondary)
+                Spacer(Modifier.height(4.dp))
+                AppText(
+                    "$totalCaffeine ${stringResource(R.string.caffeine_total, brewsCount)}",
+                    style = CoffeeTheme.type.display,
+                    color = barColor,
+                )
+                Spacer(Modifier.height(10.dp))
+                Box(modifier = Modifier.fillMaxWidth().height(10.dp).clip(RoundedCornerShape(5.dp)).background(colors.outline.copy(alpha = 0.3f))) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth(fillRatio)
+                            .height(10.dp)
+                            .clip(RoundedCornerShape(5.dp))
+                            .background(barColor),
+                    )
+                }
+                Spacer(Modifier.height(8.dp))
+                AppText(stringResource(R.string.caffeine_limit), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+            }
+        }
+
+        items(todayLogs, key = { it.id }) { log ->
+            val mg = estimateCaffeine(log.coffeeGrams, log.equipmentName)
+            CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 10) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        AppText(log.equipmentName, style = CoffeeTheme.type.headline, color = colors.textPrimary)
+                        AppText(
+                            "${Format.grams(log.coffeeGrams)} · ~$mg mg caffeine",
+                            style = CoffeeTheme.type.caption,
+                            color = colors.textSecondary,
+                        )
+                    }
+                }
             }
         }
     }

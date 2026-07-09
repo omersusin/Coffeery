@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -32,6 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -128,9 +130,15 @@ fun LearnScreen(vm: AppViewModel) {
 
         QuickRatioCard()
 
+        GrindSizeCard()
+
+        BrewTroubleshooterCard()
+
         ExtractionCalculatorCard()
 
         WaterMineralCard()
+
+        GlossaryCard()
 
         if (searchActive && filteredCards.isEmpty()) {
             AppText(
@@ -327,5 +335,148 @@ private fun QuickRatioCard() {
         AppText(stringResource(R.string.ratio_1_17), style = CoffeeTheme.type.body, color = colors.textSecondary)
         Spacer(Modifier.height(4.dp))
         AppText(stringResource(R.string.ratio_1_18), style = CoffeeTheme.type.body, color = colors.textSecondary)
+    }
+}
+
+@Composable
+private fun GrindSizeCard() {
+    val colors = CoffeeTheme.colors
+    var selected by remember { mutableStateOf(-1) }
+    data class GrindLevel(val nameRes: Int, val descRes: Int, val forRes: Int)
+    val grinds = listOf(
+        GrindLevel(R.string.grind_vis_name_extra_coarse, R.string.grind_vis_desc_extra_coarse, R.string.grind_vis_for_extra_coarse),
+        GrindLevel(R.string.grind_vis_name_coarse, R.string.grind_vis_desc_coarse, R.string.grind_vis_for_coarse),
+        GrindLevel(R.string.grind_vis_name_med_coarse, R.string.grind_vis_desc_med_coarse, R.string.grind_vis_for_med_coarse),
+        GrindLevel(R.string.grind_vis_name_medium, R.string.grind_vis_desc_medium, R.string.grind_vis_for_medium),
+        GrindLevel(R.string.grind_vis_name_med_fine, R.string.grind_vis_desc_med_fine, R.string.grind_vis_for_med_fine),
+        GrindLevel(R.string.grind_vis_name_fine, R.string.grind_vis_desc_fine, R.string.grind_vis_for_fine),
+        GrindLevel(R.string.grind_vis_name_extra_fine, R.string.grind_vis_desc_extra_fine, R.string.grind_vis_for_extra_fine),
+    )
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        AppText(stringResource(R.string.grind_vis_title), style = CoffeeTheme.type.title)
+        Spacer(Modifier.height(8.dp))
+        grinds.forEachIndexed { index, grind ->
+            val fraction = index / (grinds.size - 1).toFloat()
+            val barColor = lerp(colors.cremaLight, colors.cremaDark, fraction)
+            val isSel = selected == index
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable(
+                            indication = null,
+                            interactionSource = remember { MutableInteractionSource() },
+                        ) { selected = if (isSel) -1 else index },
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .height(24.dp)
+                            .weight(1f)
+                            .clip(RoundedCornerShape(6.dp))
+                            .background(barColor)
+                            .then(
+                                if (isSel) Modifier.border(2.dp, colors.accent, RoundedCornerShape(6.dp))
+                                else Modifier
+                            ),
+                    )
+                    Spacer(Modifier.width(10.dp))
+                    AppText(stringResource(grind.nameRes), style = CoffeeTheme.type.label)
+                }
+                if (isSel) {
+                    Spacer(Modifier.height(4.dp))
+                    AppText(stringResource(grind.descRes), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                    AppText(stringResource(grind.forRes), style = CoffeeTheme.type.caption, color = colors.accent)
+                }
+                Spacer(Modifier.height(4.dp))
+            }
+        }
+    }
+}
+
+@Composable
+private fun BrewTroubleshooterCard() {
+    val colors = CoffeeTheme.colors
+    var selected by remember { mutableStateOf(-1) }
+    val issues = listOf(
+        R.string.brew_issue_sour to R.string.brew_issue_sour_advice,
+        R.string.brew_issue_bitter to R.string.brew_issue_bitter_advice,
+        R.string.brew_issue_weak to R.string.brew_issue_weak_advice,
+        R.string.brew_issue_dry to R.string.brew_issue_dry_advice,
+    )
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        AppText(stringResource(R.string.brew_troubleshoot_title), style = CoffeeTheme.type.title)
+        Spacer(Modifier.height(4.dp))
+        AppText(stringResource(R.string.brew_troubleshoot_question), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+        Spacer(Modifier.height(12.dp))
+        issues.withIndex().chunked(2).forEach { rowItems ->
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.padding(bottom = 8.dp)) {
+                rowItems.forEach { (index, issue) ->
+                    val isSel = selected == index
+                    Chip(
+                        text = stringResource(issue.first),
+                        background = if (isSel) colors.accent else colors.accentSoft,
+                        textColor = if (isSel) colors.onAccent else colors.accent,
+                        modifier = Modifier.clickable(
+                            indication = null,
+                            interactionSource = remember { MutableInteractionSource() },
+                        ) { selected = if (isSel) -1 else index },
+                    )
+                }
+            }
+        }
+        val sel = selected
+        if (sel != null) {
+            AppText(stringResource(issues[sel].second), style = CoffeeTheme.type.body)
+        }
+    }
+}
+
+private data class GlossaryTerm(val termRes: Int, val defRes: Int)
+
+private val GlossaryTerms = listOf(
+    GlossaryTerm(R.string.glossary_term_1, R.string.glossary_def_1),
+    GlossaryTerm(R.string.glossary_term_2, R.string.glossary_def_2),
+    GlossaryTerm(R.string.glossary_term_3, R.string.glossary_def_3),
+    GlossaryTerm(R.string.glossary_term_4, R.string.glossary_def_4),
+    GlossaryTerm(R.string.glossary_term_5, R.string.glossary_def_5),
+    GlossaryTerm(R.string.glossary_term_6, R.string.glossary_def_6),
+    GlossaryTerm(R.string.glossary_term_7, R.string.glossary_def_7),
+    GlossaryTerm(R.string.glossary_term_8, R.string.glossary_def_8),
+    GlossaryTerm(R.string.glossary_term_9, R.string.glossary_def_9),
+    GlossaryTerm(R.string.glossary_term_10, R.string.glossary_def_10),
+    GlossaryTerm(R.string.glossary_term_11, R.string.glossary_def_11),
+    GlossaryTerm(R.string.glossary_term_12, R.string.glossary_def_12),
+    GlossaryTerm(R.string.glossary_term_13, R.string.glossary_def_13),
+    GlossaryTerm(R.string.glossary_term_14, R.string.glossary_def_14),
+    GlossaryTerm(R.string.glossary_term_15, R.string.glossary_def_15),
+    GlossaryTerm(R.string.glossary_term_16, R.string.glossary_def_16),
+    GlossaryTerm(R.string.glossary_term_17, R.string.glossary_def_17),
+    GlossaryTerm(R.string.glossary_term_18, R.string.glossary_def_18),
+    GlossaryTerm(R.string.glossary_term_19, R.string.glossary_def_19),
+    GlossaryTerm(R.string.glossary_term_20, R.string.glossary_def_20),
+    GlossaryTerm(R.string.glossary_term_21, R.string.glossary_def_21),
+    GlossaryTerm(R.string.glossary_term_22, R.string.glossary_def_22),
+    GlossaryTerm(R.string.glossary_term_23, R.string.glossary_def_23),
+    GlossaryTerm(R.string.glossary_term_24, R.string.glossary_def_24),
+    GlossaryTerm(R.string.glossary_term_25, R.string.glossary_def_25),
+)
+
+@Composable
+private fun GlossaryCard() {
+    val colors = CoffeeTheme.colors
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        AppText(stringResource(R.string.glossary_title), style = CoffeeTheme.type.title)
+        Spacer(Modifier.height(8.dp))
+        GlossaryTerms.forEach { term ->
+            AppText(stringResource(term.termRes), style = CoffeeTheme.type.headline)
+            Spacer(Modifier.height(2.dp))
+            AppText(
+                stringResource(term.defRes),
+                style = CoffeeTheme.type.caption,
+                color = colors.textSecondary,
+            )
+            Spacer(Modifier.height(10.dp))
+        }
     }
 }
