@@ -65,8 +65,10 @@ object PresetLoader {
         )
     }
 
-    private fun stringRes(context: Context, key: String): Int {
-        return context.resources.getIdentifier(key, "string", context.packageName)
-            .takeIf { it != 0 } ?: context.resources.getIdentifier(key, "string", "co.coffeery.app")
+    private fun stringRes(context: Context, key: String): Int = try {
+        val field = co.coffeery.app.R.string::class.java.getField(key)
+        field.getInt(null)
+    } catch (_: Exception) {
+        context.resources.getIdentifier(key, "string", context.packageName)
     }
 }
