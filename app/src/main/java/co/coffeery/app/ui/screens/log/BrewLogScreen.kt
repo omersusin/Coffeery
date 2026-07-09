@@ -471,8 +471,7 @@ private fun CaffeineContent(brewLogs: List<BrewLogEntity>) {
         else -> colors.cremaDark
     }
 
-    LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-        // item (inline)
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState())) {
             CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
                 AppText(stringResource(R.string.caffeine_today), style = CoffeeTheme.type.label, color = colors.textSecondary)
                 Spacer(Modifier.height(4.dp))
@@ -496,7 +495,7 @@ private fun CaffeineContent(brewLogs: List<BrewLogEntity>) {
             }
         }
 
-        items(todayLogs, key = { it.id }) { log ->
+        todayLogs.forEach { log ->
             val mg = estimateCaffeine(log.coffeeGrams, log.equipmentName)
             CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 10) {
                 Row(
