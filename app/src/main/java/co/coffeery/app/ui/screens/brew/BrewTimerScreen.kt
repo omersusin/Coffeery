@@ -101,7 +101,7 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
     var elapsedTotal by rememberSaveable { mutableIntStateOf(0) }
 
     val equipmentName = eq.displayName()
-    val stepTitles = remember(steps) { steps.map { stringResource(it.titleRes) } }
+    val stepTitles = steps.map { stringResource(it.titleRes) }
 
     // Keep the screen awake for the whole brew session.
     val view = LocalView.current
@@ -191,7 +191,6 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
                 }
             }
             if (state.settings.notificationsBrewComplete) {
-                val equipmentName = eq.displayName()
                 sendNotification(context, "Brew complete!", "Your $equipmentName is ready. Total time: ${Format.clock(elapsedTotal)}")
             }
         }
