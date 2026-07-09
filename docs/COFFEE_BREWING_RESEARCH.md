@@ -316,6 +316,27 @@ Note: Some James Hoffmann espresso video IDs listed above use the most commonly 
 Some IDs were constructed from title-based search results and may need correction.
 For methods lacking a definitive single tutorial, multiple referenced options are provided.
 
+### NOTES ON TURKISH (TR) LOCALIZATION
+
+The app now supports locale-aware YouTube links: when the app language is Turkish,
+it picks `youtubeUrlTr` if available; otherwise falls back to `youtubeUrl` (English).
+
+**Verified Turkish links (all confirmed 200 OK via oembed, found via Invidious search):**
+
+| Method | Turkish YouTube ID | Search Source |
+|--------|-------------------|---------------|
+| v60 | `4BdwUKWU2cw` | Invidious: "v60 kahve demleme turkce" |
+| chemex | `-1OP3NnjLRA` | Invidious: "chemex kahve demleme turkce" |
+| frenchpress | `3FtPMI9_uBE` | Invidious: "french press kahve demleme turkce" |
+| aeropress | `1yLo_RWWatA` | Invidious: "aeropress kahve demleme turkce" |
+| moka | `0Fi6T370VwA` | Invidious: "moka pot kahve demleme turkce" |
+| turkish/ibrik | `ocEk0RFkmIk` | European Coffee Trip (same as EN — already Turkish content) |
+| coldbrew | `4o5BKQUU7Ew` | Invidious: "soguk demleme kahve turkce" |
+| espresso | `4ZC-_ek3JLs` | Invidious: "espresso kahve yapimi turkce" |
+
+For niche methods (Stagg X, April, Origami, etc.), no dedicated Turkish tutorials exist —
+the app falls back to English videos for those methods.
+
 ---
 
 *Research compiled from YouTube oembed API verification, Invidious search crawling, James Hoffmann RSS feed (Ultimate Techniques playlist), and cross-referenced specialty coffee community knowledge.*
