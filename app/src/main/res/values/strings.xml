@@ -167,6 +167,9 @@
     <!-- Recipes screen -->
     <string name="recipes_title">Saved recipes</string>
     <string name="recipes_empty">No saved recipes yet.\nDial in a brew and tap Save.</string>
+    <string name="empty_recipes_title">No saved recipes</string>
+    <string name="empty_recipes_desc">Save your favorite brewing ratios for quick access</string>
+    <string name="empty_recipes_action">Go to Brew</string>
     <string name="recipes_summary">%1$s · %2$s g : %3$s ml</string>
     <string name="recipes_delete_confirm">Delete this recipe?</string>
 
@@ -369,6 +372,9 @@
     <!-- Brew log -->
     <string name="save_brew_log">Log this brew</string>
     <string name="log_empty">No brews logged yet.\nComplete a brew and save it to start building your diary.</string>
+    <string name="empty_brews_title">No brews logged yet</string>
+    <string name="empty_brews_desc">Start brewing to track your coffee journey</string>
+    <string name="empty_brews_action">Start your first brew</string>
     <string name="log_rating">Rating</string>
     <string name="log_grind_size">Grind size</string>
     <string name="log_grind_hint">e.g. 25 on Comandante, 3.5 on K-Ultra</string>
@@ -525,6 +531,34 @@
     <string name="brew_issue_bitter_advice">Grind coarser | Lower temp | Shorten brew time | Less agitation</string>
     <string name="brew_issue_weak_advice">Use more coffee (stronger ratio) | Grind finer | Check water temp</string>
     <string name="brew_issue_dry_advice">Grind coarser | Lower temp | Check for channeling | Reduce fines</string>
+
+    <!-- Flavor wheel -->
+    <string name="flavor_wheel_title">🎨 Coffee Flavor Wheel</string>
+    <string name="flavor_fruity">Fruity</string>
+    <string name="flavor_berry">Berry</string>
+    <string name="flavor_citrus">Citrus</string>
+    <string name="flavor_stone_fruit">Stone Fruit</string>
+    <string name="flavor_tropical">Tropical</string>
+    <string name="flavor_floral">Floral</string>
+    <string name="flavor_jasmine">Jasmine</string>
+    <string name="flavor_rose">Rose</string>
+    <string name="flavor_chamomile">Chamomile</string>
+    <string name="flavor_lavender">Lavender</string>
+    <string name="flavor_sweet">Sweet</string>
+    <string name="flavor_chocolate">Chocolate</string>
+    <string name="flavor_caramel">Caramel</string>
+    <string name="flavor_honey">Honey</string>
+    <string name="flavor_brown_sugar">Brown Sugar</string>
+    <string name="flavor_nutty_spice">Nutty/Spice</string>
+    <string name="flavor_almond">Almond</string>
+    <string name="flavor_cinnamon">Cinnamon</string>
+    <string name="flavor_clove">Clove</string>
+    <string name="flavor_nutmeg">Nutmeg</string>
+    <string name="flavor_earthy">Earthy</string>
+    <string name="flavor_woody">Woody</string>
+    <string name="flavor_tobacco">Tobacco</string>
+    <string name="flavor_leather">Leather</string>
+    <string name="flavor_mushroom">Mushroom</string>
 
     <string name="ratio_ref_title">Quick Ratio Reference</string>
     <string name="ratio_1_15">☕ 1:15 — Strong, intense, punchy</string>

@@ -31,6 +31,7 @@ import co.coffeery.app.data.model.RoastLevel
 import co.coffeery.app.ui.components.AppText
 import co.coffeery.app.ui.components.CoffeeCard
 import co.coffeery.app.ui.components.CoffeeDialog
+import co.coffeery.app.ui.components.Glyph
 import co.coffeery.app.ui.components.LineIcon
 import co.coffeery.app.ui.components.PrimaryButton
 import co.coffeery.app.ui.components.ScreenHeader
@@ -39,6 +40,7 @@ import co.coffeery.app.ui.components.displayName
 import co.coffeery.app.ui.components.glyph
 import co.coffeery.app.ui.screens.root.AppUiState
 import co.coffeery.app.ui.screens.root.AppViewModel
+import co.coffeery.app.ui.screens.root.NavTab
 import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
 import co.coffeery.app.util.BrewMath
@@ -61,13 +63,21 @@ fun RecipesScreen(state: AppUiState, vm: AppViewModel) {
 
         if (state.recipes.isEmpty()) {
             Spacer(Modifier.height(40.dp))
-            AppText(
-                stringResource(R.string.recipes_empty),
-                style = CoffeeTheme.type.body,
-                color = colors.textSecondary,
-                align = TextAlign.Center,
+            Column(
                 modifier = Modifier.fillMaxWidth(),
-            )
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                LineIcon(Glyph.BOOKMARK, colors.accent, Modifier.size(48.dp))
+                Spacer(Modifier.height(16.dp))
+                AppText(stringResource(R.string.empty_recipes_title), style = CoffeeTheme.type.title)
+                Spacer(Modifier.height(4.dp))
+                AppText(stringResource(R.string.empty_recipes_desc), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                Spacer(Modifier.height(16.dp))
+                PrimaryButton(
+                    text = stringResource(R.string.empty_recipes_action),
+                    onClick = { vm.selectTab(NavTab.BREW) },
+                )
+            }
         } else {
             state.recipes.forEach { recipe ->
                 RecipeRow(

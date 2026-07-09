@@ -36,6 +36,8 @@ import co.coffeery.app.data.local.BrewLogEntity
 import co.coffeery.app.ui.components.AppText
 import co.coffeery.app.ui.components.CoffeeCard
 import co.coffeery.app.ui.components.CoffeeDialog
+import co.coffeery.app.ui.components.Glyph
+import co.coffeery.app.ui.components.LineIcon
 import co.coffeery.app.ui.components.PrimaryButton
 import co.coffeery.app.ui.components.SegmentedControl
 import co.coffeery.app.ui.components.SecondaryButton
@@ -269,9 +271,21 @@ private fun BrewLogContent(state: co.coffeery.app.ui.screens.root.AppUiState, vm
 
     if (state.brewLogs.isEmpty()) {
         Spacer(Modifier.height(40.dp))
-        AppText(stringResource(R.string.log_empty), style = CoffeeTheme.type.body, color = colors.textSecondary, modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp))
-        Spacer(Modifier.height(12.dp))
-        AppText(stringResource(R.string.log_streak_start), style = CoffeeTheme.type.caption, color = colors.textSecondary, modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp))
+        Column(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            LineIcon(Glyph.CUP, colors.accent, Modifier.size(48.dp))
+            Spacer(Modifier.height(16.dp))
+            AppText(stringResource(R.string.empty_brews_title), style = CoffeeTheme.type.title)
+            Spacer(Modifier.height(4.dp))
+            AppText(stringResource(R.string.empty_brews_desc), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+            Spacer(Modifier.height(16.dp))
+            PrimaryButton(
+                text = stringResource(R.string.empty_brews_action),
+                onClick = { vm.selectTab(NavTab.BREW) },
+            )
+        }
     } else {
         val streak = currentStreak(state.brewLogs)
         LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {

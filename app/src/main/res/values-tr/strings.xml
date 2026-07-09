@@ -167,6 +167,9 @@
     <!-- Tarifler ekranı -->
     <string name="recipes_title">Kayıtlı tarifler</string>
     <string name="recipes_empty">Henüz kayıtlı tarif yok.\nBir demleme ayarla ve Kaydet\'e dokun.</string>
+    <string name="empty_recipes_title">Kayıtlı tarif yok</string>
+    <string name="empty_recipes_desc">Hızlı erişim için favori demleme oranlarını kaydet</string>
+    <string name="empty_recipes_action">Demleme\'ye git</string>
     <string name="recipes_summary">%1$s · %2$s g : %3$s ml</string>
     <string name="recipes_delete_confirm">Bu tarif silinsin mi?</string>
 
@@ -369,6 +372,9 @@
     <!-- Brew log -->
     <string name="save_brew_log">Bu demlemeyi kaydet</string>
     <string name="log_empty">Henüz kayıtlı demleme yok.\nBir demleme tamamlayıp kaydederek günlüğünü oluştur.</string>
+    <string name="empty_brews_title">Henüz demleme kaydı yok</string>
+    <string name="empty_brews_desc">Kahve yolculuğunu takip etmek için demleme yap</string>
+    <string name="empty_brews_action">İlk demlemeni yap</string>
     <string name="log_rating">Puan</string>
     <string name="log_grind_size">Öğütüm boyutu</string>
     <string name="log_grind_hint">örn. Comandante\'de 25, K-Ultra\'da 3.5</string>
@@ -525,6 +531,34 @@
     <string name="brew_issue_bitter_advice">Daha kaba öğüt | Sıcaklığı düşür | Demlemeyi kısalt | Daha az karıştır</string>
     <string name="brew_issue_weak_advice">Daha fazla kahve (güçlü oran) | Daha ince öğüt | Su sıcaklığını kontrol et</string>
     <string name="brew_issue_dry_advice">Daha kaba öğüt | Sıcaklığı düşür | Kanallaşmayı kontrol et | İnce tozu azalt</string>
+
+    <!-- Tat çemberi -->
+    <string name="flavor_wheel_title">🎨 Kahve Tat Çemberi</string>
+    <string name="flavor_fruity">Meyvemsi</string>
+    <string name="flavor_berry">Orman Meyvesi</string>
+    <string name="flavor_citrus">Turunçgil</string>
+    <string name="flavor_stone_fruit">Çekirdekli Meyve</string>
+    <string name="flavor_tropical">Tropikal</string>
+    <string name="flavor_floral">Çiçeksi</string>
+    <string name="flavor_jasmine">Yasemin</string>
+    <string name="flavor_rose">Gül</string>
+    <string name="flavor_chamomile">Papatya</string>
+    <string name="flavor_lavender">Lavanta</string>
+    <string name="flavor_sweet">Tatlı</string>
+    <string name="flavor_chocolate">Çikolata</string>
+    <string name="flavor_caramel">Karamel</string>
+    <string name="flavor_honey">Bal</string>
+    <string name="flavor_brown_sugar">Esmer Şeker</string>
+    <string name="flavor_nutty_spice">Fındıksı/Baharatlı</string>
+    <string name="flavor_almond">Badem</string>
+    <string name="flavor_cinnamon">Tarçın</string>
+    <string name="flavor_clove">Karanfil</string>
+    <string name="flavor_nutmeg">Muskat</string>
+    <string name="flavor_earthy">Topraksı</string>
+    <string name="flavor_woody">Odunsu</string>
+    <string name="flavor_tobacco">Tütün</string>
+    <string name="flavor_leather">Deri</string>
+    <string name="flavor_mushroom">Mantar</string>
 
     <string name="ratio_ref_title">Hızlı Oran Referansı</string>
     <string name="ratio_1_15">☕ 1:15 — Güçlü, yoğun, vurucu</string>

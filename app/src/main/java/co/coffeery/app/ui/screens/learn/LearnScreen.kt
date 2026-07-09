@@ -134,6 +134,8 @@ fun LearnScreen(vm: AppViewModel) {
 
         BrewTroubleshooterCard()
 
+        FlavorWheelCard()
+
         ExtractionCalculatorCard()
 
         WaterMineralCard()
@@ -461,6 +463,41 @@ private val GlossaryTerms = listOf(
     GlossaryTerm(R.string.glossary_term_24, R.string.glossary_def_24),
     GlossaryTerm(R.string.glossary_term_25, R.string.glossary_def_25),
 )
+
+private data class FlavorCategory(val labelRes: Int, val notes: List<Int>)
+
+private val FlavorWheelData = listOf(
+    FlavorCategory(R.string.flavor_fruity, listOf(R.string.flavor_berry, R.string.flavor_citrus, R.string.flavor_stone_fruit, R.string.flavor_tropical)),
+    FlavorCategory(R.string.flavor_floral, listOf(R.string.flavor_jasmine, R.string.flavor_rose, R.string.flavor_chamomile, R.string.flavor_lavender)),
+    FlavorCategory(R.string.flavor_sweet, listOf(R.string.flavor_chocolate, R.string.flavor_caramel, R.string.flavor_honey, R.string.flavor_brown_sugar)),
+    FlavorCategory(R.string.flavor_nutty_spice, listOf(R.string.flavor_almond, R.string.flavor_cinnamon, R.string.flavor_clove, R.string.flavor_nutmeg)),
+    FlavorCategory(R.string.flavor_earthy, listOf(R.string.flavor_woody, R.string.flavor_tobacco, R.string.flavor_leather, R.string.flavor_mushroom)),
+)
+
+@Composable
+private fun FlavorWheelCard() {
+    val colors = CoffeeTheme.colors
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        AppText(stringResource(R.string.flavor_wheel_title), style = CoffeeTheme.type.title)
+        Spacer(Modifier.height(8.dp))
+        FlavorWheelData.forEach { category ->
+            Spacer(Modifier.height(8.dp))
+            AppText(stringResource(category.labelRes), style = CoffeeTheme.type.headline, color = colors.accent)
+            Spacer(Modifier.height(4.dp))
+            category.notes.chunked(4).forEach { rowItems ->
+                Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.padding(bottom = 6.dp)) {
+                    rowItems.forEach { noteRes ->
+                        Chip(
+                            text = stringResource(noteRes),
+                            background = colors.accentSoft,
+                            textColor = colors.textPrimary,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
 
 @Composable
 private fun GlossaryCard() {
