@@ -134,6 +134,7 @@ data class Equipment(
     val isCustom: Boolean = false,
     /** Non-null only for user-created gear; takes precedence over [nameRes]. */
     val customName: String? = null,
+    val youtubeUrl: String? = null,
 ) {
     /** Position of [ratioDefault] on the 0..1 strength axis (1 = strongest). */
     val defaultStrength: Float

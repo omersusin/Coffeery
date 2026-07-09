@@ -57,6 +57,7 @@ data class AppUiState(
     val brewLogs: List<BrewLogEntity> = emptyList(),
     val beans: List<BeanEntity> = emptyList(),
     val completedChapters: Set<Int> = emptySet(),
+    val stepWaterOverrides: Map<Int, Float> = emptyMap(),
 ) {
     val selectedEquipment: Equipment?
         get() = equipment.firstOrNull { it.id == selectedEquipmentId }
@@ -293,6 +294,11 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             repo.upsertSettings(cur)
         }
     }
+
+    fun setStepWaterOverride(stepIndex: Int, pct: Float) = _state.update {
+        it.copy(stepWaterOverrides = it.stepWaterOverrides + (stepIndex to pct.coerceIn(0f, 1f)))
+    }
+    fun clearStepWaterOverrides() = _state.update { it.copy(stepWaterOverrides = emptyMap()) }
 
     fun completeOnboarding() {
         _state.update { it.copy(hasCompletedOnboarding = true) }

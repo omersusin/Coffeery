@@ -141,6 +141,12 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
         }
     }
 
+    LaunchedEffect(stepIndex, everStarted) {
+        if (stepIndex == 0 && !everStarted) {
+            vm.clearStepWaterOverrides()
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -206,15 +212,51 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
                 color = colors.textPrimary,
             )
         }
+        val effectivePct = state.stepWaterOverrides[stepIndex] ?: step.waterTargetPct
+        val pourGrams = BrewMath.stepWaterGrams(effectivePct, totalWater)
+
         if (step.waterTargetPct >= 0f) {
             Spacer(Modifier.height(6.dp))
             AppText(
-                stringResource(R.string.brew_pour_to, BrewMath.stepWaterGrams(step.waterTargetPct, totalWater)),
+                stringResource(R.string.brew_pour_to, pourGrams),
                 style = CoffeeTheme.type.body,
                 color = colors.accent,
                 modifier = Modifier.fillMaxWidth(),
                 align = TextAlign.Center,
             )
+        }
+
+        if (step.waterTargetPct >= 0f && (running || everStarted)) {
+            Spacer(Modifier.height(8.dp))
+            AppText(
+                stringResource(R.string.brew_adjust_pour),
+                style = CoffeeTheme.type.caption,
+                color = colors.textSecondary,
+                modifier = Modifier.fillMaxWidth(),
+                align = TextAlign.Center,
+            )
+            Spacer(Modifier.height(4.dp))
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                SecondaryButton(stringResource(R.string.brew_adjust_less), Modifier) {
+                    val newPct = (effectivePct - 0.05f).coerceAtLeast(0f)
+                    vm.setStepWaterOverride(stepIndex, newPct)
+                }
+                Spacer(Modifier.width(16.dp))
+                AppText(
+                    "${pourGrams}g",
+                    style = CoffeeTheme.type.body,
+                    color = colors.textPrimary,
+                )
+                Spacer(Modifier.width(16.dp))
+                SecondaryButton(stringResource(R.string.brew_adjust_more), Modifier) {
+                    val newPct = (effectivePct + 0.05f).coerceAtMost(1f)
+                    vm.setStepWaterOverride(stepIndex, newPct)
+                }
+            }
         }
 
         if (stepIndex < steps.lastIndex) {

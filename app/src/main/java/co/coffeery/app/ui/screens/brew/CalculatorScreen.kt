@@ -1,5 +1,7 @@
 package co.coffeery.app.ui.screens.brew
 
+import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -172,13 +174,29 @@ private fun EquipmentDropdown(state: AppUiState, vm: AppViewModel, eq: Equipment
     val equipmentInCategory = state.equipment.filter { it.category == eq.category }
     var showPicker by remember { mutableStateOf(false) }
 
-    CoffeeCard(onClick = { showPicker = true }, modifier = Modifier.fillMaxWidth()) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            EquipmentIcon(eq, colors.accent, Modifier.size(28.dp))
-            AppText(eq.displayName(), style = CoffeeTheme.type.title, modifier = Modifier.weight(1f))
-            AppText("▾", style = CoffeeTheme.type.title, color = colors.accent)
+        CoffeeCard(onClick = { showPicker = true }, modifier = Modifier.fillMaxWidth()) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                EquipmentIcon(eq, colors.accent, Modifier.size(28.dp))
+                AppText(eq.displayName(), style = CoffeeTheme.type.title, modifier = Modifier.weight(1f))
+                AppText("▾", style = CoffeeTheme.type.title, color = colors.accent)
+            }
         }
-    }
+
+        if (eq.youtubeUrl != null) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+                AppText(
+                    stringResource(R.string.calc_watch_video),
+                    style = CoffeeTheme.type.label,
+                    color = colors.accent,
+                    modifier = Modifier
+                        .clip(CoffeeShapes.pill)
+                        .clickable(indication = null, interactionSource = remember { MutableInteractionSource() }) {
+                            ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(eq.youtubeUrl!!)))
+                        }
+                        .padding(horizontal = 8.dp, vertical = 4.dp),
+                )
+            }
+        }
 
     if (showPicker) {
         EquipmentPickerDialog(

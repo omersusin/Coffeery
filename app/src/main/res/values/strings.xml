@@ -133,6 +133,9 @@
     <string name="brew_complete">Enjoy your coffee ☕</string>
     <string name="brew_complete_sub">Brewed with %1$s</string>
     <string name="brew_elapsed">Total elapsed</string>
+    <string name="brew_adjust_pour">Adjust pour</string>
+    <string name="brew_adjust_less">−</string>
+    <string name="brew_adjust_more">+</string>
 
     <!-- Generic brew step titles -->
     <string name="step_rinse">Rinse the filter</string>
@@ -249,6 +252,9 @@
     <string name="equip_batchbrew_tag">Automatic drip machine</string>
     <string name="equip_napoletana_name">Napoletana</string>
     <string name="equip_napoletana_tag">Neapolitan flip pot</string>
+
+    <string name="equip_watch_video">Watch tutorial</string>
+    <string name="calc_watch_video">Watch</string>
 
     <!-- ===== v2 additions ===== -->
     <string name="equip_cafec_name">Cafec Flower Dripper</string>

@@ -133,6 +133,9 @@
     <string name="brew_complete">Kahvenin tadını çıkar ☕</string>
     <string name="brew_complete_sub">%1$s ile demlendi</string>
     <string name="brew_elapsed">Toplam süre</string>
+    <string name="brew_adjust_pour">Dökümü ayarla</string>
+    <string name="brew_adjust_less">−</string>
+    <string name="brew_adjust_more">+</string>
 
     <!-- Genel demleme adımı başlıkları -->
     <string name="step_rinse">Filtreyi yıka</string>
@@ -249,6 +252,9 @@
     <string name="equip_batchbrew_tag">Otomatik filtre makinesi</string>
     <string name="equip_napoletana_name">Napoletana</string>
     <string name="equip_napoletana_tag">Napoli çevirmeli cezve</string>
+
+    <string name="equip_watch_video">Video izle</string>
+    <string name="calc_watch_video">İzle</string>
 
     <!-- ===== v2 additions ===== -->
     <string name="equip_cafec_name">Cafec Flower Dripper</string>

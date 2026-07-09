@@ -33,15 +33,19 @@ import co.coffeery.app.ui.screens.root.AppViewModel
 import co.coffeery.app.ui.screens.root.Route
 import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.draw.clip
 
 @Composable
 fun EquipmentScreen(state: AppUiState, vm: AppViewModel) {
     val colors = CoffeeTheme.colors
+    val ctx = LocalContext.current
     val builtIns = state.equipment.filter { !it.isCustom }
     val custom = state.equipment.filter { it.isCustom }
 
@@ -72,6 +76,20 @@ fun EquipmentScreen(state: AppUiState, vm: AppViewModel) {
                         EquipmentIcon(eq, colors.accent, Modifier.size(32.dp))
                         Spacer(Modifier.height(4.dp))
                         AppText(eq.displayName(), style = CoffeeTheme.type.caption, maxLines = 1)
+                        if (eq.youtubeUrl != null) {
+                            Spacer(Modifier.height(2.dp))
+                            AppText(
+                                stringResource(R.string.calc_watch_video),
+                                style = CoffeeTheme.type.caption,
+                                color = colors.accent,
+                                modifier = Modifier
+                                    .clip(CoffeeShapes.pill)
+                                    .clickable(indication = null, interactionSource = remember { MutableInteractionSource() }) {
+                                        ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(eq.youtubeUrl!!)))
+                                    }
+                                    .padding(horizontal = 4.dp, vertical = 2.dp),
+                            )
+                        }
                     }
                 }
             }
@@ -111,6 +129,7 @@ fun EquipmentScreen(state: AppUiState, vm: AppViewModel) {
 @Composable
 private fun GearTile(eq: Equipment, selected: Boolean, modifier: Modifier = Modifier, onClick: () -> Unit) {
     val colors = CoffeeTheme.colors
+    val ctx = LocalContext.current
     val outer = if (selected) modifier.border(2.dp, colors.accent, CoffeeShapes.medium) else modifier
     CoffeeCard(onClick = onClick, modifier = outer) {
         EquipmentIcon(eq, colors.accent, Modifier.size(30.dp))
@@ -121,6 +140,20 @@ private fun GearTile(eq: Equipment, selected: Boolean, modifier: Modifier = Modi
             AppText(tag, style = CoffeeTheme.type.caption, color = colors.textSecondary, maxLines = 1)
         } else {
             AppText(stringResource(eq.category.labelRes), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+        }
+        if (eq.youtubeUrl != null) {
+            Spacer(Modifier.height(4.dp))
+            AppText(
+                stringResource(R.string.equip_watch_video),
+                style = CoffeeTheme.type.label,
+                color = colors.accent,
+                modifier = Modifier
+                    .clip(CoffeeShapes.pill)
+                    .clickable(indication = null, interactionSource = remember { MutableInteractionSource() }) {
+                        ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(eq.youtubeUrl!!)))
+                    }
+                    .padding(horizontal = 6.dp, vertical = 4.dp),
+            )
         }
     }
 }
