@@ -20,6 +20,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -51,7 +53,16 @@ fun LearnScreen(vm: AppViewModel) {
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
     var activeChapterRes by remember { mutableStateOf(LearnContent.chapterOrder[0]) }
-    val completedChapters = vm.state.collectAsState().value.completedChapters
+    val state by vm.state.collectAsState()
+    val completedChapters = state.completedChapters
+
+    LaunchedEffect(Unit) {
+        scrollState.scrollTo(state.learnScrollOffset)
+    }
+
+    DisposableEffect(Unit) {
+        onDispose { vm.setLearnScrollOffset(scrollState.value) }
+    }
     Column(
         modifier = Modifier
             .fillMaxWidth()

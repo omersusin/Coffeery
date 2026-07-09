@@ -59,6 +59,7 @@ data class AppUiState(
     val beans: List<BeanEntity> = emptyList(),
     val completedChapters: Set<Int> = emptySet(),
     val stepWaterOverrides: Map<Int, Float> = emptyMap(),
+    val learnScrollOffset: Int = 0,
 ) {
     val selectedEquipment: Equipment?
         get() = equipment.firstOrNull { it.id == selectedEquipmentId }
@@ -285,6 +286,10 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         )) }
 
     fun archiveBean(id: Long) = viewModelScope.launch { repo.archiveBean(id) }
+
+    fun setLearnScrollOffset(offset: Int) {
+        _state.update { it.copy(learnScrollOffset = offset) }
+    }
 
     fun markLearnCardRead(chapterRes: Int) {
         val newSet = _state.value.completedChapters + chapterRes
