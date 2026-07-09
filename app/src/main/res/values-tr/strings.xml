@@ -373,9 +373,9 @@
     <string name="log_grind_hint">örn. Comandante\'de 25, K-Ultra\'da 3.5</string>
     <string name="log_notes">Tadım notları</string>
     <string name="log_notes_hint">Buruk, parlak, çikolata bitişli…</string>
-    <string name="log_bean_label">Fasulye</string>
+    <string name="log_bean_label">Çekirdek</string>
     <string name="log_bean_none">Hiçbiri</string>
-    <string name="log_bean_empty">Henüz fasulye yok. Fasulyeler sekmesine ekleyin.</string>
+    <string name="log_bean_empty">Henüz çekirdek yok. Çekirdekler sekmesine ekleyin.</string>
 
     <!-- Beans -->
     <string name="beans_title">Çekirdekler</string>
@@ -399,7 +399,7 @@
     <string name="log_analytics_week">Bu Hafta</string>
     <string name="log_analytics_method">Yöntem</string>
     <string name="log_analytics_rating">Ort. puan</string>
-    <string name="log_analytics_bean">En iyi fasulye</string>
+    <string name="log_analytics_bean">En iyi çekirdek</string>
 
     <!-- ===== Learn tools v2 ===== -->
     <string name="learn_extraction_calc_title">Ekstraksiyon Verimi Hesaplayıcı</string>
