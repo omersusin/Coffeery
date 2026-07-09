@@ -83,6 +83,15 @@ class CoffeeRepository(context: Context, private val db: AppDatabase) {
         db.settingsDao().upsert(SettingsEntity())
     }
 
+    suspend fun exportLogsAsCsv(): String {
+        val logs = db.brewLogDao().observeAll().first()
+        val sb = StringBuilder("Date,Equipment,Coffee(g),Water(ml),Ratio,Grind,Temp,Time(s),Rating,Notes,Bean\n")
+        for (l in logs) {
+            sb.append("${l.timestamp},${l.equipmentName},${l.coffeeGrams},${l.waterMl},1:${l.ratioDenominator},${l.grind},${l.tempCelsius},${l.totalDurationSec},${l.rating},${l.tastingNotes},${l.beanName}\n")
+        }
+        return sb.toString()
+    }
+
     // --- Export / Import ---
     suspend fun exportAllToJson(): String {
         val recipes = db.recipeDao().observeAll().first()

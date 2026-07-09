@@ -36,6 +36,12 @@ data class SettingsEntity(
     val completedChapters: String = "",
     val ratioMode: Boolean = false,
     val manualRatio: Double = 16.0,
+    val bloomDurationSec: Int = 40,
+    val pourDurationSec: Int = 45,
+    val steepDurationSec: Int = 240,
+    val drawdownDurationSec: Int = 55,
+    val timerAutoAdvance: Boolean = false,
+    val timerDisplayMode: String = "countdown",
 )
 
 /** A completed brew session. Immutable after creation — history, not a preset. */

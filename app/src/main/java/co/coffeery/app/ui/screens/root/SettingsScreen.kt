@@ -193,6 +193,27 @@ fun SettingsScreen(vm: AppViewModel) {
             }
         }
 
+        SettingsSection(R.string.settings_brew_custom) {
+            AppText(stringResource(R.string.settings_step_overrides), style = CoffeeTheme.type.body)
+            Spacer(Modifier.height(8.dp))
+            DurationRow("Bloom", state.settings.bloomDurationSec) { newVal ->
+                vm.setTimerSetting { it.copy(bloomDurationSec = newVal) }
+            }
+            DurationRow("Pour", state.settings.pourDurationSec) { newVal ->
+                vm.setTimerSetting { it.copy(pourDurationSec = newVal) }
+            }
+            DurationRow("Steep", state.settings.steepDurationSec) { newVal ->
+                vm.setTimerSetting { it.copy(steepDurationSec = newVal) }
+            }
+            DurationRow("Drawdown", state.settings.drawdownDurationSec) { newVal ->
+                vm.setTimerSetting { it.copy(drawdownDurationSec = newVal) }
+            }
+            Spacer(Modifier.height(12.dp))
+            ToggleRow(R.string.settings_auto_advance, state.settings.timerAutoAdvance) {
+                vm.setTimerSetting { it.copy(timerAutoAdvance = !it.timerAutoAdvance) }
+            }
+        }
+
         SettingsSection(R.string.settings_notifications) {
             ToggleRow(R.string.settings_notify_brew_complete, state.settings.notificationsBrewComplete) {
                 vm.setTimerSetting { it.copy(notificationsBrewComplete = !it.notificationsBrewComplete) }
@@ -205,6 +226,9 @@ fun SettingsScreen(vm: AppViewModel) {
         SettingsSection(R.string.settings_my_data) {
             ActionRow(stringResource(R.string.settings_export_data)) {
                 vm.exportData(ctx)
+            }
+            ActionRow(stringResource(R.string.settings_export_csv)) {
+                vm.exportCsv(ctx)
             }
             ActionRow(stringResource(R.string.settings_import_paste)) {
                 vm.importData(ctx)
@@ -350,5 +374,15 @@ private fun AboutRow(labelRes: Int, value: String) {
     ) {
         AppText(stringResource(labelRes), style = CoffeeTheme.type.body, modifier = Modifier.weight(1f), color = colors.textPrimary)
         AppText(value, style = CoffeeTheme.type.caption, color = colors.textSecondary)
+    }
+}
+
+@Composable
+private fun DurationRow(label: String, value: Int, onChange: (Int) -> Unit) {
+    Row(Modifier.fillMaxWidth().padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+        AppText(label, style = CoffeeTheme.type.body, modifier = Modifier.weight(1f))
+        AppText("-", modifier = Modifier.clickable { onChange((value - 5).coerceAtLeast(0)) }.padding(8.dp))
+        AppText("${value}s", style = CoffeeTheme.type.title, modifier = Modifier.padding(horizontal = 8.dp))
+        AppText("+", modifier = Modifier.clickable { onChange((value + 5).coerceAtMost(600)) }.padding(8.dp))
     }
 }

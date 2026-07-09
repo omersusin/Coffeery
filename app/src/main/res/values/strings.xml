@@ -629,6 +629,10 @@
     <string name="settings_version">Version</string>
     <string name="settings_github">GitHub repository</string>
     <string name="settings_whats_new">What\'s new</string>
+    <string name="settings_brew_custom">Brew Customization</string>
+    <string name="settings_step_overrides">Step durations (0 = use equipment default)</string>
+    <string name="settings_auto_advance">Auto-advance steps</string>
+    <string name="settings_export_csv">Export brew logs as CSV</string>
 
     <!-- ===== v3 learn cards l21-l30 ===== -->
     <string name="learn_l21_title">Advanced Extraction Theory</string>

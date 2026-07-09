@@ -367,6 +367,22 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
+    fun exportCsv(ctx: Context) {
+        viewModelScope.launch {
+            try {
+                val csv = repo.exportLogsAsCsv()
+                val sendIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/csv"
+                    putExtra(Intent.EXTRA_TEXT, csv)
+                    putExtra(Intent.EXTRA_SUBJECT, "Coffeery brew logs")
+                }
+                ctx.startActivity(Intent.createChooser(sendIntent, "Export brew logs"))
+            } catch (e: Exception) {
+                Toast.makeText(ctx, "Export failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     fun applyBrewLog(log: BrewLogEntity) = _state.update {
         it.copy(
             selectedEquipmentId = log.equipmentId,

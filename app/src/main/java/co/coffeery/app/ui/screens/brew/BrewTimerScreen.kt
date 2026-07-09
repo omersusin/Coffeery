@@ -79,6 +79,8 @@ import co.coffeery.app.ui.components.glyph
 import co.coffeery.app.ui.screens.root.AppUiState
 import co.coffeery.app.ui.screens.root.AppViewModel
 import co.coffeery.app.ui.theme.CoffeeTheme
+import co.coffeery.app.data.model.Equipment
+import co.coffeery.app.data.model.StepKind
 import co.coffeery.app.util.BrewMath
 import co.coffeery.app.util.Format
 import kotlinx.coroutines.delay
@@ -89,7 +91,16 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
     val eq = state.selectedEquipment ?: return
     val rawSteps = eq.steps
     if (rawSteps.isEmpty()) return
-    val steps = if (state.settings.timerMergeWeight) mergePours(rawSteps) else rawSteps
+    val steps = (if (state.settings.timerMergeWeight) mergePours(rawSteps) else rawSteps).map { step ->
+        val override = when (step.kind) {
+            StepKind.BLOOM -> state.settings.bloomDurationSec.takeIf { it > 0 }
+            StepKind.POUR -> state.settings.pourDurationSec.takeIf { it > 0 }
+            StepKind.STEEP -> state.settings.steepDurationSec.takeIf { it > 0 }
+            StepKind.DRAWDOWN -> state.settings.drawdownDurationSec.takeIf { it > 0 }
+            else -> null
+        }
+        if (override != null) step.copy(durationSec = override) else step
+    }
     val result = BrewMath.compute(eq, state.strength, state.roast, state.byCups, state.cups, state.waterMl)
     val totalWater = result.waterMl
     val plannedTotal = steps.sumOf { it.durationSec }
@@ -136,6 +147,9 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
                 if (stepIndex < steps.lastIndex) {
                     stepIndex++
                     remaining = steps[stepIndex].durationSec
+                    if (!state.settings.timerAutoAdvance) {
+                        running = false
+                    }
                     if (state.settings.timerVibrate) {
                         val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

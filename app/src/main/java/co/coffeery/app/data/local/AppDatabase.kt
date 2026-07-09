@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(
     entities = [RecipeEntity::class, CustomEquipmentEntity::class, SettingsEntity::class, BrewLogEntity::class, BeanEntity::class],
-    version = 5,
+    version = 6,
     exportSchema = false,
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -32,13 +32,24 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_5_6 = object : Migration(5, 6) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE settings ADD COLUMN bloomDurationSec INTEGER NOT NULL DEFAULT 40")
+                db.execSQL("ALTER TABLE settings ADD COLUMN pourDurationSec INTEGER NOT NULL DEFAULT 45")
+                db.execSQL("ALTER TABLE settings ADD COLUMN steepDurationSec INTEGER NOT NULL DEFAULT 240")
+                db.execSQL("ALTER TABLE settings ADD COLUMN drawdownDurationSec INTEGER NOT NULL DEFAULT 55")
+                db.execSQL("ALTER TABLE settings ADD COLUMN timerAutoAdvance INTEGER NOT NULL DEFAULT 0")
+                db.execSQL("ALTER TABLE settings ADD COLUMN timerDisplayMode TEXT NOT NULL DEFAULT 'countdown'")
+            }
+        }
+
         fun get(context: Context): AppDatabase =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
                     "coffeery.db",
-                ).addMigrations(MIGRATION_4_5).build().also { INSTANCE = it }
+                ).addMigrations(MIGRATION_4_5, MIGRATION_5_6).build().also { INSTANCE = it }
             }
     }
 }

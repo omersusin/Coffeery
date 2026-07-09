@@ -614,6 +614,10 @@
     <string name="settings_version">Sürüm</string>
     <string name="settings_github">GitHub deposu</string>
     <string name="settings_whats_new">Yenilikler</string>
+    <string name="settings_brew_custom">Demleme Özelleştirme</string>
+    <string name="settings_step_overrides">Adım süreleri (0 = ekipman varsayılanı)</string>
+    <string name="settings_auto_advance">Adımları otomatik ilerlet</string>
+    <string name="settings_export_csv">Demleme günlüğünü CSV dışa aktar</string>
 
     <!-- Onboarding -->
     <string name="onboarding_welcome">Coffeery\'ye Hoş Geldiniz</string>
