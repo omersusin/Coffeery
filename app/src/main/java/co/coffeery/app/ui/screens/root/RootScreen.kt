@@ -7,7 +7,6 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,6 +30,7 @@ import co.coffeery.app.ui.screens.log.BrewLogScreen
 import co.coffeery.app.ui.screens.onboarding.OnboardingScreen
 import co.coffeery.app.ui.screens.recipes.RecipesScreen
 import co.coffeery.app.ui.theme.CoffeeTheme
+import co.coffeery.app.ui.theme.coffeeBackground
 
 private val routeTransition =
     slideInHorizontally { it / 4 } + fadeIn() togetherWith
@@ -45,11 +45,10 @@ fun RootScreen(vm: AppViewModel) {
         return@Composable
     }
     CoffeeTheme(themeMode = state.themeMode, palette = state.palette) {
-        val colors = CoffeeTheme.colors
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colors.background),
+                .coffeeBackground(),
         ) {
             Column(
                 modifier = Modifier

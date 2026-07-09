@@ -37,6 +37,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -44,6 +45,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import co.coffeery.app.R
 import co.coffeery.app.data.local.BrewLogEntity
 import co.coffeery.app.ui.components.AppText
@@ -138,7 +140,7 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
             modifier = Modifier.fillMaxWidth(),
             align = TextAlign.Center,
         )
-        Spacer(Modifier.height(20.dp))
+        Spacer(Modifier.height(12.dp))
 
         Box(
             modifier = Modifier
@@ -146,33 +148,55 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
                 .weight(1f),
             contentAlignment = Alignment.Center,
         ) {
-            ProgressRing(progress = progress)
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                LineIcon(step.kind.glyph(), colors.accent, Modifier.size(40.dp))
-                Spacer(Modifier.height(10.dp))
-                AppText(Format.clock(remaining), style = CoffeeTheme.type.display, color = colors.textPrimary)
-                Spacer(Modifier.height(6.dp))
-                AppText(stringResource(step.titleRes), style = CoffeeTheme.type.title, color = colors.textPrimary)
-                if (step.waterTargetPct >= 0f) {
-                    Spacer(Modifier.height(4.dp))
-                    AppText(
-                        stringResource(R.string.brew_pour_to, BrewMath.stepWaterGrams(step.waterTargetPct, totalWater)),
-                        style = CoffeeTheme.type.body,
-                        color = colors.accent,
-                    )
-                }
-            }
+            ProgressRing(progress = progress, color = colors.coffeeFor(progress))
+            AppText(
+                Format.clock(remaining),
+                style = CoffeeTheme.type.display.copy(
+                    fontSize = 72.sp,
+                    lineHeight = 76.sp,
+                ),
+                color = colors.textPrimary,
+            )
+        }
+
+        Spacer(Modifier.height(16.dp))
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            LineIcon(step.kind.glyph(), colors.accent, Modifier.size(24.dp))
+            Spacer(Modifier.width(8.dp))
+            AppText(
+                stringResource(step.titleRes),
+                style = CoffeeTheme.type.title,
+                color = colors.textPrimary,
+            )
+        }
+        if (step.waterTargetPct >= 0f) {
+            Spacer(Modifier.height(6.dp))
+            AppText(
+                stringResource(R.string.brew_pour_to, BrewMath.stepWaterGrams(step.waterTargetPct, totalWater)),
+                style = CoffeeTheme.type.body,
+                color = colors.accent,
+                modifier = Modifier.fillMaxWidth(),
+                align = TextAlign.Center,
+            )
         }
 
         if (stepIndex < steps.lastIndex) {
+            val nextStep = steps[stepIndex + 1]
+            Spacer(Modifier.height(12.dp))
             AppText(
-                stringResource(R.string.brew_next_up, stringResource(steps[stepIndex + 1].titleRes)),
+                stringResource(R.string.brew_next_up, stringResource(nextStep.titleRes) + " · " + Format.clock(nextStep.durationSec)),
                 style = CoffeeTheme.type.body,
                 color = colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
                 align = TextAlign.Center,
             )
         }
+
         Spacer(Modifier.height(18.dp))
 
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
@@ -197,10 +221,10 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
 }
 
 @Composable
-private fun ProgressRing(progress: Float) {
+private fun ProgressRing(progress: Float, color: Color) {
     val colors = CoffeeTheme.colors
-    Canvas(modifier = Modifier.size(240.dp)) {
-        val sw = 16.dp.toPx()
+    Canvas(modifier = Modifier.size(260.dp)) {
+        val sw = 12.dp.toPx()
         val inset = sw / 2f
         val arcSize = Size(size.width - sw, size.height - sw)
         drawArc(
@@ -213,7 +237,7 @@ private fun ProgressRing(progress: Float) {
             style = Stroke(width = sw),
         )
         drawArc(
-            color = colors.accent,
+            color = color,
             startAngle = -90f,
             sweepAngle = 360f * progress.coerceIn(0f, 1f),
             useCenter = false,

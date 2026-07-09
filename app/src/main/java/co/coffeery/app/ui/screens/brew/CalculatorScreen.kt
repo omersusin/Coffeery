@@ -1,8 +1,10 @@
 package co.coffeery.app.ui.screens.brew
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,6 +22,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -187,6 +192,7 @@ private fun StrengthSection(state: AppUiState, vm: AppViewModel, result: co.coff
 @Composable
 private fun RoastSection(state: AppUiState, vm: AppViewModel) {
     val colors = CoffeeTheme.colors
+    val roastFraction = state.roast.ordinal / (RoastLevel.entries.size - 1).toFloat()
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         AppText(stringResource(R.string.calc_roast), style = CoffeeTheme.type.headline)
         SegmentedControl(
@@ -196,6 +202,13 @@ private fun RoastSection(state: AppUiState, vm: AppViewModel) {
             onSelect = { vm.setRoast(it) },
             modifier = Modifier.fillMaxWidth(),
         )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(4.dp)
+                .clip(RoundedCornerShape(2.dp))
+                .background(colors.coffeeFor(roastFraction)),
+        )
         AppText(stringResource(state.roast.descRes), style = CoffeeTheme.type.caption, color = colors.textSecondary)
     }
 }
@@ -203,40 +216,53 @@ private fun RoastSection(state: AppUiState, vm: AppViewModel) {
 @Composable
 private fun OutputSection(result: co.coffeery.app.util.BrewResult, eq: Equipment) {
     val colors = CoffeeTheme.colors
-    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Metric(R.string.calc_out_coffee, stringResource(R.string.calc_grams, Format.grams(result.coffeeGrams)), Modifier.weight(1f))
-            Metric(R.string.calc_out_water, stringResource(R.string.calc_ml, result.waterMl.toString()), Modifier.weight(1f))
+    val grindColor = lerp(colors.cremaLight, colors.cremaDark, result.grind.ordinal / 6f)
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        AppText(stringResource(R.string.calc_out_coffee), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+        AppText(
+            stringResource(R.string.calc_grams, Format.grams(result.coffeeGrams)),
+            style = CoffeeTheme.type.number,
+            color = colors.textPrimary,
+        )
+
+        Spacer(Modifier.height(8.dp))
+
+        AppText(stringResource(R.string.calc_out_water), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+        AppText(
+            stringResource(R.string.calc_ml, result.waterMl.toString()),
+            style = CoffeeTheme.type.number,
+            color = colors.textPrimary,
+        )
+
+        Spacer(Modifier.height(8.dp))
+
+        val tempText = when (result.tempMode) {
+            TempMode.RANGE -> stringResource(R.string.calc_celsius, Format.temp(result.tempCelsius))
+            TempMode.SLOW -> stringResource(R.string.calc_temp_slow)
+            TempMode.COLD -> stringResource(R.string.calc_temp_cold)
         }
-        Spacer(Modifier.height(16.dp))
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            val tempText = when (result.tempMode) {
-                TempMode.RANGE -> stringResource(R.string.calc_celsius, Format.temp(result.tempCelsius))
-                TempMode.SLOW -> stringResource(R.string.calc_temp_slow)
-                TempMode.COLD -> stringResource(R.string.calc_temp_cold)
-            }
-            Metric(R.string.calc_out_temp, tempText, Modifier.weight(1f))
-            Metric(R.string.calc_out_grind, stringResource(result.grind.labelRes), Modifier.weight(1f))
-        }
-        Spacer(Modifier.height(10.dp))
-        AppText(stringResource(result.grind.refRes), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+        AppText(stringResource(R.string.calc_out_temp), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+        AppText(tempText, style = CoffeeTheme.type.number, color = colors.textPrimary)
+
+        Spacer(Modifier.height(8.dp))
+
+        AppText(stringResource(R.string.calc_out_grind), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+        AppText(stringResource(result.grind.labelRes), style = CoffeeTheme.type.number, color = colors.textPrimary)
+        Spacer(Modifier.height(2.dp))
+        AppText(stringResource(result.grind.refRes), style = CoffeeTheme.type.caption, color = grindColor)
+
         if (eq.timeLabel.isNotBlank()) {
-            Spacer(Modifier.height(4.dp))
+            Spacer(Modifier.height(6.dp))
             Row {
                 AppText(stringResource(R.string.calc_time) + ": ", style = CoffeeTheme.type.caption, color = colors.textSecondary)
                 AppText(eq.timeLabel, style = CoffeeTheme.type.caption, color = colors.textPrimary)
             }
         }
-    }
-}
-
-@Composable
-private fun Metric(labelRes: Int, value: String, modifier: Modifier = Modifier) {
-    val colors = CoffeeTheme.colors
-    Column(modifier) {
-        AppText(stringResource(labelRes), style = CoffeeTheme.type.caption, color = colors.textSecondary)
-        Spacer(Modifier.height(2.dp))
-        AppText(value, style = CoffeeTheme.type.number, color = colors.textPrimary, maxLines = 1)
     }
 }
 

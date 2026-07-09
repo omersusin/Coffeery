@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.sp
  *  the recipe read-outs. Uses the system sans family with bespoke sizing. */
 @Immutable
 data class CoffeeTypography(
+    val displayFontFamily: FontFamily = FontFamily.Serif,
     val display: TextStyle,
     val title: TextStyle,
     val headline: TextStyle,
@@ -23,10 +24,10 @@ data class CoffeeTypography(
 
 val DefaultCoffeeTypography = CoffeeTypography(
     display = TextStyle(
-        fontFamily = FontFamily.SansSerif,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Bold,
-        fontSize = 32.sp,
-        lineHeight = 36.sp,
+        fontSize = 36.sp,
+        lineHeight = 40.sp,
         letterSpacing = (-0.5).sp,
     ),
     title = TextStyle(
@@ -68,7 +69,7 @@ val DefaultCoffeeTypography = CoffeeTypography(
         lineHeight = 15.sp,
     ),
     number = TextStyle(
-        fontFamily = FontFamily.SansSerif,
+        fontFamily = FontFamily.Serif,
         fontWeight = FontWeight.Bold,
         fontSize = 30.sp,
         lineHeight = 32.sp,
