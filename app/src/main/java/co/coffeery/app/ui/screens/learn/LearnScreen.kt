@@ -201,12 +201,11 @@ private fun StepMap(
 ) {
     val colors = CoffeeTheme.colors
     val chapters = LearnContent.chapterOrder
-    LazyRow(
+    Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Center,
     ) {
-        items(chapters.size) { index ->
-            val chapterRes = chapters[index]
+        chapters.forEachIndexed { index, chapterRes ->
             val isCompleted = chapterRes in completedChapters
             val isUnlocked = index == 0 || chapters[index - 1] in completedChapters
             val isLocked = !isCompleted && !isUnlocked

@@ -46,8 +46,11 @@ fun BeanListScreen(vm: AppViewModel) {
             Spacer(Modifier.height(80.dp))
             AppText(stringResource(R.string.beans_empty), style = CoffeeTheme.type.body, color = colors.textSecondary, modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp))
         } else {
-            LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-                items(state.beans, key = { it.id }) { bean ->
+            Column(
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState()),
+            ) {
+                state.beans.forEach { bean ->
                     BeanCard(bean, vm)
                 }
             }

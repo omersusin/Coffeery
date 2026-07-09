@@ -288,19 +288,24 @@ private fun BrewLogContent(state: co.coffeery.app.ui.screens.root.AppUiState, vm
         }
     } else {
         val streak = currentStreak(state.brewLogs)
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState()),
+        ) {
             if (streak >= 1) {
-                item(key = "streak") { StreakBanner(streak) }
+                StreakBanner(streak)
             }
-            item(key = "heatmap") { BrewHeatmap(state.brewLogs) }
+            BrewHeatmap(state.brewLogs)
             if (state.brewLogs.size >= 3) {
-                item(key = "analytics") { AnalyticsCard(state.brewLogs) }
+                AnalyticsCard(state.brewLogs)
             }
             val best = bestRecipeFromLogs(state.brewLogs)
             if (best != null) {
-                item(key = "best_recipe") { BestRecipeBanner(best, vm) }
+                BestRecipeBanner(best, vm)
             }
-            items(state.brewLogs, key = { it.id }) { log -> BrewLogCard(log, vm) }
+            state.brewLogs.forEach { log ->
+                BrewLogCard(log, vm)
+            }
         }
     }
 }
@@ -467,7 +472,7 @@ private fun CaffeineContent(brewLogs: List<BrewLogEntity>) {
     }
 
     LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
-        item(key = "caffeine_summary") {
+        // item (inline)
             CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
                 AppText(stringResource(R.string.caffeine_today), style = CoffeeTheme.type.label, color = colors.textSecondary)
                 Spacer(Modifier.height(4.dp))

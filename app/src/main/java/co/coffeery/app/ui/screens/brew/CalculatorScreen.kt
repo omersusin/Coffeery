@@ -145,11 +145,11 @@ fun CalculatorScreen(state: AppUiState, vm: AppViewModel) {
 @Composable
 private fun CategoryChips(state: AppUiState, vm: AppViewModel, eq: Equipment) {
     val colors = CoffeeTheme.colors
-    LazyRow(
+    Row(
+        modifier = Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 2.dp),
     ) {
-        items(BrewCategory.entries) { cat ->
+        BrewCategory.entries.forEach { cat ->
             val isSelected = cat == eq.category
             val bg = if (isSelected) colors.accent else colors.accentSoft
             val fg = if (isSelected) colors.onAccent else colors.accent
