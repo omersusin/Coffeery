@@ -8,6 +8,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -523,7 +524,7 @@ private fun FlavorWheelCard() {
             AppText(stringResource(category.labelRes), style = CoffeeTheme.type.headline, color = colors.accent)
             Spacer(Modifier.height(4.dp))
             category.notes.chunked(4).forEach { rowItems ->
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.padding(bottom = 6.dp)) {
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.padding(bottom = 6.dp)) {
                     rowItems.forEach { noteRes ->
                         Chip(
                             text = stringResource(noteRes),

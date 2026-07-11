@@ -25,7 +25,10 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.unit.dp
 import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
@@ -55,7 +58,6 @@ fun <T> BottomNav(
                 .fillMaxWidth()
                 .navigationBarsPadding()
                 .padding(horizontal = 8.dp, vertical = 10.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
         ) {
             items.forEach { item ->
                 val isSelected = item == selected
@@ -64,20 +66,48 @@ fun <T> BottomNav(
                     animationSpec = tween(220),
                     label = "navColor",
                 )
+                val animatedBgColor by animateColorAsState(
+                    targetValue = if (isSelected) colors.accentSoft else colors.surface,
+                    animationSpec = tween(220),
+                    label = "navBg",
+                )
+                val animatedScale by animateFloatAsState(
+                    targetValue = if (isSelected) 1.1f else 1.0f,
+                    animationSpec = tween(220),
+                    label = "navScale",
+                )
                 Column(
                     modifier = Modifier
                         .weight(1f)
-                        .clip(CoffeeShapes.medium)
                         .clickable(
                             indication = null,
                             interactionSource = remember { MutableInteractionSource() },
-                        ) { onSelect(item) }
-                        .padding(vertical = 6.dp),
+                        ) { onSelect(item) },
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    LineIcon(glyphFor(item), animatedColor, Modifier.size(24.dp))
-                    AppText(text = labelFor(item), style = CoffeeTheme.type.caption, color = animatedColor)
+                    Box(
+                        modifier = Modifier
+                            .clip(CoffeeShapes.medium)
+                            .background(animatedBgColor)
+                            .padding(horizontal = 12.dp, vertical = 6.dp),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(4.dp),
+                        ) {
+                            LineIcon(
+                                glyphFor(item),
+                                animatedColor,
+                                Modifier.size(24.dp).scale(animatedScale),
+                            )
+                            AppText(
+                                text = labelFor(item),
+                                style = CoffeeTheme.type.caption,
+                                color = animatedColor,
+                            )
+                        }
+                    }
                 }
             }
         }

@@ -21,10 +21,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.rememberTextMeasurer
@@ -156,47 +160,117 @@ fun BrewControlChart(
     val idealTdsMin = 1.15f
     val idealTdsMax = 1.55f
 
-        val textMeasurer = rememberTextMeasurer()
-        Canvas(modifier = modifier.fillMaxWidth().height(240.dp)) {
-            val pad = 40f
-            val chartW = size.width - pad * 2f
-            val chartH = size.height - pad * 2f
+    val textMeasurer = rememberTextMeasurer()
+    val density = LocalDensity.current
+    val accentDotRadius = with(density) { 10.dp.toPx() }
+    val innerDotRadius = with(density) { 5.dp.toPx() }
+    val tickLength = with(density) { 4.dp.toPx() }
+    val cornerRadiusPx = with(density) { 12.dp.toPx() }
+    val borderWidth = with(density) { 1.5.dp.toPx() }
+    val labelStyle = TextStyle(fontSize = 10.sp)
+    val axisTitleStyle = TextStyle(fontSize = 11.sp)
+    val tickColor = colors.outline.copy(alpha = 0.6f)
 
-            fun x(ex: Float): Float = pad + ((ex - 14f) / 12f) * chartW
-            fun y(tdsVal: Float): Float = pad + chartH - ((tdsVal - 0.8f) / 1.0f) * chartH
+    Canvas(modifier = modifier.fillMaxWidth().height(240.dp)) {
+        val pad = 52f
+        val chartW = size.width - pad * 2f
+        val chartH = size.height - pad * 2f
 
-            drawLine(colors.outline, Offset(x(14f), pad), Offset(x(26f), pad))
-            drawLine(colors.outline, Offset(pad, y(0.8f)), Offset(pad, y(1.8f)))
+        fun x(ex: Float): Float = pad + ((ex - 14f) / 12f) * chartW
+        fun y(tdsVal: Float): Float = pad + chartH - ((tdsVal - 0.8f) / 1.0f) * chartH
 
-            drawRect(
-                color = colors.accentSoft.copy(alpha = 0.5f),
-                topLeft = Offset(x(idealExMin), y(idealTdsMax)),
-                size = Size(x(idealExMax) - x(idealExMin), y(idealTdsMin) - y(idealTdsMax)),
-            )
+        val chartLeft = x(14f)
+        val chartRight = x(26f)
+        val chartTop = y(1.8f)
+        val chartBottom = y(0.8f)
+        val chartSize = Size(chartRight - chartLeft, chartBottom - chartTop)
 
-            if (extractionYield > 0 && tds > 0) {
-                drawCircle(
-                    color = colors.accent,
-                    radius = 6f,
-                    center = Offset(x(extractionYield), y(tds)),
-                )
-                drawCircle(
-                    color = colors.onAccent,
-                    radius = 3f,
-                    center = Offset(x(extractionYield), y(tds)),
-                )
-            }
+        drawRoundRect(
+            color = colors.surface,
+            topLeft = Offset(chartLeft, chartTop),
+            size = chartSize,
+            cornerRadius = CornerRadius(cornerRadiusPx, cornerRadiusPx),
+        )
 
+        drawRect(
+            color = colors.accent.copy(alpha = 0.30f),
+            topLeft = Offset(x(idealExMin), y(idealTdsMax)),
+            size = Size(x(idealExMax) - x(idealExMin), y(idealTdsMin) - y(idealTdsMax)),
+        )
+
+        drawLine(colors.outline, Offset(chartLeft, pad), Offset(chartRight, pad))
+        drawLine(colors.outline, Offset(pad, chartTop), Offset(pad, chartBottom))
+
+        val xLabels = listOf(14f to "14", 18f to "18", 22f to "22", 26f to "26")
+        for ((value, text) in xLabels) {
+            val tx = x(value)
+            drawLine(tickColor, Offset(tx, pad - tickLength), Offset(tx, pad))
+            val measured = textMeasurer.measure(text, labelStyle)
             drawText(
                 textMeasurer,
-                "Extraction %",
-                topLeft = Offset(size.width / 2 - textMeasurer.measure("Extraction %").size.width / 2, pad - 30f),
+                text,
+                topLeft = Offset(tx - measured.size.width / 2f, pad + 4f),
+                style = labelStyle,
             )
+        }
+
+        val yLabels = listOf(0.8f to "0.8", 1.15f to "1.15", 1.55f to "1.55", 1.8f to "1.8")
+        for ((value, text) in yLabels) {
+            val ty = y(value)
+            drawLine(tickColor, Offset(pad, ty), Offset(pad + tickLength, ty))
+            val measured = textMeasurer.measure(text, labelStyle)
             drawText(
                 textMeasurer,
-                "TDS %",
-                topLeft = Offset(pad - 38f, size.height / 2),
+                text,
+                topLeft = Offset(pad - measured.size.width - 6f, ty - measured.size.height / 2f),
+                style = labelStyle,
             )
+        }
+
+        drawRoundRect(
+            color = colors.outline,
+            topLeft = Offset(chartLeft, chartTop),
+            size = chartSize,
+            cornerRadius = CornerRadius(cornerRadiusPx, cornerRadiusPx),
+            style = Stroke(width = borderWidth),
+        )
+
+        if (extractionYield > 0 && tds > 0) {
+            drawCircle(
+                color = colors.accent,
+                radius = accentDotRadius,
+                center = Offset(x(extractionYield), y(tds)),
+            )
+            drawCircle(
+                color = colors.onAccent,
+                radius = innerDotRadius,
+                center = Offset(x(extractionYield), y(tds)),
+            )
+        }
+
+        val exTitle = "Extraction %"
+        val exMeasured = textMeasurer.measure(exTitle, axisTitleStyle)
+        drawText(
+            textMeasurer,
+            exTitle,
+            topLeft = Offset(
+                size.width / 2 - exMeasured.size.width / 2,
+                pad - exMeasured.size.height - 6f,
+            ),
+            style = axisTitleStyle,
+        )
+
+        val tdsTitle = "TDS %"
+        val tdsMeasured = textMeasurer.measure(tdsTitle, axisTitleStyle)
+        drawText(
+            textMeasurer,
+            tdsTitle,
+            topLeft = Offset(
+                pad - tdsMeasured.size.width - 8f,
+                chartTop + chartSize.height / 2 - tdsMeasured.size.height / 2,
+            ),
+            style = axisTitleStyle,
+        )
     }
 }
 

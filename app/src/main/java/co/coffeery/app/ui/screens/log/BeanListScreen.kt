@@ -2,6 +2,7 @@ package co.coffeery.app.ui.screens.log
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -142,12 +143,11 @@ private fun AddBeanDialog(
 
             AppText(stringResource(R.string.bean_process), style = CoffeeTheme.type.label, color = colors.textSecondary)
             Spacer(Modifier.height(4.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.fillMaxWidth()) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.fillMaxWidth()) {
                 processOptions.forEach { opt ->
                     val selected = processMethod == opt
                     PrimaryButton(
                         text = opt,
-                        modifier = Modifier.weight(1f),
                         enabled = selected,
                         shape = co.coffeery.app.ui.theme.CoffeeShapes.pill,
                     ) { processMethod = opt }
