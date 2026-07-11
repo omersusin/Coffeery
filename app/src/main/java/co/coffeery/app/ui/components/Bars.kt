@@ -23,6 +23,8 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.ui.unit.dp
 import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
@@ -56,7 +58,11 @@ fun <T> BottomNav(
         ) {
             items.forEach { item ->
                 val isSelected = item == selected
-                val tint = if (isSelected) colors.accent else colors.textSecondary
+                val animatedColor by animateColorAsState(
+                    targetValue = if (isSelected) colors.accent else colors.textSecondary,
+                    animationSpec = tween(220),
+                    label = "navColor",
+                )
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -69,8 +75,8 @@ fun <T> BottomNav(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(4.dp),
                 ) {
-                    LineIcon(glyphFor(item), tint, Modifier.size(24.dp))
-                    AppText(text = labelFor(item), style = CoffeeTheme.type.caption, color = tint)
+                    LineIcon(glyphFor(item), animatedColor, Modifier.size(24.dp))
+                    AppText(text = labelFor(item), style = CoffeeTheme.type.caption, color = animatedColor)
                 }
             }
         }

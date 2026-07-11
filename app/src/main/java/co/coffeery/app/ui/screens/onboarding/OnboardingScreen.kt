@@ -1,5 +1,13 @@
 package co.coffeery.app.ui.screens.onboarding
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,7 +23,6 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -61,26 +68,33 @@ fun OnboardingScreen(vm: AppViewModel) {
     ) {
         Spacer(Modifier.height(20.dp))
 
-        Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
-            key(safePage) {
-                val slide = slides[safePage]
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.fillMaxSize().padding(horizontal = 32.dp),
-                ) {
-                    Spacer(Modifier.weight(0.6f))
-                    LineIcon(slide.glyph, colors.accent, Modifier.size(80.dp))
-                    Spacer(Modifier.height(40.dp))
-                    AppText(stringResource(slide.titleRes),
-                        style = CoffeeTheme.type.display, color = colors.textPrimary,
-                        align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                    Spacer(Modifier.height(20.dp))
-                    AppText(stringResource(slide.bodyRes),
-                        style = CoffeeTheme.type.body, color = colors.textSecondary,
-                        align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                    Spacer(Modifier.weight(1f))
-                }
+        AnimatedContent(
+            targetState = safePage,
+            transitionSpec = {
+                val direction = if (targetState > initialState) 1 else -1
+                (slideInHorizontally(tween(300)) { direction * it / 2 } + fadeIn(tween(300)))
+                    .togetherWith(slideOutHorizontally(tween(300)) { -direction * it / 2 } + fadeOut(tween(200)))
+            },
+            label = "onboardSlide",
+            modifier = Modifier.weight(1f).fillMaxWidth(),
+        ) { page ->
+            val slide = slides[page]
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier.fillMaxSize().padding(horizontal = 32.dp),
+            ) {
+                Spacer(Modifier.weight(0.6f))
+                LineIcon(slide.glyph, colors.accent, Modifier.size(80.dp))
+                Spacer(Modifier.height(40.dp))
+                AppText(stringResource(slide.titleRes),
+                    style = CoffeeTheme.type.display, color = colors.textPrimary,
+                    align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Spacer(Modifier.height(20.dp))
+                AppText(stringResource(slide.bodyRes),
+                    style = CoffeeTheme.type.body, color = colors.textSecondary,
+                    align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Spacer(Modifier.weight(1f))
             }
         }
 
@@ -95,7 +109,10 @@ fun OnboardingScreen(vm: AppViewModel) {
 
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 repeat(slides.size) { i ->
-                    val dotColor = if (i == safePage) colors.accent else colors.outline
+                    val dotColor by animateColorAsState(
+                        targetValue = if (i == safePage) colors.accent else colors.outline,
+                        animationSpec = tween(300),
+                    )
                     Box(modifier = Modifier
                         .size(if (i == safePage) 10.dp else 8.dp)
                         .clip(CircleShape).background(dotColor))

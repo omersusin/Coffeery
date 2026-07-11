@@ -32,6 +32,8 @@ import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.ui.unit.dp
 import co.coffeery.app.R
 import co.coffeery.app.data.model.BrewCategory
@@ -386,6 +388,16 @@ private fun RoastSection(state: AppUiState, vm: AppViewModel) {
 private fun OutputSection(result: co.coffeery.app.util.BrewResult, eq: Equipment, state: AppUiState) {
     val colors = CoffeeTheme.colors
     val grindColor = lerp(colors.cremaLight, colors.cremaDark, result.grind.ordinal / 6f)
+    val animatedCoffee by animateFloatAsState(
+        targetValue = result.coffeeGrams.toFloat(),
+        animationSpec = spring(dampingRatio = 0.5f, stiffness = 200f),
+        label = "coffeeAnim",
+    )
+    val animatedWater by animateFloatAsState(
+        targetValue = result.waterMl.toFloat(),
+        animationSpec = spring(dampingRatio = 0.5f, stiffness = 200f),
+        label = "waterAnim",
+    )
 
     Column(
         modifier = Modifier.fillMaxWidth(),
@@ -394,7 +406,7 @@ private fun OutputSection(result: co.coffeery.app.util.BrewResult, eq: Equipment
     ) {
         AppText(stringResource(R.string.calc_out_coffee), style = CoffeeTheme.type.caption, color = colors.textSecondary)
         AppText(
-            stringResource(R.string.calc_grams, Format.grams(result.coffeeGrams)),
+            stringResource(R.string.calc_grams, Format.grams(animatedCoffee.toDouble())),
             style = CoffeeTheme.type.number,
             color = colors.textPrimary,
         )
@@ -403,7 +415,7 @@ private fun OutputSection(result: co.coffeery.app.util.BrewResult, eq: Equipment
 
         AppText(stringResource(R.string.calc_out_water), style = CoffeeTheme.type.caption, color = colors.textSecondary)
         AppText(
-            stringResource(R.string.calc_ml, result.waterMl.toString()),
+            stringResource(R.string.calc_ml, animatedWater.toInt().toString()),
             style = CoffeeTheme.type.number,
             color = colors.textPrimary,
         )

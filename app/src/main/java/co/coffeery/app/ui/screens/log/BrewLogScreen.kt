@@ -29,10 +29,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import co.coffeery.app.R
 import co.coffeery.app.data.local.BrewLogEntity
+import co.coffeery.app.ui.components.AccentStripeCard
 import co.coffeery.app.ui.components.AppText
 import co.coffeery.app.ui.components.CoffeeCard
 import co.coffeery.app.ui.components.CoffeeDialog
@@ -230,7 +232,7 @@ private fun StreakBanner(streak: Int) {
     val colors = CoffeeTheme.colors
     val context = LocalContext.current
     val label = if (streak == 1) stringResource(R.string.log_streak_label) else stringResource(R.string.log_streak_label_plural)
-    CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
+    AccentStripeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -277,9 +279,13 @@ private fun BrewLogContent(state: co.coffeery.app.ui.screens.root.AppUiState, vm
         ) {
             LineIcon(Glyph.CUP, colors.accent, Modifier.size(48.dp))
             Spacer(Modifier.height(16.dp))
-            AppText(stringResource(R.string.empty_brews_title), style = CoffeeTheme.type.title)
-            Spacer(Modifier.height(4.dp))
-            AppText(stringResource(R.string.empty_brews_desc), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+            AppText(stringResource(R.string.empty_brews_title),
+                style = CoffeeTheme.type.title, align = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth())
+            Spacer(Modifier.height(8.dp))
+            AppText(stringResource(R.string.empty_brews_desc),
+                style = CoffeeTheme.type.body, color = colors.textSecondary,
+                align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
             Spacer(Modifier.height(16.dp))
             PrimaryButton(
                 text = stringResource(R.string.empty_brews_action),
@@ -378,7 +384,7 @@ private fun AnalyticsCard(brewLogs: List<BrewLogEntity>) {
 @Composable
 private fun BestRecipeBanner(best: BestRecipeSuggestion, vm: AppViewModel) {
     val colors = CoffeeTheme.colors
-    CoffeeCard(onClick = { vm.selectEquipment(best.equipmentId) }, modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
+    AccentStripeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
         val grindStr = best.grind.lowercase().replace("_", "-")
         val tempStr = if (best.tempCelsius > 0) ", ${best.tempCelsius}°C" else ""
         AppText(stringResource(R.string.log_best_recipe_label, best.equipmentName), style = CoffeeTheme.type.caption, color = colors.accent)
