@@ -2,8 +2,6 @@ package co.coffeery.app.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +13,6 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,11 +23,6 @@ import androidx.compose.ui.unit.dp
 import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
 
-/** A remembered interaction source for click handlers without an indication. */
-@Composable
-private fun remember0(): MutableInteractionSource = remember { MutableInteractionSource() }
-
-/** Pill-shaped segmented control used for roast level and input mode. */
 @Composable
 fun <T> SegmentedControl(
     options: List<T>,
@@ -57,7 +49,7 @@ fun <T> SegmentedControl(
                     .weight(1f)
                     .clip(CoffeeShapes.pill)
                     .background(bg)
-                    .clickable(indication = null, interactionSource = remember0()) { onSelect(option) }
+                    .coffeeClickable { onSelect(option) }
                     .padding(vertical = if (subtitle != null) 8.dp else 10.dp),
                 contentAlignment = Alignment.Center,
             ) {
@@ -122,7 +114,7 @@ private fun RowScope.StepButton(symbol: String, enabled: Boolean, onClick: () ->
             .size(40.dp)
             .clip(CoffeeShapes.pill)
             .border(1.5.dp, if (enabled) colors.accent else colors.outline, CoffeeShapes.pill)
-            .clickable(enabled = enabled, indication = null, interactionSource = remember0()) { onClick() },
+            .coffeeClickable(enabled = enabled) { onClick() },
         contentAlignment = Alignment.Center,
     ) {
         AppText(

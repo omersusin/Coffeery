@@ -1,6 +1,14 @@
 package co.coffeery.app.ui.screens.root
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.SizeTransform
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +34,7 @@ import co.coffeery.app.ui.screens.learn.LearnScreen
 import co.coffeery.app.ui.screens.log.BrewLogScreen
 import co.coffeery.app.ui.screens.onboarding.OnboardingScreen
 import co.coffeery.app.ui.screens.recipes.RecipesScreen
+import co.coffeery.app.ui.theme.CoffeeMotion
 import co.coffeery.app.ui.theme.CoffeeTheme
 import co.coffeery.app.ui.theme.coffeeBackground
 
@@ -48,8 +57,22 @@ fun RootScreen(vm: AppViewModel) {
                     .fillMaxSize()
                     .statusBarsPadding(),
             ) {
-                Box(modifier = Modifier.weight(1f).fillMaxWidth()) {
-                    when (val route = state.route) {
+                AnimatedContent(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                    targetState = state.route,
+                    transitionSpec = {
+                        val forward = targetState !is Route.Tabs
+                        if (forward) {
+                            (slideInHorizontally(tween(CoffeeMotion.normal, easing = CoffeeMotion.standard)) { it / 4 } + fadeIn(tween(CoffeeMotion.normal)))
+                                .togetherWith(fadeOut(tween(CoffeeMotion.quick)))
+                        } else {
+                            fadeIn(tween(CoffeeMotion.normal))
+                                .togetherWith(slideOutHorizontally(tween(CoffeeMotion.normal, easing = CoffeeMotion.standard)) { -it / 4 } + fadeOut(tween(CoffeeMotion.quick)))
+                        }.using(SizeTransform(clip = false))
+                    },
+                    label = "routeTransition",
+                ) { route ->
+                    when (route) {
                         is Route.Timer -> BrewTimerScreen(state, vm)
                         is Route.AddEquipment -> AddEquipmentScreen(vm)
                         is Route.LearnDetail -> LearnDetailScreen(route.cardIndex, vm)
