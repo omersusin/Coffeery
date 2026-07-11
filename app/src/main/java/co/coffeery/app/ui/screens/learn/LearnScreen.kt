@@ -321,7 +321,10 @@ private fun ProTipsCard() {
         R.string.pro_tip_13, R.string.pro_tip_14, R.string.pro_tip_15, R.string.pro_tip_16,
         R.string.pro_tip_17, R.string.pro_tip_18, R.string.pro_tip_19, R.string.pro_tip_20,
         R.string.pro_tip_21, R.string.pro_tip_22, R.string.pro_tip_23, R.string.pro_tip_24,
-        R.string.pro_tip_25,
+        R.string.pro_tip_25, R.string.pro_tip_26, R.string.pro_tip_27, R.string.pro_tip_28,
+        R.string.pro_tip_29, R.string.pro_tip_30, R.string.pro_tip_31, R.string.pro_tip_32,
+        R.string.pro_tip_33, R.string.pro_tip_34, R.string.pro_tip_35, R.string.pro_tip_36,
+        R.string.pro_tip_37, R.string.pro_tip_38, R.string.pro_tip_39, R.string.pro_tip_40,
     )
     var current by remember { mutableStateOf(kotlin.random.Random.nextInt(tips.size)) }
     CoffeeCard(modifier = Modifier.fillMaxWidth()) {
@@ -450,6 +453,10 @@ private fun BrewTroubleshooterCard() {
         R.string.brew_issue_metallic to R.string.brew_issue_metallic_advice,
         R.string.brew_issue_grassy to R.string.brew_issue_grassy_advice,
         R.string.brew_issue_salty to R.string.brew_issue_salty_advice,
+        R.string.brew_issue_no_crema to R.string.brew_issue_no_crema_advice,
+        R.string.brew_issue_gusher to R.string.brew_issue_gusher_advice,
+        R.string.brew_issue_fines_mud to R.string.brew_issue_fines_mud_advice,
+        R.string.brew_issue_clogged_filter to R.string.brew_issue_clogged_filter_advice,
     )
     CoffeeCard(modifier = Modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -525,6 +532,21 @@ private val GlossaryTerms = listOf(
     GlossaryTerm(R.string.glossary_term_38, R.string.glossary_def_38),
     GlossaryTerm(R.string.glossary_term_39, R.string.glossary_def_39),
     GlossaryTerm(R.string.glossary_term_40, R.string.glossary_def_40),
+    GlossaryTerm(R.string.glossary_term_41, R.string.glossary_def_41),
+    GlossaryTerm(R.string.glossary_term_42, R.string.glossary_def_42),
+    GlossaryTerm(R.string.glossary_term_43, R.string.glossary_def_43),
+    GlossaryTerm(R.string.glossary_term_44, R.string.glossary_def_44),
+    GlossaryTerm(R.string.glossary_term_45, R.string.glossary_def_45),
+    GlossaryTerm(R.string.glossary_term_46, R.string.glossary_def_46),
+    GlossaryTerm(R.string.glossary_term_47, R.string.glossary_def_47),
+    GlossaryTerm(R.string.glossary_term_48, R.string.glossary_def_48),
+    GlossaryTerm(R.string.glossary_term_49, R.string.glossary_def_49),
+    GlossaryTerm(R.string.glossary_term_50, R.string.glossary_def_50),
+    GlossaryTerm(R.string.glossary_term_51, R.string.glossary_def_51),
+    GlossaryTerm(R.string.glossary_term_52, R.string.glossary_def_52),
+    GlossaryTerm(R.string.glossary_term_53, R.string.glossary_def_53),
+    GlossaryTerm(R.string.glossary_term_54, R.string.glossary_def_54),
+    GlossaryTerm(R.string.glossary_term_55, R.string.glossary_def_55),
 )
 
 private data class FlavorCategory(val labelRes: Int, val notes: List<Int>)

@@ -86,6 +86,27 @@ object LearnContent {
         LearnCard(R.string.learn_l58_title, R.string.learn_l58_body, R.string.learn_ch_sustainability),
         LearnCard(R.string.learn_l59_title, R.string.learn_l59_body, R.string.learn_ch_sustainability),
         LearnCard(R.string.learn_l60_title, R.string.learn_l60_body, R.string.learn_ch_sustainability),
+
+        // Chapter 12: Espresso Fundamentals
+        LearnCard(R.string.learn_l61_title, R.string.learn_l61_body, R.string.learn_ch_espresso),
+        LearnCard(R.string.learn_l62_title, R.string.learn_l62_body, R.string.learn_ch_espresso),
+        LearnCard(R.string.learn_l63_title, R.string.learn_l63_body, R.string.learn_ch_espresso),
+        LearnCard(R.string.learn_l64_title, R.string.learn_l64_body, R.string.learn_ch_espresso),
+        LearnCard(R.string.learn_l65_title, R.string.learn_l65_body, R.string.learn_ch_espresso),
+
+        // Chapter 13: Coffee Processing
+        LearnCard(R.string.learn_l66_title, R.string.learn_l66_body, R.string.learn_ch_processing),
+        LearnCard(R.string.learn_l67_title, R.string.learn_l67_body, R.string.learn_ch_processing),
+        LearnCard(R.string.learn_l68_title, R.string.learn_l68_body, R.string.learn_ch_processing),
+        LearnCard(R.string.learn_l69_title, R.string.learn_l69_body, R.string.learn_ch_processing),
+        LearnCard(R.string.learn_l70_title, R.string.learn_l70_body, R.string.learn_ch_processing),
+
+        // Chapter 14: Coffee Origins
+        LearnCard(R.string.learn_l71_title, R.string.learn_l71_body, R.string.learn_ch_origins),
+        LearnCard(R.string.learn_l72_title, R.string.learn_l72_body, R.string.learn_ch_origins),
+        LearnCard(R.string.learn_l73_title, R.string.learn_l73_body, R.string.learn_ch_origins),
+        LearnCard(R.string.learn_l74_title, R.string.learn_l74_body, R.string.learn_ch_origins),
+        LearnCard(R.string.learn_l75_title, R.string.learn_l75_body, R.string.learn_ch_origins),
     )
 
     val chapterOrder: List<Int> = listOf(
@@ -100,6 +121,9 @@ object LearnContent {
         R.string.learn_ch_equipment,
         R.string.learn_ch_water_deep,
         R.string.learn_ch_sustainability,
+        R.string.learn_ch_espresso,
+        R.string.learn_ch_processing,
+        R.string.learn_ch_origins,
     )
 
     val tasteOptions: List<TasteOption> = listOf(
@@ -111,5 +135,7 @@ object LearnContent {
         TasteOption(R.string.taste_balanced, R.string.taste_balanced_advice),
         TasteOption(R.string.taste_dry, R.string.taste_dry_advice),
         TasteOption(R.string.taste_hollow, R.string.taste_hollow_advice),
+        TasteOption(R.string.taste_ferment, R.string.taste_ferment_advice),
+        TasteOption(R.string.taste_baggy, R.string.taste_baggy_advice),
     )
 }

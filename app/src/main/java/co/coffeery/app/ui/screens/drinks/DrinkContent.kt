@@ -64,6 +64,21 @@ object DrinkContent {
         DrinkItem("cascara", R.string.drink_cascara_name, R.string.drink_cascara_summary, R.string.drink_cascara_body, DrinkGroup.REGIONAL),
         DrinkItem("qishr", R.string.drink_qishr_name, R.string.drink_qishr_summary, R.string.drink_qishr_body, DrinkGroup.REGIONAL),
         DrinkItem("espresso_yen", R.string.drink_espresso_yen_name, R.string.drink_espresso_yen_summary, R.string.drink_espresso_yen_body, DrinkGroup.REGIONAL),
+        DrinkItem("magic", R.string.drink_magic_name, R.string.drink_magic_summary, R.string.drink_magic_body, DrinkGroup.REGIONAL),
+        DrinkItem("long_macchiato", R.string.drink_long_macchiato_name, R.string.drink_long_macchiato_summary, R.string.drink_long_macchiato_body, DrinkGroup.MILK),
+        DrinkItem("cafe_bombon", R.string.drink_cafe_bombon_name, R.string.drink_cafe_bombon_summary, R.string.drink_cafe_bombon_body, DrinkGroup.REGIONAL),
+        DrinkItem("einspanner", R.string.drink_einspanner_name, R.string.drink_einspanner_summary, R.string.drink_einspanner_body, DrinkGroup.REGIONAL),
+        DrinkItem("dalgona", R.string.drink_dalgona_name, R.string.drink_dalgona_summary, R.string.drink_dalgona_body, DrinkGroup.REGIONAL),
+        DrinkItem("yuanyang", R.string.drink_yuanyang_name, R.string.drink_yuanyang_summary, R.string.drink_yuanyang_body, DrinkGroup.REGIONAL),
+        DrinkItem("cuban", R.string.drink_cuban_name, R.string.drink_cuban_summary, R.string.drink_cuban_body, DrinkGroup.REGIONAL),
+        DrinkItem("cafe_de_olla", R.string.drink_cafe_de_olla_name, R.string.drink_cafe_de_olla_summary, R.string.drink_cafe_de_olla_body, DrinkGroup.REGIONAL),
+        DrinkItem("freddo_espresso", R.string.drink_freddo_espresso_name, R.string.drink_freddo_espresso_summary, R.string.drink_freddo_espresso_body, DrinkGroup.REGIONAL),
+        DrinkItem("freddo_cappuccino", R.string.drink_freddo_cappuccino_name, R.string.drink_freddo_cappuccino_summary, R.string.drink_freddo_cappuccino_body, DrinkGroup.REGIONAL),
+        DrinkItem("scandi_egg", R.string.drink_scandi_egg_name, R.string.drink_scandi_egg_summary, R.string.drink_scandi_egg_body, DrinkGroup.REGIONAL),
+        DrinkItem("kopi_joss", R.string.drink_kopi_joss_name, R.string.drink_kopi_joss_summary, R.string.drink_kopi_joss_body, DrinkGroup.REGIONAL),
+        DrinkItem("spanish_latte", R.string.drink_spanish_latte_name, R.string.drink_spanish_latte_summary, R.string.drink_spanish_latte_body, DrinkGroup.MILK),
+        DrinkItem("pumpkin_spice", R.string.drink_pumpkin_spice_name, R.string.drink_pumpkin_spice_summary, R.string.drink_pumpkin_spice_body, DrinkGroup.MILK),
+        DrinkItem("affogato", R.string.drink_affogato_name, R.string.drink_affogato_summary, R.string.drink_affogato_body, DrinkGroup.MILK),
     )
 }
 
