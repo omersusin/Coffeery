@@ -94,6 +94,8 @@ fun RootScreen(vm: AppViewModel) {
                         onSelect = { vm.selectTab(it) },
                     )
                 }
+            }
+        }
     }
 }
 
