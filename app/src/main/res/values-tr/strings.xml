@@ -1219,4 +1219,14 @@
     <string name="learn_l74_body">Guatemala\'dan Panama\'ya, Orta Amerika çeşitli, yüksek kaliteli Arabica üretir. Guatemala\'nın Antigua bölgesi (volkanik toprak) çikolata, baharat ve dumanlı notalar verir. Kosta Rika bal işlemeye öncülük etmiş ve temiz, tatlı, narenciyemsi kahveler üretir. Honduras (şimdi bölgenin en büyük üreticisi) karamel, vanilya ve tropikal meyve sunar. Panama\'nın Boquete bölgesi, Hacienda La Esmeralda\'nın Geisha\'sıyla üne kavuştu — dünyanın en pahalı kahvesi, açık artırma rekorlarını altüst eden patlayıcı yasemin, bergamot ve çekirdekli meyve aromalarıyla (en iyi lotlar için $10,000+/kg).</string>
     <string name="learn_l75_title">Asya-Pasifik Kahveleri</string>
     <string name="learn_l75_body">Endonezya (Sumatra, Java, Sulawesi) düşük asiditeli, topraksı, tam gövdeli kahveler üretir — espresso karışımlarına ağırlık katmak için değerlidir. Islak-kabuk ayırma işlemi imza profilini oluşturur. Vietnam dünyanın 2 numaralı üreticisidir ancak neredeyse tamamen hazır kahve için Robusta yetiştirir — yoğunlaştırılmış sütlü geleneksel Vietnam cà phê\'sinin kaynağıdır. Hindistan hem Arabica hem Robusta yetiştirir, benzersiz musonlanmış Malabar dahil. Papua Yeni Gine, Orta Amerika profillerine benzer temiz, tatlı kahveler üretir. Tayland, Laos ve Myanmar büyüyen özel kahve sektörleriyle yükselen kökenlerdir.</string>
+    <string name="equip_siphon_name">Siphon</string>
+    <string name="equip_siphon_tag">Gösterişli ve aromatik</string>
+    <string name="equip_clever_name">Clever Dripper</string>
+    <string name="equip_clever_tag">En kolay mükemmel kahve</string>
+    <string name="equip_switch_name">Hario Switch</string>
+    <string name="equip_switch_tag">Daldırma + süzme hibrit</string>
+    <string name="equip_phin_name">Vietnam Phin</string>
+    <string name="equip_phin_tag">Güçlü tek fincan damla</string>
+    <string name="equip_colddrip_name">Cold Drip Kulesi</string>
+    <string name="equip_colddrip_tag">Yavaş soğuk su damlaması</string>
 </resources>

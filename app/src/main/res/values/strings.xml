@@ -1219,4 +1219,14 @@
     <string name="learn_l74_body">From Guatemala to Panama, Central America produces diverse, high-quality Arabica. Guatemala\'s Antigua region (volcanic soil) yields chocolate, spice, and smoky notes. Costa Rica pioneered honey processing and produces clean, sweet, citrusy coffees. Honduras (now the region\'s largest producer) offers caramel, vanilla, and tropical fruit. Panama\'s Boquete region achieved fame through Hacienda La Esmeralda\'s Geisha — the most expensive coffee in the world, with explosive jasmine, bergamot, and stone fruit flavors that shattered auction records ($10,000+/kg for the top lots).</string>
     <string name="learn_l75_title">Asia-Pacific Coffees</string>
     <string name="learn_l75_body">Indonesia (Sumatra, Java, Sulawesi) produces earthy, full-bodied coffees with low acidity — prized for adding weight to espresso blends. The wet-hulling process creates their signature profile. Vietnam is the world\'s #2 producer but grows almost exclusively Robusta for instant coffee — the source of traditional Vietnamese cà phê with condensed milk. India grows both Arabica and Robusta, including the unique monsoon-aged Malabar. Papua New Guinea produces clean, sweet coffees similar to Central American profiles. Thailand, Laos, and Myanmar are emerging origins with growing specialty sectors.</string>
+    <string name="equip_siphon_name">Siphon</string>
+    <string name="equip_siphon_tag">Theatrical &amp; aromatic</string>
+    <string name="equip_clever_name">Clever Dripper</string>
+    <string name="equip_clever_tag">Easiest great cup</string>
+    <string name="equip_switch_name">Hario Switch</string>
+    <string name="equip_switch_tag">Immersion + pour-over hybrid</string>
+    <string name="equip_phin_name">Vietnamese Phin</string>
+    <string name="equip_phin_tag">Strong single-cup drip</string>
+    <string name="equip_colddrip_name">Cold Drip Tower</string>
+    <string name="equip_colddrip_tag">Slow cold-water drip</string>
 </resources>
