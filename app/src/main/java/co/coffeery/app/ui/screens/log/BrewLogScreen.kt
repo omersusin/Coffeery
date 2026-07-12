@@ -143,7 +143,7 @@ fun BrewLogScreen(vm: AppViewModel) {
         stringResource(R.string.achievements_title),
     )
 
-    Column(modifier = Modifier.padding(horizontal = 20.dp).padding(top = 12.dp, bottom = 24.dp)) {
+    Column(modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 20.dp).padding(top = 12.dp, bottom = 24.dp)) {
         SegmentedControl(
             options = listOf(0, 1, 2, 3, 4),
             selected = section,
@@ -343,7 +343,7 @@ private fun BrewLogContent(state: co.coffeery.app.ui.screens.root.AppUiState, vm
             .sortedByDescending { it.first }
         Column(
             verticalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState()),
+            modifier = Modifier.fillMaxWidth(),
         ) {
             StreakBanner(streak)
             BrewHeatmap(state.brewLogs)
@@ -662,7 +662,7 @@ private fun CaffeineContent(brewLogs: List<BrewLogEntity>) {
         else -> colors.cremaDark
     }
 
-    Column(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth().verticalScroll(rememberScrollState())) {
+    Column(verticalArrangement = Arrangement.spacedBy(10.dp), modifier = Modifier.fillMaxWidth()) {
             CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
                 AppText(stringResource(R.string.caffeine_today), style = CoffeeTheme.type.label, color = colors.textSecondary)
                 Spacer(Modifier.height(4.dp))

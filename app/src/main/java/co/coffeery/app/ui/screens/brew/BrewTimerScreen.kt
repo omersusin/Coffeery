@@ -80,6 +80,7 @@ import co.coffeery.app.ui.components.displayName
 import co.coffeery.app.ui.components.glyph
 import co.coffeery.app.ui.screens.root.AppUiState
 import co.coffeery.app.ui.screens.root.AppViewModel
+import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
 import co.coffeery.app.data.model.Equipment
 import co.coffeery.app.data.model.StepKind
@@ -268,6 +269,30 @@ fun BrewTimerScreen(state: AppUiState, vm: AppViewModel) {
             modifier = Modifier.fillMaxWidth(),
             align = TextAlign.Center,
         )
+        Spacer(Modifier.height(12.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            steps.forEachIndexed { index, _ ->
+                val isCurrent = index == stepIndex
+                val isDone = index < stepIndex
+                val color = when {
+                    isDone -> CoffeeTheme.colors.accent
+                    isCurrent -> CoffeeTheme.colors.accent
+                    else -> CoffeeTheme.colors.outline
+                }
+                Box(
+                    modifier = Modifier
+                        .padding(horizontal = 3.dp)
+                        .width(if (isCurrent) 32.dp else 8.dp)
+                        .height(4.dp)
+                        .clip(CoffeeShapes.pill)
+                        .background(color)
+                )
+            }
+        }
         Spacer(Modifier.height(12.dp))
 
         Box(
