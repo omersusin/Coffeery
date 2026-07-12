@@ -21,4 +21,5 @@ sealed interface Route {
     data object Settings : Route
     data class LearnDetail(val cardIndex: Int) : Route
     data class DrinkDetail(val index: Int) : Route
+    data class BeanDetail(val beanId: Long) : Route
 }

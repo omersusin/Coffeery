@@ -27,6 +27,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -93,6 +94,10 @@ fun LearnScreen(vm: AppViewModel) {
             subtitle = stringResource(R.string.learn_intro),
         )
 
+        TodaysLessonCard(vm)
+
+        QuickQuizCard()
+
         Box(modifier = Modifier.fillMaxWidth()) {
             AppTextField(
                 value = searchQuery,
@@ -146,6 +151,10 @@ fun LearnScreen(vm: AppViewModel) {
         WaterMineralCard()
 
         GlossaryCard()
+
+        FoodPairingCard()
+
+        CultureFactsCard()
 
         if (searchActive && filteredCards.isEmpty()) {
             AppText(
@@ -325,6 +334,9 @@ private fun ProTipsCard() {
         R.string.pro_tip_29, R.string.pro_tip_30, R.string.pro_tip_31, R.string.pro_tip_32,
         R.string.pro_tip_33, R.string.pro_tip_34, R.string.pro_tip_35, R.string.pro_tip_36,
         R.string.pro_tip_37, R.string.pro_tip_38, R.string.pro_tip_39, R.string.pro_tip_40,
+        R.string.pro_tip_41, R.string.pro_tip_42, R.string.pro_tip_43, R.string.pro_tip_44,
+        R.string.pro_tip_45, R.string.pro_tip_46, R.string.pro_tip_47, R.string.pro_tip_48,
+        R.string.pro_tip_49, R.string.pro_tip_50,
     )
     var current by remember { mutableStateOf(kotlin.random.Random.nextInt(tips.size)) }
     CoffeeCard(modifier = Modifier.fillMaxWidth()) {
@@ -457,6 +469,8 @@ private fun BrewTroubleshooterCard() {
         R.string.brew_issue_gusher to R.string.brew_issue_gusher_advice,
         R.string.brew_issue_fines_mud to R.string.brew_issue_fines_mud_advice,
         R.string.brew_issue_clogged_filter to R.string.brew_issue_clogged_filter_advice,
+        R.string.brew_issue_temp_loss to R.string.brew_issue_temp_loss_advice,
+        R.string.brew_issue_grind_inconsistent to R.string.brew_issue_grind_inconsistent_advice,
     )
     CoffeeCard(modifier = Modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -547,6 +561,16 @@ private val GlossaryTerms = listOf(
     GlossaryTerm(R.string.glossary_term_53, R.string.glossary_def_53),
     GlossaryTerm(R.string.glossary_term_54, R.string.glossary_def_54),
     GlossaryTerm(R.string.glossary_term_55, R.string.glossary_def_55),
+    GlossaryTerm(R.string.glossary_term_56, R.string.glossary_def_56),
+    GlossaryTerm(R.string.glossary_term_57, R.string.glossary_def_57),
+    GlossaryTerm(R.string.glossary_term_58, R.string.glossary_def_58),
+    GlossaryTerm(R.string.glossary_term_59, R.string.glossary_def_59),
+    GlossaryTerm(R.string.glossary_term_60, R.string.glossary_def_60),
+    GlossaryTerm(R.string.glossary_term_61, R.string.glossary_def_61),
+    GlossaryTerm(R.string.glossary_term_62, R.string.glossary_def_62),
+    GlossaryTerm(R.string.glossary_term_63, R.string.glossary_def_63),
+    GlossaryTerm(R.string.glossary_term_64, R.string.glossary_def_64),
+    GlossaryTerm(R.string.glossary_term_65, R.string.glossary_def_65),
 )
 
 private data class FlavorCategory(val labelRes: Int, val notes: List<Int>)
@@ -608,6 +632,242 @@ private fun GlossaryCard() {
                 color = colors.textSecondary,
             )
             Spacer(Modifier.height(10.dp))
+        }
+    }
+}
+
+@Composable
+private fun FoodPairingCard() {
+    val colors = CoffeeTheme.colors
+    val pairings = listOf(
+        Triple(R.string.pairing_1_coffee, R.string.pairing_1_food, R.string.pairing_1_why),
+        Triple(R.string.pairing_2_coffee, R.string.pairing_2_food, R.string.pairing_2_why),
+        Triple(R.string.pairing_3_coffee, R.string.pairing_3_food, R.string.pairing_3_why),
+        Triple(R.string.pairing_4_coffee, R.string.pairing_4_food, R.string.pairing_4_why),
+        Triple(R.string.pairing_5_coffee, R.string.pairing_5_food, R.string.pairing_5_why),
+    )
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            LineIcon(Glyph.BEAN, colors.accent, Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            AppText(stringResource(R.string.pairing_title), style = CoffeeTheme.type.title)
+        }
+        Spacer(Modifier.height(8.dp))
+        pairings.forEach { (coffee, food, why) ->
+            AppText(stringResource(coffee), style = CoffeeTheme.type.headline)
+            AppText("+ ${stringResource(food)}", style = CoffeeTheme.type.body, color = colors.accent)
+            AppText(stringResource(why), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+            Spacer(Modifier.height(8.dp))
+        }
+    }
+}
+
+@Composable
+private fun CultureFactsCard() {
+    val colors = CoffeeTheme.colors
+    val facts = listOf(
+        R.string.culture_fact_1,
+        R.string.culture_fact_2,
+        R.string.culture_fact_3,
+        R.string.culture_fact_4,
+    )
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            LineIcon(Glyph.BOOK, colors.accent, Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            AppText(stringResource(R.string.culture_title), style = CoffeeTheme.type.title)
+        }
+        Spacer(Modifier.height(8.dp))
+        facts.forEach { fact ->
+            AppText(stringResource(fact), style = CoffeeTheme.type.body, color = colors.textSecondary)
+            Spacer(Modifier.height(6.dp))
+        }
+    }
+}
+
+@Composable
+fun TodaysLessonCard(vm: AppViewModel) {
+    val colors = CoffeeTheme.colors
+    val daySeed = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_YEAR)
+    val card = LearnContent.cards[daySeed % LearnContent.cards.size]
+    CoffeeCard(modifier = Modifier.fillMaxWidth().clickable { vm.openRoute(Route.LearnDetail(LearnContent.cards.indexOf(card))) }) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            LineIcon(Glyph.BOOK, colors.accent, Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            AppText(stringResource(R.string.learn_today), style = CoffeeTheme.type.label, color = colors.accent)
+        }
+        Spacer(Modifier.height(6.dp))
+        AppText(stringResource(card.titleRes), style = CoffeeTheme.type.headline)
+        Spacer(Modifier.height(2.dp))
+        AppText(stringResource(card.bodyRes), style = CoffeeTheme.type.caption, color = colors.textSecondary, maxLines = 2, overflow = TextOverflow.Ellipsis)
+    }
+}
+
+private data class QuizQuestion(
+    val question: String,
+    val answers: List<String>,
+    val correctIndex: Int,
+    val explanation: String,
+)
+
+private val QuizQuestions = listOf(
+    QuizQuestion(
+        "What grind size for French Press?",
+        listOf("Fine", "Medium", "Coarse", "Extra Fine"),
+        2,
+        "French press uses a coarse grind to prevent sludge and bitterness.",
+    ),
+    QuizQuestion(
+        "What water temp for pour-over (SCA standard)?",
+        listOf("80-85°C", "90-96°C", "70-75°C", "100°C"),
+        1,
+        "SCA recommends 90-96°C for optimal pour-over extraction.",
+    ),
+    QuizQuestion(
+        "What causes sour coffee?",
+        listOf("Over-extraction", "Under-extraction", "Old beans", "Hard water"),
+        1,
+        "Sour coffee is a classic sign of under-extraction.",
+    ),
+    QuizQuestion(
+        "Bloom time for fresh coffee?",
+        listOf("5-10 sec", "30-45 sec", "60-90 sec", "No bloom needed"),
+        1,
+        "Bloom for 30-45 seconds to allow CO₂ to escape for even extraction.",
+    ),
+    QuizQuestion(
+        "Which has more caffeine?",
+        listOf("Arabica", "Robusta", "Both equal", "Decaf"),
+        1,
+        "Robusta beans contain roughly twice the caffeine of Arabica.",
+    ),
+    QuizQuestion(
+        "What is the ideal water temperature for pour-over (SCA standard)?",
+        listOf("80-85°C", "90-96°C", "70-75°C", "100°C"),
+        1,
+        "SCA specifies 195-205°F (90-96°C). Below 90°C under-extracts; above 96°C risks bitterness.",
+    ),
+    QuizQuestion(
+        "Which coffee species has more caffeine?",
+        listOf("Arabica (~1.2%)", "Robusta (~2.2%)", "Liberica", "All equal"),
+        1,
+        "Robusta has nearly double the caffeine of Arabica, giving it a more bitter taste and stronger pest resistance.",
+    ),
+    QuizQuestion(
+        "What is 'crema'?",
+        listOf("Coffee foam from steamed milk", "The tan foam on top of espresso", "A type of bean", "A roasting level"),
+        1,
+        "Crema forms when CO2 and coffee oils emulsify under 9 bars of pressure. Fresh beans produce more crema.",
+    ),
+    QuizQuestion(
+        "Which grind for French Press?",
+        listOf("Extra fine", "Fine", "Coarse", "Medium"),
+        2,
+        "Coarse grind prevents sludge and over-extraction during the 4-minute immersion. Think breadcrumbs, not powder.",
+    ),
+    QuizQuestion(
+        "What does 'blooming' mean?",
+        listOf("Adding milk", "Pre-wetting grounds to release CO2", "Roasting beans", "Grinding coffee"),
+        1,
+        "Fresh coffee releases CO2 when hot water first hits it. Blooming for 30-45 seconds ensures even extraction.",
+    ),
+    QuizQuestion(
+        "What is a 'ristretto'?",
+        listOf("Espresso with more water", "Espresso with less water", "A type of bean", "A brewing device"),
+        1,
+        "Ristretto uses the same dose but half the water — more concentrated, sweeter, less bitter than regular espresso.",
+    ),
+    QuizQuestion(
+        "Which country is the birthplace of coffee?",
+        listOf("Brazil", "Colombia", "Ethiopia", "Vietnam"),
+        2,
+        "Coffee originated in Ethiopia's Kaffa region. Legend says a goatherd named Kaldi discovered it when his goats ate red berries and became energetic.",
+    ),
+)
+
+@Composable
+private fun QuickQuizCard() {
+    val colors = CoffeeTheme.colors
+    var questionIndex by remember { mutableStateOf(kotlin.random.Random.nextInt(QuizQuestions.size)) }
+    var selectedAnswer by remember { mutableStateOf(-1) }
+    var correctCount by remember { mutableIntStateOf(0) }
+    var counted by remember { mutableStateOf(false) }
+    val q = QuizQuestions[questionIndex]
+    val wrongColor = Color(0xFFE53935)
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            LineIcon(Glyph.CHECK, colors.accent, Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            AppText(stringResource(R.string.learn_quiz_title), style = CoffeeTheme.type.title)
+        }
+        Spacer(Modifier.height(8.dp))
+        AppText(q.question, style = CoffeeTheme.type.headline)
+        Spacer(Modifier.height(8.dp))
+        q.answers.forEachIndexed { index, answer ->
+            val isSelected = selectedAnswer == index
+            val isCorrect = index == q.correctIndex
+            val background = when {
+                selectedAnswer != -1 && isCorrect -> colors.accent
+                selectedAnswer != -1 && isSelected && !isCorrect -> wrongColor
+                else -> colors.accentSoft
+            }
+            val textColor = when {
+                selectedAnswer != -1 && (isCorrect || (isSelected && !isCorrect)) -> colors.onAccent
+                else -> colors.textPrimary
+            }
+            val prefix = when {
+                selectedAnswer != -1 && isCorrect -> "✓  "
+                selectedAnswer != -1 && isSelected && !isCorrect -> "✕  "
+                else -> ""
+            }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(background)
+                    .clickable(
+                        indication = null,
+                        interactionSource = remember { MutableInteractionSource() },
+                    ) { if (selectedAnswer == -1) selectedAnswer = index }
+                    .padding(10.dp),
+            ) {
+                AppText("$prefix$answer", style = CoffeeTheme.type.body, color = textColor)
+            }
+            Spacer(Modifier.height(6.dp))
+        }
+        if (selectedAnswer != -1) {
+            Spacer(Modifier.height(4.dp))
+            val isCorrect = selectedAnswer == q.correctIndex
+            if (isCorrect && !counted) {
+                correctCount++
+                counted = true
+            }
+            AppText(
+                if (isCorrect) stringResource(R.string.learn_quiz_correct) else stringResource(R.string.learn_quiz_wrong),
+                style = CoffeeTheme.type.label,
+                color = if (isCorrect) colors.accent else wrongColor,
+            )
+            AppText(q.explanation, style = CoffeeTheme.type.caption, color = colors.textSecondary)
+            Spacer(Modifier.height(4.dp))
+            AppText(
+                stringResource(R.string.learn_quiz_score, correctCount),
+                style = CoffeeTheme.type.label,
+                color = colors.accent,
+            )
+            Spacer(Modifier.height(4.dp))
+            AppText(
+                "Next question →",
+                style = CoffeeTheme.type.label,
+                color = colors.accent,
+                modifier = Modifier.clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ) {
+                    questionIndex = kotlin.random.Random.nextInt(QuizQuestions.size)
+                    selectedAnswer = -1
+                    counted = false
+                },
+            )
         }
     }
 }

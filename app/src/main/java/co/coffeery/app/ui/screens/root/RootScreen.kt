@@ -37,6 +37,7 @@ import co.coffeery.app.ui.screens.drinks.DrinksScreen
 import co.coffeery.app.ui.screens.equipment.EquipmentScreen
 import co.coffeery.app.ui.screens.learn.LearnDetailScreen
 import co.coffeery.app.ui.screens.learn.LearnScreen
+import co.coffeery.app.ui.screens.log.BeanDetailScreen
 import co.coffeery.app.ui.screens.log.BrewLogScreen
 import co.coffeery.app.ui.screens.onboarding.OnboardingScreen
 import co.coffeery.app.ui.screens.recipes.RecipesScreen
@@ -83,6 +84,7 @@ fun RootScreen(vm: AppViewModel) {
                         is Route.AddEquipment -> AddEquipmentScreen(vm)
                         is Route.LearnDetail -> LearnDetailScreen(route.cardIndex, vm)
                         is Route.DrinkDetail -> DrinkDetailScreen(route.index, vm)
+                        is Route.BeanDetail -> BeanDetailScreen(route.beanId, vm)
                         is Route.Settings -> SettingsScreen(vm)
                         is Route.Tabs -> TabContent(state, vm)
                     }

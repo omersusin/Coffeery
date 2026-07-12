@@ -244,6 +244,17 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun deleteRecipe(id: Long) = viewModelScope.launch { repo.deleteRecipe(id) }
 
+    fun loadRecipe(recipe: RecipeEntity) = _state.update {
+        it.copy(
+            selectedEquipmentId = recipe.equipmentId,
+            strength = recipe.strength,
+            roast = RoastLevel.entries.find { r -> r.name == recipe.roast } ?: RoastLevel.MEDIUM,
+            byCups = recipe.inputByCups,
+            cups = recipe.cups,
+            waterMl = recipe.waterMl,
+        )
+    }
+
     fun applyRecipe(r: RecipeEntity) = _state.update {
         it.copy(
             selectedEquipmentId = r.equipmentId,
@@ -303,6 +314,8 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
 
     fun archiveBean(id: Long) = viewModelScope.launch { repo.archiveBean(id) }
 
+    fun getBean(beanId: Long): BeanEntity? = _state.value.beans.firstOrNull { it.id == beanId }
+
     fun setLearnScrollOffset(offset: Int) {
         _state.update { it.copy(learnScrollOffset = offset) }
     }
@@ -339,6 +352,8 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     // --- Export / Import ---
+    suspend fun getExportJson(): String = repo.exportAllToJson()
+
     fun exportData(ctx: Context) {
         viewModelScope.launch {
             try {

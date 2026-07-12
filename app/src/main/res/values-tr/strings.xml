@@ -45,9 +45,7 @@
     <string name="equip_moka_name">Moka Pot</string>
     <string name="equip_turkish_name">Türk Kahvesi (Cezve)</string>
     <string name="equip_coldbrew_name">Cold Brew</string>
-    <string name="equip_siphon_name">Siphon</string>
     <string name="equip_espresso_name">Espresso</string>
-    <string name="equip_clever_name">Clever Dripper</string>
 
     <!-- Ekipman sloganları -->
     <string name="equip_v60_tag">Temiz, parlak, hassas</string>
@@ -58,9 +56,7 @@
     <string name="equip_moka_tag">Ocakta güçlü kahve</string>
     <string name="equip_turkish_tag">Yoğun, filtresiz</string>
     <string name="equip_coldbrew_tag">Yumuşak, düşük asit</string>
-    <string name="equip_siphon_tag">Gösterişli ve aromatik</string>
     <string name="equip_espresso_tag">Konsantre shot</string>
-    <string name="equip_clever_tag">En kolay mükemmel kahve</string>
 
     <!-- Kavrum dereceleri -->
     <string name="roast_light">Açık</string>
@@ -132,6 +128,7 @@
     <string name="brew_next_up">Sıradaki: %1$s</string>
     <string name="brew_pour_to">Toplam %1$d g\'a kadar dök</string>
     <string name="brew_complete">Kahvenin tadını çıkar ☕</string>
+    <string name="timer_hands_free">Eller serbest</string>
     <string name="brew_complete_sub">%1$s ile demlendi</string>
     <string name="brew_elapsed">Toplam süre</string>
     <string name="brew_adjust_pour">Dökümü ayarla</string>
@@ -167,11 +164,14 @@
     <!-- Tarifler ekranı -->
     <string name="recipes_title">Kayıtlı tarifler</string>
     <string name="recipes_empty">Henüz kayıtlı tarif yok.\nBir demleme ayarla ve Kaydet\'e dokun.</string>
-    <string name="empty_recipes_title">Kayıtlı tarif yok</string>
-    <string name="empty_recipes_desc">Hızlı erişim için favori demleme oranlarını kaydet</string>
-    <string name="empty_recipes_action">Demleme\'ye git</string>
+    <string name="empty_recipes_title">Henüz kayıtlı tarif yok</string>
+    <string name="empty_recipes_sub">Demleme ayarlarını tekrar kullanmak için tarif olarak kaydet</string>
+    <string name="empty_recipes_action">Demlemeye Başla</string>
     <string name="recipes_summary">%1$s · %2$s g : %3$s ml</string>
     <string name="recipes_delete_confirm">Bu tarif silinsin mi?</string>
+    <string name="recipe_load">Tarifi görüntüle</string>
+    <string name="recipe_recent">Son tarif</string>
+    <string name="recipe_view_brew">Görüntüle ve demle</string>
 
     <!-- Ekipman ekranı -->
     <string name="equipment_title">Ekipmanların</string>
@@ -194,6 +194,11 @@
     <string name="learn_read_more">Oku</string>
     <string name="learn_troubleshoot_title">Kahven nasıl oldu?</string>
     <string name="learn_troubleshoot_intro">Nasıl tat verdiğini söyle, bir sonraki için ayar önereyim.</string>
+    <string name="learn_today">Bugünün Dersi</string>
+    <string name="learn_quiz_title">Hızlı Test</string>
+    <string name="learn_quiz_correct">Doğru!</string>
+    <string name="learn_quiz_wrong">Tam değil</string>
+    <string name="learn_quiz_score">Skor: %1$d/12 bugün doğru</string>
     <string name="taste_sour">Ekşi</string>
     <string name="taste_bitter">Acı</string>
     <string name="taste_astringent">Buruk</string>
@@ -239,8 +244,6 @@
 
     <!-- v2 genişletilmiş ekipman -->
     <string name="step_flip">Cezveyi ters çevir</string>
-    <string name="equip_switch_name">Hario Switch</string>
-    <string name="equip_switch_tag">Daldırma + süzme hibrit</string>
     <string name="equip_origami_name">Origami Dripper</string>
     <string name="equip_origami_tag">Çok yönlü konik dripper</string>
     <string name="equip_april_name">April Brewer</string>
@@ -251,10 +254,6 @@
     <string name="equip_timemore_tag">Cam konik dripper</string>
     <string name="equip_beehouse_name">Beehouse Dripper</string>
     <string name="equip_beehouse_tag">Çift delikli, bağışlayıcı akış</string>
-    <string name="equip_phin_name">Vietnam Phin</string>
-    <string name="equip_phin_tag">Güçlü tek fincan damla</string>
-    <string name="equip_colddrip_name">Cold Drip Kulesi</string>
-    <string name="equip_colddrip_tag">Yavaş soğuk su damlaması</string>
     <string name="equip_percolator_name">Perkolatör</string>
     <string name="equip_percolator_tag">Döngüsel ocak demleme</string>
     <string name="equip_batchbrew_name">Batch Brew</string>
@@ -270,8 +269,6 @@
     <string name="equip_cafec_tag">Konik, çiçek yivli, hızlı ve eşit akış</string>
     <string name="equip_ibrik_name">İbrik</string>
     <string name="equip_ibrik_tag">Geleneksel cezve — filitresiz, çok ince</string>
-    <string name="equip_cezve_mod_name">Cezve (Modern)</string>
-    <string name="equip_cezve_mod_tag">Türk usulü — ısıt, köpürt, servis et</string>
     <string name="drinks_title">İçecekler</string>
     <string name="drinks_intro">Süt bazlı klasikler ve bölgesel tarifler — oranla değil, hazırlanarak.</string>
     <string name="drink_read_more">Tarifi gör</string>
@@ -370,9 +367,9 @@
     <string name="drink_cafebombon_name">İspanyol Café Bombón</string>
     <string name="drink_cafebombon_summary">Yoğunlaştırılmış süt üzerine katmanlı espresso</string>
     <string name="drink_cafebombon_body">Yoğunlaştırılmış sütün üzerine katmanlanmış İspanyol espressosu.\n\nMalzemeler:\n• 1 shot espresso (~30 ml)\n• Eşit miktarda tatlı yoğunlaştırılmış süt\n\nHazırlanışı:\n1. Şeffaf bir bardağa yoğunlaştırılmış süt dökün.\n2. İki katman kalacak şekilde espressoyu nazikçe üzerine dökün.\n3. İçmeden önce karıştırın.</string>
-    <string name="drink_cortadito_name">Küba Cortadito</string>
-    <string name="drink_cortadito_summary">Buharlanmış sütlü tatlı Küba espressosu</string>
-    <string name="drink_cortadito_body">Buharlanmış sütle yumuşatılmış tatlı Küba espressosu (genellikle espuma ile).\n\nMalzemeler:\n• 1 shot Küba usulü espresso (şeker çırpılarak = espuma)\n• Eşit miktarda buharlanmış süt\n\nHazırlanışı:\n1. Espressonun ilk damlalarını şekerle çırpıp espuma yapın.\n2. Shot\'ın kalanını çekin.\n3. Eşit buharlanmış süt ekleyin; üzerine espuma koyun.</string>
+    <string name="drink_cortadito_name">Cortadito</string>
+    <string name="drink_cortadito_summary">Buharlanmış sütle kesilmiş Küba espressosu, espumita ile</string>
+    <string name="drink_cortadito_body">Az miktarda buharlanmış sütle kesilmiş Küba espressosu — cortadodan daha serttir, geleneksel olarak Küba koyu kavurmasıyla yapılır ve üzerinde espumita (şeker köpüğü) katmanıyla servis edilir. Miami\'nin Küba kahve kültüründe popülerdir.\n\nMalzemeler:\n• 1 shot Küba usulü espresso (~30 ml)\n• Az miktarda buharlanmış süt\n• Şeker (ilk damlalarla çırpılarak = espumita)\n\nHazırlanışı:\n1. Espressonun ilk damlalarını şekerle çırparak espumita yapın.\n2. Shot\'ın kalanını çekin.\n3. Az miktarda buharlanmış süt ekleyin; üzerine espumita koyun.\n4. Küçük bir fincanda servis edin — cortadodan daha sert ve tatlıdır.</string>
     <string name="drink_viennese_name">Viyana Kahvesi</string>
     <string name="drink_viennese_summary">Çırpılmış kremayla taçlandırılmış güçlü kahve</string>
     <string name="drink_viennese_body">Çırpılmış kremayla taçlandırılmış güçlü kahve (Wiener Melange geleneği).\n\nMalzemeler:\n• 2 shot güçlü kahve/espresso\n• Çırpılmış krema\n• İsteğe bağlı: kakao/çikolata rendesi\n\nHazırlanışı:\n1. Sıcak güçlü kahveyi bir fincana dökün.\n2. Üzerini bolca çırpılmış kremayla kaplayın.\n3. Kakao veya çikolata serpin.</string>
@@ -388,6 +385,9 @@
     <string name="log_grind_hint">örn. Comandante\'de 25, K-Ultra\'da 3.5</string>
     <string name="log_notes">Tadım notları</string>
     <string name="brew_flavor_tags">Tat Notaları</string>
+    <string name="brew_add_photo">Fotoğraf ekle</string>
+    <string name="brew_photo_attached">Fotoğraf eklendi</string>
+    <string name="brew_photo_remove">Kaldır</string>
     <string name="log_notes_hint">Buruk, parlak, çikolata bitişli…</string>
     <string name="log_bean_label">Çekirdek</string>
     <string name="log_bean_none">Hiçbiri</string>
@@ -396,6 +396,9 @@
     <!-- Beans -->
     <string name="beans_title">Çekirdekler</string>
     <string name="beans_empty">Henüz çekirdek eklenmedi. Kahve çekirdeklerini burada takip et — menşei, kavurucu, kavrum tarihi.</string>
+    <string name="empty_beans_title">Henüz çekirdek yok</string>
+    <string name="empty_beans_sub">Koleksiyonunu takip etmek için ilk çekirdeğini ekle</string>
+    <string name="empty_beans_action">Çekirdek Ekle</string>
     <string name="beans_add">Çekirdek ekle</string>
     <string name="beans_name_hint">Çekirdek adı (örn. Etiyopya Yirgacheffe)</string>
     <string name="beans_origin_hint">Menşei / çiftlik</string>
@@ -410,6 +413,10 @@
     <string name="log_streak_label_plural">günlük seri</string>
     <string name="log_streak_keep">Devam et!</string>
     <string name="log_streak_start">Seri başlatmak için bugün demle!</string>
+    <string name="streak_label">günlük seri!</string>
+    <string name="streak_keep_going">Demlemeye devam!</string>
+    <string name="streak_start">Seriye başla!</string>
+    <string name="brew_reminder_streak">🔥 %1$d günlük seri — devam et!</string>
     <string name="log_share_streak">Serini paylaş</string>
     <string name="log_share_streak_text">Coffeery ile %d gündür kahve demliyorum! ☕</string>
 
@@ -425,6 +432,14 @@
     <string name="log_rating_out">%1$d/5</string>
     <string name="log_date_today">Bugün</string>
     <string name="log_date_yesterday">Dün</string>
+    <string name="log_compare_title">Demlemelerini karşılaştır</string>
+    <string name="log_compare_sub">Farklı yöntemlerin sonuçlarını gör</string>
+    <string name="log_compare_button">Karşılaştır</string>
+    <string name="log_compare_select">Karşılaştırmak için iki demleme seç</string>
+    <string name="log_share">Paylaş</string>
+    <string name="log_share_pdf">PDF</string>
+    <string name="log_share_pdf_chooser">Demleme raporunu paylaş</string>
+    <string name="log_shared_via">Coffeery ile demlendi ☕</string>
 
     <!-- ===== Learn tools v2 ===== -->
     <string name="learn_extraction_calc_title">Ekstraksiyon Verimi Hesaplayıcı</string>
@@ -489,6 +504,16 @@
     <string name="pro_tip_38">Kahve poşetlerinize \'son tüketim\' değil, kavurma tarihi yazın. Kahve süt değildir — basılı bir tarihte aniden bozulmaz. Bunun yerine, zirvesinden kademeli olarak düşüşe geçer. Kavurma tarihini bilmek, optimal demleme pencerelerini hesaplamanızı sağlar.</string>
     <string name="pro_tip_39">Bir demleme günlüğü tutun — öğütüm ayarı, oran ve tek cümlelik tat notu içeren basit bir defter bile yeter. Aynı kahveyle 20 demlemeden sonra net desenler göreceksiniz. \'Bunu beğendim\'den \'neden beğendiğimi biliyorum\'a giden en hızlı yol budur.</string>
     <string name="pro_tip_40">Kahve kalitesinde 80/20 kuralı: sonucunuzun %80\'i şu dört şeyden gelir — taze kavrulmuş çekirdek, burr öğütücü, tartı ve filtrelenmiş su. Kalan %20 teknik, ekipman ve ritüeldir. Önce %80\'de ustalaşın.</string>
+    <string name="pro_tip_41">Buzlu pour-over için suyunuzu bölün: %60\'ı sıcak demleme için, %40\'ı karafa buz olarak. Buz anında soğutur ve mükemmel sertliğe seyreltir. Normal sıcak tarifinize göre 1–2 klik daha ince öğütün.</string>
+    <string name="pro_tip_42">\'Hoffmann French Press\' tekniği: orta öğütüm kullanın (kaba değil), 4 dk demleyin, kabuğu kırın, köpüğü alın, ince tozların çökmesi için 5+ dakika bekleyin, sonra pistonu sadece yüzeye kadar indirin. Dolgun gövdeyle temiz fincan.</string>
+    <string name="pro_tip_43">Espresso öğütüm boyutunu tercihiniz değil, sepetiniz belirler. VST sepete eksik doz koyarsanız sulu bir disk elde edersiniz. En iyi sonuç için sepetin nominal kapasitesine (±1g) doldurun.</string>
+    <string name="pro_tip_44">Kahvenizin bloom\'u yaşını söyler: hiç bloom yok = 3+ haftalık. Büyük baloncuklu sert bloom = kavurma sonrası 2–5 gün, halen yoğun gaz çıkışı. Nazik, eşit bloom = optimal içim aralığı (5–14 gün).</string>
+    <string name="pro_tip_45">Tam ekstraksiyon öncesinde 2–3 saniye düşük basınçla ön ıslatma yapın. Bu diski eşit doyurur ve kanallanmayı azaltır. Ön ıslatması olmayan makineler bile pompayı kısa süre çalıştırıp durdurarak manuel yapabilir.</string>
+    <string name="pro_tip_46">Birden çok kahveniz mi var? 2 haftada tüketmeyeceğiniz porsiyonları kapalı şekilde dondurun. Bir porsiyonu geceden çıkarın, poşeti açmadan oda sıcaklığına gelmesini bekleyin. Asla tekrar dondurmayın.</string>
+    <string name="pro_tip_47">AeroPress için \'önce su, sonra kahve\' tekniği (ters çevirme): piston ucunda kuru topak oluşmasını engeller. Suyu, SONRA kahveyi ekleyin, hemen karıştırın. Önce kahve koymaktan daha eşit ekstraksiyon.</string>
+    <string name="pro_tip_48">V60\'ınız Etiyopya çekirdekleriyle sürekli tıkanıyorsa, daha nazik dökmeyi ve son Rao Döndürmesi\'ni atlamayı deneyin. Etiyopya kahveleri daha fazla ince toz üretir. Daha nazik döküş ince tozları filtreye göç ettirmek yerine dağıtır.</string>
+    <string name="pro_tip_49">Doz tutarlılığı, doz hassasiyetinden üstündür. 18.0g ile 18.2g fark etmez. Ama öğütümü değiştirmeden 17g ve 19g arasında geçiş yapmak ekstraksiyonu belirgin şekilde değiştirir. Bir doz seçin, kilitleyin, onun yerine öğütümü ayarlayın.</string>
+    <string name="pro_tip_50">Öğütücü dişlilerinizi her 2–3 kg kahvede bir temizleyin (ev kullanıcıları için yaklaşık aylık). Eski kahve yağları acılaşır ve taze çekilmiş kahveyi kaplar. Farkı hemen tadacaksınız — daha parlak, daha temiz, daha belirgin aromalar.</string>
 
     <!-- Kahve Sözlüğü -->
     <string name="glossary_title">Kahve Sözlüğü</string>
@@ -602,6 +627,26 @@
     <string name="glossary_def_54">Yeşil kahvede serbest (bağlı olmayan) su ölçümü, saklama ve kavurma için kritiktir. Yeşil kahve için ideal Aw: 0.53-0.59. 0.50\'nin altında çekirdekler kırılganlaşır ve fincan kalitesini kaybeder; 0.65\'in üzerinde küf riski artar. Tedarik zinciri boyunca izlenir.</string>
     <string name="glossary_term_55">Islak Aroma</string>
     <string name="glossary_def_55">Sıcak su öğütülmüş kahveye ilk değdiğinde salınan koku, kupaj sırasında değerlendirilir. Farklı sıcaklıklarda farklı uçucu bileşikler salınır; ıslak aroma, kuru kokudan farklı bir aromatik profil ortaya çıkarır. Genellikle kupaj sırasında oluşan \'kabuk\' ile birlikte tarif edilir.</string>
+    <string name="glossary_term_56">Kavruk Kabuğu (Chaff)</string>
+    <string name="glossary_def_56">Kavurma sırasında kahve çekirdeklerinden pul pul dökülen kağıtsı gümüş zar. Açık kavurmalar çekirdek kıvrımında daha fazla kavruk kabuğu barındırır. Fazla kavruk kabuğu öğütücüleri tıkayabilir ve temizlenmezse kağıtsı bir tat ekleyebilir.</string>
+    <string name="glossary_term_57">Peaberry</string>
+    <string name="glossary_def_57">Kahve kirazının içinde alışıldık iki düz yüzlü çekirdek yerine yalnızca bir yuvarlak çekirdeğin geliştiği doğal bir mutasyon. Her hasadın yaklaşık %5\'i. Algılanan üstün lezzet konsantrasyonu nedeniyle genellikle ayrılıp yüksek fiyata satılır.</string>
+    <string name="glossary_term_58">Musonlanmış</string>
+    <string name="glossary_def_58">Hindistan\'ın Malabar kıyısındaki açık depolarda 12–16 hafta muson rüzgarlarına ve nemine maruz bırakılan kahve. Çekirdekler şişer, soluk altın rengine döner ve benzersiz küflü, baharatlı profille son derece düşük asidite geliştirir.</string>
+    <string name="glossary_term_59">Cup of Excellence</string>
+    <string name="glossary_def_59">En prestijli kahve yarışması ve açık artırma sistemi. 87+ puan alan kahveler COE unvanı kazanır. Kazanan lotlar $50–100+/lb fiyata satılabilir ve doğrudan üretici çiftçiye fayda sağlar.</string>
+    <string name="glossary_term_60">Kupaj Kaşığı</string>
+    <string name="glossary_def_60">Profesyonel kahve tadımında kullanılan derin çanaklı, gümüş kaplamalı veya paslanmaz çelik kaşık. Çanak şekli, kahveyi tüm damağa aynı anda aerosolize eden agresif höpürdetme (aspirasyon) için tasarlanmıştır.</string>
+    <string name="glossary_term_61">Microlot</string>
+    <string name="glossary_def_61">Bir çiftliğin belirli bir bölümünden, genellikle birkaç çuval veya daha az olan, ayrı olarak işlenmiş küçük parti kahve. Microlot\'lar kavurucuların tek bir parsel veya toplama geçişinden olağanüstü kaliteyi sergilemesine olanak tanır.</string>
+    <string name="glossary_term_62">Organik Asitler</string>
+    <string name="glossary_def_62">Kahvede doğal olarak bulunan asitler — sitrik (limon), malik (elma), tartarik (üzüm), asetik (sirke, az miktarda) ve klorojenik asitler. Kahvenin algılanan asiditesini ve parlaklığını oluşturur. Kavurma onları azaltır; açık kavurmalar daha fazlasını korur.</string>
+    <string name="glossary_term_63">Quaker</string>
+    <string name="glossary_def_63">Kavurma sırasında soluk kalan ve kararmayan olgunlaşmamış kahve çekirdekleri. Kağıtsı, fıstıksı veya \'ekmekimsi\' tat verir ve kusur olarak kabul edilir. Kalite odaklı kavurmacılar kavurma sonrası ayıklamada quaker\'ları çıkarır.</string>
+    <string name="glossary_term_64">Yıkanmış İşleme</string>
+    <string name="glossary_def_64">Meyve kabuğu ve etinin mekanik olarak çıkarıldığı, çekirdeklerin kalan müsilajı gevşetmek için su tanklarında fermente edildiği, ardından yıkanıp kurutulduğu kahve işleme yöntemi. Köken karakterini öne çıkaran temiz, parlak fincanlar üretir.</string>
+    <string name="glossary_term_65">Doğal İşleme</string>
+    <string name="glossary_def_65">En eski işleme yöntemi: bütün kahve kirazları kabuk ayırmadan önce 2–4 hafta meyvesiyle birlikte güneşte kurutulur. Uzun meyve teması yoğun meyvemsi, şarapsı ve ağır gövdeli lezzet profilleri oluşturur.</string>
 
     <!-- Öğütüm görsel referansı -->
     <string name="grind_vis_title">Öğütüm Boyutu Referansı</string>
@@ -662,6 +707,10 @@
     <string name="brew_issue_gusher_advice">15 saniyenin altında akan, ince, az ekstrakte, ekşi shot veren espresso nasıl düzeltilir — daha ince öğütün, dozu artırın, dağılımı kontrol edin.</string>
     <string name="brew_issue_fines_mud_advice">French press fincanınızın dibindeki aşırı tortu ve çamur neden olur — öğütücünüz neden çok fazla ince toz üretiyor veya pistonu çok agresif bastırdınız.</string>
     <string name="brew_issue_clogged_filter_advice">Pour-over demlemeniz neden tıkanıyor ve süzülmesi sonsuza kadar sürüyor — ince toz göçü, aşırı ince öğütüm veya filtre türünden kaynaklanan tıkanma nasıl teşhis edilir ve düzeltilir.</string>
+    <string name="brew_issue_temp_loss">Sıcaklık Kaybı / Düz tat</string>
+    <string name="brew_issue_temp_loss_advice">Doğru orana rağmen demlediğiniz kahve neden düz tadıyor — kettle\'dan karışıma sıcaklık kaybını teşhis ve düzeltme. Her şeyi ön ısıtın, hedef aralığınızın üst sınırında demleyin ve kettle\'dan karışıma 3–8°C düşüşü hesaba katın.</string>
+    <string name="brew_issue_grind_inconsistent">Günden güne tutarsız sonuçlar</string>
+    <string name="brew_issue_grind_inconsistent_advice">Aynı tarif neden farklı günlerde farklı sonuç veriyor — körlenmiş dişliler, statik elektriği etkileyen ortam nemi veya dünkü bayat öğütülmüş kahveyi bugünkü taze dozla karıştıran öğütücü kalıntısından kaynaklanan öğütüm tutarsızlığını teşhis.</string>
 
     <!-- Tat çemberi -->
     <string name="flavor_wheel_title">Kahve Tat Çemberi</string>
@@ -923,7 +972,7 @@
     <string name="drink_bulletproof_body">Keto ve paleo toplulukları tarafından popülerleştirilen Bulletproof Kahve, emülsiye olup köpürene kadar tuzsuz çim beslemeli tereyağı ve MCT yağı veya hindistan cevizi yağı ile karıştırılmış normal siyah kahvedir. Ortaya çıkan içecek kremsi, hafif yağlı ve son derece doyurucudur — birçok kişi kahvaltı yerine kullanır ve karbonhidrat çöküşü olmadan sürekli zihinsel enerji sağladığını iddia eder. Dave Asprey tarafından 2010\'ların başında, Tibet\'te denediği yak tereyağlı çaydan ilham alınarak yaratılmıştır.\n\nMalzemeler:\n• 250 ml sıcak siyah kahve\n• 1–2 yk tuzsuz çim beslemeli tereyağı\n• 1 yk MCT yağı veya hindistan cevizi yağı\n• Toplam: ~280 ml\n\nHazırlanışı:\n1. Kaliteli bir fincan siyah kahve demleyin.\n2. Kahveyi, tereyağını ve MCT/hindistan cevizi yağını blendera ekleyin.\n3. Karışım kremsi ve köpüklü hale gelene kadar 20–30 saniye yüksek devirde karıştırın (sadece karıştırmayın — emülsiye olmaz).\n4. Kupaya dökün ve sıcakken hemen için.</string>
     <string name="drink_bicerin_name">Bicerin</string>
     <string name="drink_bicerin_summary">Torino\'nun katmanlı içeceği: espresso, çikolata ve krema</string>
-    <string name="drink_bicerin_body">Torino\'nun tarihi Caffè Al Bicerin\'inden, 18. yüzyıla dayanan geleneksel bir sıcak içecek. Üç belirgin katman — altta zengin sıcak çikolata, ortada bir shot espresso ve üstte hafif çırpılmış krema — küçük şeffaf bir bardakta karıştırılmadan servis edilir.\n\nMalzemeler:\n• 1 shot espresso (~30 ml)\n• 60 ml yoğun sıcak çikolata (cioccolata calda)\n• Hafif çırpılmış krema\n• Toplam: ~150 ml\n\nHazırlanışı:\n1. Yoğun sıcak çikolatayı hazırlayıp küçük şeffaf bardağa dökün (alt katman).\n2. Orta katmanı oluşturmak için sıcak espressoyu kaşığın arkasından yavaşça dökün.\n3. Üzerine hafif çırpılmış kremayı kaşıkla ekleyin — karıştırmayın.\n4. Katmanların yavaşça karışmasına izin vererek kremanın içinden için.</string>
+    <string name="drink_bicerin_body">Torino, İtalya\'nın efsanevi katmanlı içeceği — sıcak çikolata, espresso ve hafif çırpılmış krema, küçük bir bardakta karıştırılmadan servis edilir. 18. yüzyılda Caffè al Bicerin\'e kadar uzanır. Üç katmanı birleştirmek için içmeden önce karıştırın.\n\nMalzemeler:\n• 1 shot espresso (~30 ml)\n• 60 ml yoğun sıcak çikolata (cioccolata calda)\n• Hafif çırpılmış krema\n• Toplam: ~150 ml\n\nHazırlanışı:\n1. Yoğun sıcak çikolatayı hazırlayıp küçük şeffaf bardağa dökün (alt katman).\n2. Orta katmanı oluşturmak için sıcak espressoyu kaşığın arkasından yavaşça dökün.\n3. Üzerine hafif çırpılmış kremayı kaşıkla ekleyin — karıştırmayın.\n4. Kremanın içinden için, ardından ilerledikçe karıştırın.</string>
     <string name="drink_espresso_romano_name">Espresso Romano</string>
     <string name="drink_espresso_romano_summary">Limon kabuğuyla servis edilen espresso, İtalyan-Amerikan geleneği</string>
     <string name="drink_espresso_romano_body">Basit ama kendine özgü bir sunum: fincan kenarına sürülmüş veya yanında limon kabuğu şeridiyle servis edilen standart espresso. İsmine rağmen Romalıdan çok İtalyan-Amerikan\'dır — muhtemelen erken dönem espressoyu sert bulan ve acılığı yumuşatmak için limon kullanan ABD\'deki İtalyan göçmenlerden gelmektedir. Narenciye yağı kahvenin aromasını canlandırır.\n\nMalzemeler:\n• 1 shot espresso (~30 ml)\n• Bir şerit taze limon kabuğu\n• İsteğe bağlı: damak zevkine göre şeker\n\nHazırlanışı:\n1. Standart tek shot espresso çekin.\n2. Yağlarını salmak için limon kabuğunu fincan kenarına sürün, sonra içine atın veya tabağa koyun.\n3. Bazıları bir damla limon suyu sıkar; püristler sadece kabuğu aroma için kullanır.\n4. Hemen servis edin.</string>
@@ -931,8 +980,8 @@
     <string name="drink_mazagran_summary">Limonatayla Portekiz soğuk demleme kahvesi, buz üzerinde</string>
     <string name="drink_mazagran_body">Adını Cezayir\'deki bir kaleden alan ferahlatıcı bir Portekiz buzlu kahve içeceği; Fransız askerlerinin kahve şurubunu soğuk suyla içtiği rivayet edilir. Modern versiyon, güçlü soğuk demleme veya espressoyu taze limonata ve buzla birleştirir — limonun parlak asiditesi kahvenin derinliğini keser. Portekiz\'de yaz aylarında popüler olan hafif, mayhoş ve susuzluk giderici bir içecektir.\n\nMalzemeler:\n• 60 ml güçlü soğuk demleme (veya soğutulmuş espresso)\n• 60 ml taze limonata\n• Buz küpleri\n• İsteğe bağlı: bir damla rom, taze nane sapı\n\nHazırlanışı:\n1. Bardağı buz küpleriyle doldurun.\n2. Soğuk demleme kahveyi buzun üzerine dökün.\n3. Taze limonatayı ekleyip hafifçe karıştırın.\n4. Limon dilimi ve isteğe bağlı nane sapıyla süsleyin.</string>
     <string name="drink_carajas_name">Carajillo</string>
-    <string name="drink_carajas_summary">Meksika içeceği: espresso, Licor 43, buz ve çırpılmış krema</string>
-    <string name="drink_carajas_body">Bir Meksika kokteyl-kahve karışımı: eşit miktarda espresso ve Licor 43 (tatlı bir İspanyol vanilya-narenciye likörü), kremsi ve köpüklü bir doku için buz üzerinde çalkalanır, ardından çırpılmış kremayla taçlandırılır. Adı İspanyolca "coraje" (cesaret) kelimesinden gelir — askerlerin savaştan önce sipariş ettiği içecektir. Yemeklerden sonra veya öğleden sonra enerji vermesi için servis edilir.\n\nMalzemeler:\n• 1 shot espresso (~30 ml)\n• 1 shot Licor 43 (~30 ml)\n• Buz\n• Çırpılmış krema\n• İsteğe bağlı: süsleme için tarçın veya kahve çekirdekleri\n\nHazırlanışı:\n1. Taze espresso çekin ve hafifçe soğumaya bırakın.\n2. Çalkalayıcıyı buzla doldurun, espresso ve Licor 43\'ü ekleyin.\n3. Köpüklü olana kadar 10–15 saniye kuvvetlice çalkalayın.\n4. Taze buz üzerine rocks bardağa süzün.\n5. Çırpılmış krema ile taçlandırıp tarçın veya kahve çekirdekleriyle süsleyin.</string>
+    <string name="drink_carajas_summary">İspanyol yemek sonrası kokteyli — brendi, rom veya Licor 43 ile espresso</string>
+    <string name="drink_carajas_body">İspanyol yemek sonrası kahve kokteyli — brendi, rom veya Licor 43 ile espresso, buz üzerinde veya sıcak servis edilir. Efsaneye göre Küba\'daki İspanyol askerler cesaret (\'coraje\') için bunu içerdi. Modern versiyonunda genellikle bir narenciye kabuğu kıvrımı bulunur.\n\nMalzemeler:\n• 1 shot espresso (~30 ml)\n• 1 shot Licor 43, brendi veya rom (~30 ml)\n• Buz (buzlu versiyon için)\n• İsteğe bağlı: narenciye kabuğu kıvrımı\n\nHazırlanışı:\n1. Taze bir espresso shot çekin.\n2. Sıcak versiyon: alkolü doğrudan espressoya ekleyip karıştırın.\n3. Buzlu versiyon: espresso ve alkolü buzla 10–15 saniye çalkalayıp taze buz üzerine süzün.\n4. Narenciye kabuğu kıvrımıyla süsleyin.\n5. Hemen servis edin — adı İspanyolca \'cesaret\' anlamına gelir.</string>
     <string name="drink_asiatico_name">Asiático</string>
     <string name="drink_asiatico_summary">Yoğunlaştırılmış süt, brendi, Licor 43 ve baharatlı İspanyol kahvesi</string>
     <string name="drink_asiatico_body">Güneydoğu İspanya\'daki Cartagena\'dan gelen bu özenli kahve kokteyli; yoğunlaştırılmış süt, brendi, Licor 43, sıcak espresso ve limon kabuğu katmanlarından oluşur, tarçın ve bazen üstte bir kahve çekirdeği ile tamamlanır. Tatlı, alkollü, baharatlı ve yoğun aromalıdır — özel kalın duvarlı bir bardakta servis edilen tam bir duyusal deneyimdir.\n\nMalzemeler:\n• 2 yk yoğunlaştırılmış süt\n• 1 shot brendi (~30 ml)\n• 1 shot Licor 43 (~30 ml)\n• 1 shot espresso (~30 ml)\n• Limon kabuğu\n• Süsleme için tarçın ve 2 kahve çekirdeği\n\nHazırlanışı:\n1. Bardağın dibine yoğunlaştırılmış sütü dökün.\n2. Sonraki katmanlar olarak brendi ve Licor 43\'ü ekleyin.\n3. Sıcak espressoyu kaşığın arkasından yavaşça dökün.\n4. İstenirse karamelize üst notalar için flambe edin.\n5. Limon kabuğu, tarçın çubuğu ve iki kahve çekirdeğiyle süsleyin.</string>
@@ -1197,4 +1246,87 @@
     <string name="learn_l74_body">Guatemala\'dan Panama\'ya, Orta Amerika çeşitli, yüksek kaliteli Arabica üretir. Guatemala\'nın Antigua bölgesi (volkanik toprak) çikolata, baharat ve dumanlı notalar verir. Kosta Rika bal işlemeye öncülük etmiş ve temiz, tatlı, narenciyemsi kahveler üretir. Honduras (şimdi bölgenin en büyük üreticisi) karamel, vanilya ve tropikal meyve sunar. Panama\'nın Boquete bölgesi, Hacienda La Esmeralda\'nın Geisha\'sıyla üne kavuştu — dünyanın en pahalı kahvesi, açık artırma rekorlarını altüst eden patlayıcı yasemin, bergamot ve çekirdekli meyve aromalarıyla (en iyi lotlar için $10,000+/kg).</string>
     <string name="learn_l75_title">Asya-Pasifik Kahveleri</string>
     <string name="learn_l75_body">Endonezya (Sumatra, Java, Sulawesi) düşük asiditeli, topraksı, tam gövdeli kahveler üretir — espresso karışımlarına ağırlık katmak için değerlidir. Islak-kabuk ayırma işlemi imza profilini oluşturur. Vietnam dünyanın 2 numaralı üreticisidir ancak neredeyse tamamen hazır kahve için Robusta yetiştirir — yoğunlaştırılmış sütlü geleneksel Vietnam cà phê\'sinin kaynağıdır. Hindistan hem Arabica hem Robusta yetiştirir, benzersiz musonlanmış Malabar dahil. Papua Yeni Gine, Orta Amerika profillerine benzer temiz, tatlı kahveler üretir. Tayland, Laos ve Myanmar büyüyen özel kahve sektörleriyle yükselen kökenlerdir.</string>
+    <string name="equip_siphon_name">Siphon</string>
+    <string name="equip_siphon_tag">Gösterişli ve aromatik</string>
+    <string name="equip_clever_name">Clever Dripper</string>
+    <string name="equip_clever_tag">En kolay mükemmel kahve</string>
+    <string name="equip_switch_name">Hario Switch</string>
+    <string name="equip_switch_tag">Daldırma + süzme hibrit</string>
+    <string name="equip_phin_name">Vietnam Phin</string>
+    <string name="equip_phin_tag">Güçlü tek fincan damla</string>
+    <string name="equip_colddrip_name">Cold Drip Kulesi</string>
+    <string name="equip_colddrip_tag">Yavaş soğuk su damlaması</string>
+
+    <!-- Cloud settings -->
+    <string name="settings_cloud_title">Bulut</string>
+    <string name="settings_cloud_signin">Google ile giriş yap</string>
+    <string name="settings_cloud_signed_as">%s olarak giriş yapıldı</string>
+    <string name="settings_cloud_signout">Çıkış yap</string>
+    <string name="settings_cloud_error">Giriş başarısız</string>
+    <string name="settings_cloud_backup">Drive\'a yedekle</string>
+    <string name="settings_cloud_restore">Drive\'dan geri yükle</string>
+    <string name="settings_cloud_backup_done">Yedek Drive\'a kaydedildi</string>
+    <string name="settings_cloud_restore_done">Veriler geri yüklendi. Uygulamayı yeniden başlatın.</string>
+    <string name="bean_detail_title">Çekirdek Detayı</string>
+    <string name="bean_detail_roast_date">Kavurma tarihi</string>
+    <string name="bean_detail_process">İşleme</string>
+    <string name="bean_detail_varietal">Varyete</string>
+    <string name="bean_detail_altitude">Rakım</string>
+    <string name="bean_detail_sca">SCA puanı</string>
+    <string name="bean_detail_purchase">Alış tarihi</string>
+    <string name="bean_detail_brewing">Bu çekirdeği demle</string>
+
+    <!-- Kahve & Yemek Eşleştirme -->
+    <string name="pairing_title">Kahve &amp; Yemek Eşleştirme</string>
+    <string name="pairing_1_coffee">Etiyopya Yirgacheffe</string>
+    <string name="pairing_1_food">Limonlu Yaban Mersinli Scone</string>
+    <string name="pairing_1_why">Kahvenin doğal yaban mersini ve narenciye notaları, hamur işindeki aynı tatları güçlendirir.</string>
+    <string name="pairing_2_coffee">Sumatra Koyu Kavrum</string>
+    <string name="pairing_2_food">Bitter Çikolatalı Brownie</string>
+    <string name="pairing_2_why">Topraksı, dolgun gövdesi, zengin çikolataya karşı baskılanmadan direnir.</string>
+    <string name="pairing_3_coffee">Kenya AA</string>
+    <string name="pairing_3_food">Limonlu Bar</string>
+    <string name="pairing_3_why">Kenya\'nın greyfurt benzeri parlaklığı tatlı hamur işini keser ve narenciyeyi tamamlar.</string>
+    <string name="pairing_4_coffee">Kolombiya Orta Kavrum</string>
+    <string name="pairing_4_food">Tarçınlı Kahveli Kek</string>
+    <string name="pairing_4_why">Fındıksı karamel tatlılığı, kahveli kekteki esmer şeker ve tarçını yansıtır.</string>
+    <string name="pairing_5_coffee">Cold Brew Konsantre</string>
+    <string name="pairing_5_food">Vanilyalı Dondurma (Affogato)</string>
+    <string name="pairing_5_why">Konsantre kahvenin çikolatamsı notaları mükemmel bir tatlı eşleşmesi oluşturur.</string>
+
+    <!-- Kahve Kültürü Gerçekleri -->
+    <string name="culture_title">Kahve Kültürü Gerçekleri</string>
+    <string name="culture_fact_1">Türk kahvesi falı (tasseografi): Kahve içildikten sonra fincan ters çevrilir. Telvenin bıraktığı desenler \'okunur\' — kuşları (iyi haber), balıkları (para) veya yılanları (düşman) anımsatan şekiller, Osmanlı saray kültüründen gelen özel anlamlar taşır.</string>
+    <string name="culture_fact_2">Yunan frappe\'si bir kazaydı (1957): Selanik Ticaret Fuarı\'ndaki bir Nestlé çalışanı sıcak su bulamayınca, hazır kahveyi soğuk su ve buzla çalkaladı — Yunanistan\'ın hâlâ en popüler kahve içeceği olan ikonik frappe\'yi yarattı.</string>
+    <string name="culture_fact_3">Türk kahvesi evlilik geleneği: Damadın ailesi evlenmeye talip olmaya geldiğinde, gelin Türk kahvesi yapar — ancak damadın fincanı şeker yerine tuzla hazırlanır. Eğer hoşnutsuzluk göstermeden içerse, sabırlı bir koca olacağını kanıtlar.</string>
+    <string name="culture_fact_4">\'Cappuccino\' terimi Kapuçin rahiplerinden gelir: Kapuçin manastır tarikatının kahverengi kapüşonlu cüppeleri, köpürtülmüş sütle karışmış espressonun rengini andırır. İçeceğin adı İtalyanca\'da kelimenin tam anlamıyla \'küçük Kapuçin\' anlamına gelir ve kökleri 17. yüzyıl Viyana\'sına dayanır.</string>
+
+    <!-- Yeni bölgesel içecekler (v4) -->
+    <string name="drink_cafezinho_name">Cafezinho</string>
+    <string name="drink_cafezinho_summary">Brezilya\'nın günlük kahvesi — çok sert, çok tatlı, minik fincanlarda servis edilir</string>
+    <string name="drink_cafezinho_body">Brezilya\'nın günlük kahve ritüeli — yoğun sert ve bol şekerli, içinde zaten şeker bulunan bez filtreden kaynar su geçirilerek demlenir. Her Brezilya evinde, ofisinde ve tamirhanesinde, kapıdan giren herkese ikram edilmeye hazır bir termos cafezinho bulunur. Bir içecekten çok, bir misafirperverlik jestidir.\n\nMalzemeler:\n• 15–20 g ince öğütülmüş kahve\n• 1–2 yk şeker (demlemeden önce kahveye eklenir)\n• 100–150 ml kaynar su\n• Bez filtre (saco de café)\n\nHazırlanışı:\n1. Şekeri doğrudan filtredeki öğütülmüş kahveye karıştırın.\n2. Kaynar suyu bez filtreden yavaşça dökün.\n3. Demlemeyi küçük bir fincan veya termosa alın — çok sert olmalıdır.\n4. Minik fincanlarda (50–80 ml) servis edin. Yavaş yudumlayın — konsantre ve yoğun tatlıdır.</string>
+    <string name="drink_sumi_yaki_name">Sumiyaki</string>
+    <string name="drink_sumi_yaki_summary">Binçotan üzerinde Japon kömür kavrulmuş kahve — son derece temiz, pürüzsüz, acılıksız</string>
+    <string name="drink_sumi_yaki_body">Yeşil çekirdeklerin, son derece yüksek sıcaklıkta neredeyse dumansız yanan binçotan (beyaz kömür) üzerinde kavrulduğu Japon kömür kavrulmuş kahvesi. Bu kadim yöntem, dikkat çekici derecede temiz, pürüzsüz lezzetli ve sıfır yanık acılığı olan kahve üretir — yüksek ve eşit ısı, çekirdeği yakmadan baştan sona kavurur. Geleneksel Japon kissaten kahve evlerinin özel bir ürünüdür; kavurma işleminin kendisi yavaş ve meditatif bir performanstır.\n\nMalzemeler:\n• 20 g sumiyaki kavrulmuş kahve çekirdeği\n• 300 ml su (90–93°C)\n• Pour-over veya sifon demleyici\n\nHazırlanışı:\n1. Sumiyaki kavrulmuş çekirdekleri orta-ince öğütün.\n2. Pour-over yöntemiyle demleyin (berraklık için V60 veya bez filtre önerilir).\n3. Eşmerkezli daireler halinde yavaşça dökün — temiz kavrum profili nazik ekstraksiyonu ödüllendirir.\n4. Önceden ısıtılmış bir fincanda sade servis edin. Sütsüz, şekersiz — kömür kavrumunun saflığını tadın.</string>
+    <string name="drink_dibek_name">Dibek Kahvesi</string>
+    <string name="drink_dibek_summary">Geleneksel taş dibekte dövülmüş Türk kahvesi — daha yumuşak, daha az acı, artmış aromatik yağlar</string>
+    <string name="drink_dibek_body">Metal dişliler arasında öğütülmek yerine, büyük bir taş dibekte tahta tokmakla dövülen geleneksel Türk kahvesi. Taş öğütme, daha yavaş ekstrakte olan farklı bir parçacık şekli üretir; böylece daha pürüzsüz, daha az acı ve artmış aromatik yağlara sahip bir fincan elde edilir. Tarihsel olarak ortak köy dibeklerinde yapılırdı — ritmik dövüş sesi mutfak ritüeli kadar sosyal bir ritüeldi.\n\nMalzemeler:\n• 7–10 g dibek kahvesi (toz inceliğinde)\n• 70–100 ml soğuk su\n• Damak zevkine göre şeker (isteğe bağlı)\n\nHazırlanışı:\n1. Cezveye soğuk su ve kahveyi ekleyin — henüz karıştırmayın.\n2. İstenirse şeker ekleyin, sonra hafifçe karıştırın.\n3. Kısık ateşte köpüğün yükselmesini (kaymak) izleyerek ısıtın.\n4. Taşmadan hemen önce ocaktan alın ve köpüğü fincana aktarın.\n5. Kısa süreliğine tekrar ateşe koyun, sonra kalanı fincana dökün.\n6. İçmeden önce telvenin 1–2 dakika çökmesini bekleyin. Taş dibek dokusu, normal Türk kahvesine göre belirgin şekilde daha yumuşak bir ağız hissi verir.</string>
+    <string name="drink_kopi_o_name">Kopi O</string>
+    <string name="drink_kopi_o_summary">Malezya sade kahvesi — şeker ve margarinle kavrulmuş robusta, \'çorap\' filtresinde demlenir</string>
+    <string name="drink_kopi_o_body">Malezya ve Singapur\'un klasik sade kahvesi: robusta çekirdekleri, karamelize olup parlak siyah olana kadar bir wokta şeker ve margarinle kavrulur. Kendine özgü kadifemsi bir doku katan uzun bir bez \'çorap\' filtresinden demlenir. Kavurma işlemi, başka hiçbir kahve geleneğine benzemeyen benzersiz derecede koyu ve tereyağlı-tatlı bir demleme yaratır. \'O\' Hokkien lehçesinde \'siyah\' (sütsüz) anlamına gelir. Yoğunlaştırılmış sütle tatlandırılmış için \'kopi\', buharlaştırılmış sütlü için \'kopi C\' sipariş edin.\n\nMalzemeler:\n• 15–20 g yerel kopi tozu (ince, şeker/margarinle önceden kavrulmuş)\n• 200–250 ml kaynar su\n• Tatlı yoğunlaştırılmış süt (isteğe bağlı, normal kopi için)\n\nHazırlanışı:\n1. Kopi tozunu metal halkaya gerilmiş bez çorap filtreye koyun.\n2. Kaynar suyu kahvenin üzerinden dökün — kahve aşağıdaki uzun bardağa damlar.\n3. Kopi O için: sade servis edin. Kopi için: yoğunlaştırılmış süt ekleyin, kuvvetlice karıştırın.\n4. Dökerek demleme tekniği, kremsi ağız hissini artıran havalandırma yaratır.\n5. Kalın seramik fincanlarda çok sıcak servis edin — geleneksel kopitiam\'lar asla kağıt bardak kullanmaz.</string>
+    <string name="drink_kopi_susu_name">Kopi Susu</string>
+    <string name="drink_kopi_susu_summary">Endonezya tatlı sütlü kahvesi — sokak tezgahlarından yoğunlaştırılmış sütlü sert robusta</string>
+    <string name="drink_kopi_susu_body">Takımadaların dört bir yanındaki warung\'larda (sokak tezgahları) her yerde bulunan Endonezya tatlı sütlü kahvesi. İnce öğütülmüş robusta kahvesi — genellikle yerel Sumatra veya Cava plantasyonlarından — sert demlenir ve tatlı yoğunlaştırılmış sütle karıştırılır. Çorap filtreli Malezya kopisinden farklı olarak, Endonezya kopi susu tipik olarak doğrudan fincanda demlenen daha kalın bir öğütüm kullanır ve telve dibe çöker. Sıcak veya buz üzerinde servis edilir.\n\nMalzemeler:\n• 15–20 g ince öğütülmüş robusta\n• 2–3 yk tatlı yoğunlaştırılmış süt\n• 200–250 ml kaynar su\n• Buz (buzlu versiyon için)\n\nHazırlanışı:\n1. Uzun bir bardağın dibine yoğunlaştırılmış sütü koyun.\n2. Öğütülmüş kahveyi doğrudan üzerine ekleyin.\n3. Kaynar suyu kahvenin üzerine dökün, bardağı doldurun.\n4. 1–2 dakika demlenmeye bırakın — telve dibe çökecektir.\n5. İyice karıştırın, sonra kalan telvenin çökmesini bekleyin.\n6. Es kopi susu için: kahveyi dökmeden önce buz ekleyin.\n7. Dipteki çökmüş telveyi rahatsız etmeden için.</string>
+    <string name="drink_es_alpukat_name">Es Alpukat Kopi</string>
+    <string name="drink_es_alpukat_summary">Endonezya avokadolu kahve içeceği — kremamsı, soğuk, yoğunlaştırılmış sütle karıştırılmış</string>
+    <string name="drink_es_alpukat_body">Kulağa sıra dışı gelen ama Jakarta\'nın kahve dükkanlarında tapılan Endonezya avokadolu kahve içeceği. Olgun avokado, sert kahve, tatlı yoğunlaştırılmış süt ve buzla koyu bir milkshake kıvamında karıştırılır. Kremamsı avokado meyvemsilik olmadan lüks bir gövde katar ve kahve bu zenginliği mükemmel şekilde keser. Yarı smoothie, yarı kahve, tamamen bağımlılık yapıcı — ilk kez deneyenleri şüpheci yapıp anında dönüştüren içecek.\n\nMalzemeler:\n• 1 olgun avokado, içi çıkarılmış\n• 1–2 shot espresso veya 60 ml sert demlenmiş kahve\n• 2–3 yk tatlı yoğunlaştırılmış süt\n• 150–200 ml buz\n• İsteğe bağlı: çikolata şurubu\n\nHazırlanışı:\n1. Avokado etini, yoğunlaştırılmış süt ve az su ile pürüzsüz olana kadar karıştırın.\n2. Buz ve sert kahveyi ekleyin (buzun hepsini eritmemesi için hafifçe soğutulmuş).\n3. Koyu ve kremamsı olana kadar tekrar karıştırın — milkshake kıvamında olmalı.\n4. Uzun bir bardağa dökün.\n5. İstenirse çikolata şurubu gezdirin.\n6. Kaşık ve pipetle servis edin — ikisine de ihtiyaç duyacak kadar koyudur.</string>
+    <string name="drink_menengic_name">Menengiç Kahvesi</string>
+    <string name="drink_menengic_summary">Kavrulmuş menengiçten kafeinsiz Türk \'kahvesi\' — fındıksı, doğal tatlı</string>
+    <string name="drink_menengic_body">Aslında kahve çekirdeğinden değil, kavrulmuş ve öğütülmüş menengiç meyvelerinden (antep fıstığı akrabası) yapılan geleneksel kafeinsiz Türk \'kahvesi\'. Güneydoğu Anadolu\'da, özellikle Gaziantep ve Şanlıurfa\'da popülerdir. Tıpkı Türk kahvesi gibi cezvede demlenir. Belirgin fındıksı, hafif reçinemsi bir lezzeti, doğal tatlılığı ve eşsiz yağlı bir köpüğü vardır — kafein istenmediği ama kahve ritüelinin arandığı akşam içimleri için mükemmeldir.\n\nMalzemeler:\n• 7–10 g menengiç tozu (ince, kavrulmuş menengiç)\n• 70–100 ml soğuk su\n• Damak zevkine göre şeker (isteğe bağlı — menengiç doğal olarak tatlıdır)\n\nHazırlanışı:\n1. Cezveye soğuk su ve menengiç tozunu ekleyin.\n2. Birleşmesi için hafifçe karıştırın — menengiç kahveden daha yağlıdır, iyice karıştırmak gerekir.\n3. Kısık ateşte yavaşça ısıtın. Kahveden farklı köpürecektir — yükselişi izleyin.\n4. Kremamsı, yağlı köpüğü önce küçük fincana aktarın.\n5. Kısa süreliğine tekrar ateşe koyun, sonra kalanı dökün.\n6. Türk kahvesinden farklı olarak menengiç kumlu tortu bırakmaz — tortu daha yumuşaktır.\n7. Sade servis edin — doğal fındıksı tatlılık çoğu zaman şeker gerektirmez.</string>
+    <string name="drink_mirra_name">Mirra</string>
+    <string name="drink_mirra_summary">Güneydoğu Anadolu\'nun acı kahvesi — kakuleli koyu kavrulmuş, yoğun ve törensel</string>
+    <string name="drink_mirra_body">Kakuleyle son derece koyu kavrulmuş, kulpsuz minik fincanlarda servis edilen Güneydoğu Anadolu\'nun sert acı kahvesi. Normal Türk kahvesinden farklı olarak mirra, özel çok hazneli bir kap kullanılarak demlemenin tekrar tekrar telve üzerinden geçirilmesiyle hazırlanır — her geçiş ekstraksiyonu yoğunlaştırır. Çok acı, son derece kafeinli, geleneksel olarak törenlerde ve onur konuklarına bir saygı göstergesi olarak sunulur. Mardin ve Şanlıurfa misafirperverlik kültüründe bir fincan mirrayı reddetmek düşünülemez.\n\nMalzemeler:\n• 15–20 g ince öğütülmüş koyu kavrulmuş kahve\n• 2–3 yeşil kakule kapsülü, ezilmiş\n• 150–200 ml su\n\nHazırlanışı:\n1. Kahveyi ezilmiş kakuleyle çok ince öğütün.\n2. Geleneksel mirra kabına (veya küçük bir tencereye) kahve-kakule karışımını ve suyu ekleyin.\n3. Kaynama noktasına getirin ama taşırmayın.\n4. Demlemeyi başka bir kaba dökün, sonra tekrar telve üzerinden geri dökün.\n5. Bu geçişi 2–3 kez tekrarlayın — her geçiş ekstraksiyonu ve acılığı derinleştirir.\n6. Çok küçük fincanlarda (30–40 ml) servis edin — mirra yudumlanır, hızlı içilmez.\n7. Geleneksel olarak şekersiz servis edilir. Acılık maksattır — güç ve saygıyı simgeler.</string>
+
+    <string name="settings_about_footer">Bir Türk ev baristası tarafından sevgiyle yapıldı. Açık kaynak, MIT lisanslı, reklamsız, izlemesiz.</string>
+    <string name="google_server_client_id">196980582414-fv03bbj1dba2g82t8jo37132gf3u9fbj.apps.googleusercontent.com</string>
 </resources>

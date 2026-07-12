@@ -1,6 +1,5 @@
 package co.coffeery.app.ui.screens.recipes
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -12,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -27,7 +27,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import co.coffeery.app.R
 import co.coffeery.app.data.local.RecipeEntity
+import co.coffeery.app.data.model.BrewCategory
 import co.coffeery.app.data.model.RoastLevel
+import co.coffeery.app.ui.components.AccentStripeCard
 import co.coffeery.app.ui.components.AppText
 import co.coffeery.app.ui.components.CoffeeCard
 import co.coffeery.app.ui.components.CoffeeDialog
@@ -45,6 +47,7 @@ import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
 import co.coffeery.app.util.BrewMath
 import co.coffeery.app.util.Format
+import java.util.Date
 
 @Composable
 fun RecipesScreen(state: AppUiState, vm: AppViewModel) {
@@ -64,14 +67,14 @@ fun RecipesScreen(state: AppUiState, vm: AppViewModel) {
         if (state.recipes.isEmpty()) {
             Spacer(Modifier.height(40.dp))
             Column(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                LineIcon(Glyph.BOOKMARK, colors.accent, Modifier.size(48.dp))
+                LineIcon(Glyph.BOOKMARK, colors.textSecondary.copy(alpha = 0.4f), Modifier.size(64.dp))
                 Spacer(Modifier.height(16.dp))
-                AppText(stringResource(R.string.empty_recipes_title), style = CoffeeTheme.type.title)
-                Spacer(Modifier.height(4.dp))
-                AppText(stringResource(R.string.empty_recipes_desc), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                AppText(stringResource(R.string.empty_recipes_title), style = CoffeeTheme.type.title, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Spacer(Modifier.height(8.dp))
+                AppText(stringResource(R.string.empty_recipes_sub), style = CoffeeTheme.type.body, color = colors.textSecondary, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                 Spacer(Modifier.height(16.dp))
                 PrimaryButton(
                     text = stringResource(R.string.empty_recipes_action),
@@ -79,11 +82,24 @@ fun RecipesScreen(state: AppUiState, vm: AppViewModel) {
                 )
             }
         } else {
+            val recent = state.recipes.first()
+            FeaturedRecipeCard(
+                recipe = recent,
+                state = state,
+                onViewBrew = {
+                    vm.loadRecipe(recent)
+                    vm.selectTab(NavTab.BREW)
+                },
+            )
+
             state.recipes.forEach { recipe ->
                 RecipeRow(
                     recipe = recipe,
                     state = state,
-                    onClick = { vm.applyRecipe(recipe) },
+                    onClick = {
+                        vm.loadRecipe(recipe)
+                        vm.selectTab(NavTab.BREW)
+                    },
                     onDelete = { pendingDelete = recipe },
                 )
             }
@@ -106,26 +122,84 @@ fun RecipesScreen(state: AppUiState, vm: AppViewModel) {
 }
 
 @Composable
+private fun FeaturedRecipeCard(recipe: RecipeEntity, state: AppUiState, onViewBrew: () -> Unit) {
+    val colors = CoffeeTheme.colors
+    val eq = state.equipment.firstOrNull { it.id == recipe.equipmentId }
+    val eqName = eq?.displayName() ?: "—"
+    val roast = runCatching { RoastLevel.valueOf(recipe.roast) }.getOrDefault(RoastLevel.MEDIUM)
+    val result = if (eq != null) {
+        BrewMath.compute(eq, recipe.strength, roast, recipe.inputByCups, recipe.cups, recipe.waterMl)
+    } else null
+
+    AccentStripeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                AppText(stringResource(R.string.recipe_recent), style = CoffeeTheme.type.label, color = colors.accent)
+                Spacer(Modifier.height(4.dp))
+                AppText(eqName, style = CoffeeTheme.type.headline, maxLines = 1)
+                if (result != null) {
+                    Spacer(Modifier.height(2.dp))
+                    AppText(
+                        "${Format.grams(result.coffeeGrams)}g · ${result.waterMl}ml · 1:${Format.ratio(result.ratioDenominator)}",
+                        style = CoffeeTheme.type.caption,
+                        color = colors.textSecondary,
+                    )
+                }
+            }
+            Spacer(Modifier.width(12.dp))
+            PrimaryButton(
+                text = stringResource(R.string.recipe_view_brew),
+                onClick = onViewBrew,
+            )
+        }
+    }
+}
+
+@Composable
 private fun RecipeRow(recipe: RecipeEntity, state: AppUiState, onClick: () -> Unit, onDelete: () -> Unit) {
     val colors = CoffeeTheme.colors
     val eq = state.equipment.firstOrNull { it.id == recipe.equipmentId }
     val eqName = eq?.displayName() ?: "—"
-    val summary = if (eq != null) {
-        val roast = runCatching { RoastLevel.valueOf(recipe.roast) }.getOrDefault(RoastLevel.MEDIUM)
-        val result = BrewMath.compute(eq, recipe.strength, roast, recipe.inputByCups, recipe.cups, recipe.waterMl)
-        stringResource(R.string.recipes_summary, eqName, Format.grams(result.coffeeGrams), result.waterMl.toString())
-    } else eqName
+    val roast = runCatching { RoastLevel.valueOf(recipe.roast) }.getOrDefault(RoastLevel.MEDIUM)
+    val result = if (eq != null) {
+        BrewMath.compute(eq, recipe.strength, roast, recipe.inputByCups, recipe.cups, recipe.waterMl)
+    } else null
+    val dateStr = android.text.format.DateFormat.getMediumDateFormat(androidx.compose.ui.platform.LocalContext.current)
+        .format(Date(recipe.createdAt))
+    val strengthLabel = when {
+        recipe.strength < 0.34f -> stringResource(R.string.calc_weaker)
+        recipe.strength < 0.67f -> stringResource(R.string.strength_balanced_label)
+        else -> stringResource(R.string.calc_stronger)
+    }
 
-    CoffeeCard(onClick = onClick, modifier = Modifier.fillMaxWidth()) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(14.dp)) {
-            LineIcon((eq?.category ?: co.coffeery.app.data.model.BrewCategory.OTHER).glyph(), colors.accent, Modifier.size(28.dp))
+    CoffeeCard(modifier = Modifier.fillMaxWidth(), onClick = onClick) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            LineIcon(
+                (eq?.category ?: BrewCategory.OTHER).glyph(),
+                colors.accent,
+                Modifier.size(24.dp),
+            )
+            Spacer(Modifier.width(10.dp))
             Column(Modifier.weight(1f)) {
-                AppText(recipe.name, style = CoffeeTheme.type.headline, maxLines = 1)
-                AppText(summary, style = CoffeeTheme.type.caption, color = colors.textSecondary, maxLines = 1)
+                AppText(eqName, style = CoffeeTheme.type.headline, maxLines = 1)
+                if (result != null) {
+                    AppText(
+                        "${Format.grams(result.coffeeGrams)}g · ${result.waterMl}ml · 1:${Format.ratio(result.ratioDenominator)}",
+                        style = CoffeeTheme.type.caption,
+                        color = colors.textSecondary,
+                        maxLines = 1,
+                    )
+                }
+                AppText(
+                    "${stringResource(roast.labelRes)} · $strengthLabel · $dateStr",
+                    style = CoffeeTheme.type.caption,
+                    color = colors.textSecondary,
+                    maxLines = 1,
+                )
             }
             Box(
                 modifier = Modifier
-                    .size(38.dp)
+                    .size(32.dp)
                     .clip(CoffeeShapes.pill)
                     .clickable(indication = null, interactionSource = remember { MutableInteractionSource() }) { onDelete() },
                 contentAlignment = Alignment.Center,

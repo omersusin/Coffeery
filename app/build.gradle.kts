@@ -25,6 +25,12 @@ android {
             keyAlias = "coffeery"
             keyPassword = "coffeery123"
         }
+        create("fixedDebug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
     }
 
     buildTypes {
@@ -38,6 +44,7 @@ android {
             )
         }
         debug {
+            signingConfig = signingConfigs.getByName("fixedDebug")
             applicationIdSuffix = ".debug"
             isMinifyEnabled = false
         }
@@ -56,6 +63,8 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/DEPENDENCIES"
+            excludes += "/META-INF/INDEX.LIST"
         }
     }
 }
@@ -84,6 +93,14 @@ dependencies {
     implementation("androidx.room:room-runtime:2.7.2")
     implementation("androidx.room:room-ktx:2.7.2")
     ksp("androidx.room:room-compiler:2.7.2")
+
+    implementation("io.coil-kt:coil-compose:2.7.0")
+
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
+    implementation("com.google.android.gms:play-services-drive:17.0.0")
+    implementation("com.google.api-client:google-api-client-android:2.7.2")
+    implementation("com.google.apis:google-api-services-drive:v3-rev20240521-2.0.0")
+    implementation("com.google.http-client:google-http-client-gson:1.45.3")
 
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

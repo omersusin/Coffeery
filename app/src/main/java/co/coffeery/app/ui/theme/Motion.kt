@@ -30,5 +30,21 @@ object CoffeeMotion {
     const val normal = 220
     const val slow = 420
 
-    val press: SpringSpec<Float> = spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = Spring.StiffnessHigh)
+    val press = spring<Float>(
+        dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = Spring.StiffnessHigh,
+    )
+    val cardExpand = spring<Float>(
+        dampingRatio = Spring.DampingRatioLowBouncy,
+        stiffness = Spring.StiffnessMediumLow,
+    )
+    val page = spring<Float>(
+        dampingRatio = Spring.DampingRatioNoBouncy,
+        stiffness = Spring.StiffnessMedium,
+        visibilityThreshold = 0.001f,
+    )
+    val counter = spring<Float>(
+        dampingRatio = Spring.DampingRatioMediumBouncy,
+        stiffness = Spring.StiffnessMedium,
+    )
 }

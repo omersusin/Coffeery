@@ -45,9 +45,7 @@
     <string name="equip_moka_name">Moka Pot</string>
     <string name="equip_turkish_name">Turkish (Cezve)</string>
     <string name="equip_coldbrew_name">Cold Brew</string>
-    <string name="equip_siphon_name">Siphon</string>
     <string name="equip_espresso_name">Espresso</string>
-    <string name="equip_clever_name">Clever Dripper</string>
 
     <!-- Equipment taglines -->
     <string name="equip_v60_tag">Clean, bright, precise</string>
@@ -58,9 +56,7 @@
     <string name="equip_moka_tag">Bold stovetop</string>
     <string name="equip_turkish_tag">Intense, unfiltered</string>
     <string name="equip_coldbrew_tag">Smooth, low-acid</string>
-    <string name="equip_siphon_tag">Theatrical &amp; aromatic</string>
     <string name="equip_espresso_tag">Concentrated shot</string>
-    <string name="equip_clever_tag">Easiest great cup</string>
 
     <!-- Roast levels -->
     <string name="roast_light">Light</string>
@@ -132,6 +128,7 @@
     <string name="brew_next_up">Next: %1$s</string>
     <string name="brew_pour_to">Pour to %1$d g total</string>
     <string name="brew_complete">Enjoy your coffee ☕</string>
+    <string name="timer_hands_free">Hands-free</string>
     <string name="brew_complete_sub">Brewed with %1$s</string>
     <string name="brew_elapsed">Total elapsed</string>
     <string name="brew_adjust_pour">Adjust pour</string>
@@ -167,11 +164,14 @@
     <!-- Recipes screen -->
     <string name="recipes_title">Saved recipes</string>
     <string name="recipes_empty">No saved recipes yet.\nDial in a brew and tap Save.</string>
-    <string name="empty_recipes_title">No saved recipes</string>
-    <string name="empty_recipes_desc">Save your favorite brewing ratios for quick access</string>
-    <string name="empty_recipes_action">Go to Brew</string>
+    <string name="empty_recipes_title">No saved recipes yet</string>
+    <string name="empty_recipes_sub">Save your brew calculator settings as a recipe to reuse them later</string>
+    <string name="empty_recipes_action">Start Brewing</string>
     <string name="recipes_summary">%1$s · %2$s g : %3$s ml</string>
     <string name="recipes_delete_confirm">Delete this recipe?</string>
+    <string name="recipe_load">View recipe</string>
+    <string name="recipe_recent">Recent recipe</string>
+    <string name="recipe_view_brew">View &amp; brew</string>
 
     <!-- Equipment screen -->
     <string name="equipment_title">Your gear</string>
@@ -194,6 +194,11 @@
     <string name="learn_read_more">Read</string>
     <string name="learn_troubleshoot_title">How was your cup?</string>
     <string name="learn_troubleshoot_intro">Tell me how it tasted and I\'ll suggest a tweak for next time.</string>
+    <string name="learn_today">Today\'s Lesson</string>
+    <string name="learn_quiz_title">Quick Quiz</string>
+    <string name="learn_quiz_correct">Correct!</string>
+    <string name="learn_quiz_wrong">Not quite</string>
+    <string name="learn_quiz_score">Score: %1$d/12 correct today</string>
     <string name="taste_sour">Sour</string>
     <string name="taste_bitter">Bitter</string>
     <string name="taste_astringent">Astringent</string>
@@ -239,8 +244,6 @@
 
     <!-- v2 expanded equipment -->
     <string name="step_flip">Flip the pot</string>
-    <string name="equip_switch_name">Hario Switch</string>
-    <string name="equip_switch_tag">Immersion + pour-over hybrid</string>
     <string name="equip_origami_name">Origami Dripper</string>
     <string name="equip_origami_tag">Versatile conical dripper</string>
     <string name="equip_april_name">April Brewer</string>
@@ -251,10 +254,6 @@
     <string name="equip_timemore_tag">Glass conical dripper</string>
     <string name="equip_beehouse_name">Beehouse Dripper</string>
     <string name="equip_beehouse_tag">Twin-hole, forgiving flow</string>
-    <string name="equip_phin_name">Vietnamese Phin</string>
-    <string name="equip_phin_tag">Strong single-cup drip</string>
-    <string name="equip_colddrip_name">Cold Drip Tower</string>
-    <string name="equip_colddrip_tag">Slow cold-water drip</string>
     <string name="equip_percolator_name">Percolator</string>
     <string name="equip_percolator_tag">Recirculating stovetop brew</string>
     <string name="equip_batchbrew_name">Batch Brew</string>
@@ -270,8 +269,6 @@
     <string name="equip_cafec_tag">Conical, flower ribs, fast even flow</string>
     <string name="equip_ibrik_name">Ibrik</string>
     <string name="equip_ibrik_tag">Regional cezve — unfiltered, extra-fine</string>
-    <string name="equip_cezve_mod_name">Cezve (Modern)</string>
-    <string name="equip_cezve_mod_tag">Turkish style — heat, foam, serve</string>
     <string name="drinks_title">Drinks</string>
     <string name="drinks_intro">Milk-based classics and regional recipes — built, not brewed by ratio.</string>
     <string name="drink_read_more">View recipe</string>
@@ -370,9 +367,9 @@
     <string name="drink_cafebombon_name">Café Bombón</string>
     <string name="drink_cafebombon_summary">Espresso layered over condensed milk</string>
     <string name="drink_cafebombon_body">Spanish espresso layered over sweetened condensed milk.\n\nIngredients:\n• 1 shot espresso (~30 ml)\n• Equal part sweetened condensed milk\n\nSteps:\n1. Pour condensed milk into a clear glass.\n2. Gently pour espresso on top to keep two layers.\n3. Stir before drinking.</string>
-    <string name="drink_cortadito_name">Cuban Cortadito</string>
-    <string name="drink_cortadito_summary">Sweet Cuban espresso with steamed milk</string>
-    <string name="drink_cortadito_body">A sweet Cuban espresso softened with steamed milk (often with espuma).\n\nIngredients:\n• 1 shot Cuban-style espresso (sugar whipped in = espuma)\n• Equal part steamed milk\n\nSteps:\n1. Whip the first drops of espresso with sugar to make espuma.\n2. Pull the rest of the shot.\n3. Add equal steamed milk; top with espuma.</string>
+    <string name="drink_cortadito_name">Cortadito</string>
+    <string name="drink_cortadito_summary">Cuban espresso cut with steamed milk, topped with espumita</string>
+    <string name="drink_cortadito_body">Cuban espresso cut with a small amount of steamed milk — stronger than a cortado, traditionally made with Cuban dark roast and served with a layer of espumita (sugar foam). Popular in Miami\'s Cuban coffee culture.\n\nIngredients:\n• 1 shot Cuban-style espresso (~30 ml)\n• Small amount of steamed milk\n• Sugar (whipped into first drips = espumita)\n\nSteps:\n1. Whip the first drops of espresso with sugar to make espumita.\n2. Pull the rest of the shot.\n3. Add a small amount of steamed milk; top with espumita.\n4. Serve in a small cup — stronger and sweeter than a cortado.</string>
     <string name="drink_viennese_name">Viennese Coffee</string>
     <string name="drink_viennese_summary">Strong coffee topped with whipped cream</string>
     <string name="drink_viennese_body">Strong coffee crowned with whipped cream (Wiener Melange tradition).\n\nIngredients:\n• 2 shots strong coffee/espresso\n• Whipped cream\n• Optional: cocoa/chocolate shavings\n\nSteps:\n1. Pour hot strong coffee into a cup.\n2. Top generously with whipped cream.\n3. Dust with cocoa or chocolate.</string>
@@ -388,6 +385,9 @@
     <string name="log_grind_hint">e.g. 25 on Comandante, 3.5 on K-Ultra</string>
     <string name="log_notes">Tasting notes</string>
     <string name="brew_flavor_tags">Flavor Notes</string>
+    <string name="brew_add_photo">Add photo</string>
+    <string name="brew_photo_attached">Photo attached</string>
+    <string name="brew_photo_remove">Remove</string>
     <string name="log_notes_hint">Astringent, bright, chocolate finish…</string>
     <string name="log_bean_label">Bean</string>
     <string name="log_bean_none">None</string>
@@ -396,6 +396,9 @@
     <!-- Beans -->
     <string name="beans_title">Beans</string>
     <string name="beans_empty">No beans added yet. Track your coffee bags here — origin, roaster, roast date.</string>
+    <string name="empty_beans_title">No beans yet</string>
+    <string name="empty_beans_sub">Add your first coffee bean to start tracking your collection</string>
+    <string name="empty_beans_action">Add Bean</string>
     <string name="beans_add">Add beans</string>
     <string name="beans_name_hint">Bean name (e.g. Ethiopia Yirgacheffe)</string>
     <string name="beans_origin_hint">Origin / farm</string>
@@ -410,6 +413,10 @@
     <string name="log_streak_label_plural">day streak</string>
     <string name="log_streak_keep">Keep it going!</string>
     <string name="log_streak_start">Brew today to start a streak!</string>
+    <string name="streak_label">day streak!</string>
+    <string name="streak_keep_going">Keep brewing!</string>
+    <string name="streak_start">Start your streak!</string>
+    <string name="brew_reminder_streak">🔥 %1$d day streak — keep it going!</string>
     <string name="log_share_streak">Share your streak</string>
     <string name="log_share_streak_text">I\'ve brewed coffee %d days in a row with Coffeery! ☕</string>
 
@@ -425,6 +432,14 @@
     <string name="log_rating_out">%1$d/5</string>
     <string name="log_date_today">Today</string>
     <string name="log_date_yesterday">Yesterday</string>
+    <string name="log_compare_title">Compare your brews</string>
+    <string name="log_compare_sub">See how different methods stack up</string>
+    <string name="log_compare_button">Compare</string>
+    <string name="log_compare_select">Select two brews to compare</string>
+    <string name="log_share">Share</string>
+    <string name="log_share_pdf">PDF</string>
+    <string name="log_share_pdf_chooser">Share brew report</string>
+    <string name="log_shared_via">Brewed with Coffeery ☕</string>
 
     <!-- ===== Learn tools v2 ===== -->
     <string name="learn_extraction_calc_title">Extraction Yield Calculator</string>
@@ -489,6 +504,16 @@
     <string name="pro_tip_38">Label your coffee bags with roast date, not \'best by\' date. Coffee isn\'t milk — it doesn\'t suddenly go bad on a printed date. Instead, it gradually declines from its peak. Knowing the roast date lets you calculate optimal brewing windows.</string>
     <string name="pro_tip_39">Keep a brew journal — even a simple notebook entry with grind setting, ratio, and one-sentence taste note. After 20 brews with the same coffee, you\'ll see clear patterns. This is the fastest path from \'I like this\' to \'I know why I like this.\'</string>
     <string name="pro_tip_40">The 80/20 rule of coffee quality: 80% of your result comes from these four things — freshly roasted beans, a burr grinder, a scale, and filtered water. The remaining 20% is technique, equipment, and ritual. Master the 80% first.</string>
+    <string name="pro_tip_41">For iced pour-over, split your water: 60% hot for brewing, 40% as ice in the carafe. The ice flash-chills and dilutes to perfect strength. Use 1–2 clicks finer grind than your usual hot recipe.</string>
+    <string name="pro_tip_42">The \'Hoffmann French Press\' technique: use medium grind (not coarse), steep 4 min, break the crust, scoop foam, wait 5+ minutes for fines to settle, then plunge just to the surface. Clean cup with full body.</string>
+    <string name="pro_tip_43">Espresso grind size is set by your basket, not your preference. Under-dose a VST basket and you\'ll get a soggy puck. Fill to the basket\'s rated capacity (±1g) for best results.</string>
+    <string name="pro_tip_44">Your coffee\'s bloom tells you its age: no bloom = 3+ weeks old. Violent bloom with large bubbles = 2–5 days post-roast, still degassing heavily. Gentle, even bloom = optimal drinking window (5–14 days).</string>
+    <string name="pro_tip_45">Pre-wet espresso puck with a 2–3 second pre-infusion at low pressure before full extraction. This saturates the puck evenly and reduces channeling. Even machines without pre-infusion can do this manually by starting and stopping the pump briefly.</string>
+    <string name="pro_tip_46">Store multiple coffees? Freeze sealed portions you won\'t use in 2 weeks. Pull one portion out the night before, let it come to room temp in the sealed bag before opening. Never refreeze.</string>
+    <string name="pro_tip_47">The \'water first, coffee second\' technique for AeroPress (inverted): this prevents dry clumps at the plunger end. Add water, THEN coffee, stir immediately. More even extraction than coffee-first.</string>
+    <string name="pro_tip_48">If your V60 keeps clogging with Ethiopian beans, try pouring gentler and avoiding the final Rao Spin. Ethiopian coffees produce more fines. A gentler pour keeps fines distributed rather than migrating to the filter.</string>
+    <string name="pro_tip_49">Dose consistency beats dose precision. 18.0g vs 18.2g doesn\'t matter. But switching between 17g and 19g without adjusting grind will change extraction noticeably. Pick a dose, lock it, adjust grind instead.</string>
+    <string name="pro_tip_50">Clean your grinder burrs every 2–3 kg of coffee (roughly monthly for home users). Old coffee oils go rancid and coat fresh grounds. You\'ll taste the difference immediately — brighter, cleaner, more distinct flavors.</string>
 
     <!-- Coffee Glossary -->
     <string name="glossary_title">Coffee Glossary</string>
@@ -602,6 +627,26 @@
     <string name="glossary_def_54">A measurement of free (unbound) water in green coffee, critical for storage and roasting. Ideal Aw for green coffee: 0.53-0.59. Below 0.50, beans become brittle and lose cup quality; above 0.65, mold risk increases. Monitored throughout the supply chain.</string>
     <string name="glossary_term_55">Wet Aroma</string>
     <string name="glossary_def_55">The smell released when hot water first hits ground coffee, assessed during cupping. Different volatile compounds are released at different temperatures; the wet aroma reveals a different aromatic profile than dry fragrance. Often described alongside the \'crust\' that forms during cupping.</string>
+    <string name="glossary_term_56">Chaff</string>
+    <string name="glossary_def_56">The papery silver skin that flakes off coffee beans during roasting. Light roasts retain more chaff in the bean crease. Excessive chaff can clog grinders and add a papery taste if not removed.</string>
+    <string name="glossary_term_57">Peaberry</string>
+    <string name="glossary_def_57">A natural mutation where only one round bean develops inside the coffee cherry instead of the usual two flat-sided beans. About 5% of any harvest. Often separated and sold at premium for perceived superior flavor concentration.</string>
+    <string name="glossary_term_58">Monsooned</string>
+    <string name="glossary_def_58">Coffee exposed to monsoon winds and humidity for 12–16 weeks in open warehouses on India\'s Malabar coast. Beans swell, turn pale gold, and develop extremely low acidity with a unique musty, spicy profile.</string>
+    <string name="glossary_term_59">Cup of Excellence</string>
+    <string name="glossary_def_59">The most prestigious coffee competition and auction system. Coffees scoring 87+ points are awarded the COE designation. Winning lots can sell for $50–100+/lb, directly benefiting the producing farmer.</string>
+    <string name="glossary_term_60">Cupping Spoon</string>
+    <string name="glossary_def_60">A deep-bowled, silver-plated or stainless steel spoon used in professional coffee tasting. The bowl shape is designed for aggressive slurping (aspiration) which aerosolizes the coffee across the entire palate simultaneously.</string>
+    <string name="glossary_term_61">Microlot</string>
+    <string name="glossary_def_61">A small, separately processed batch of coffee from a specific section of a farm, often a few bags or less. Microlots allow roasters to showcase exceptional quality from a single plot or picking pass.</string>
+    <string name="glossary_term_62">Organic Acids</string>
+    <string name="glossary_def_62">Naturally occurring acids in coffee — citric (lemon), malic (apple), tartaric (grape), acetic (vinegar, in small amounts), and chlorogenic acids. These create coffee\'s perceived acidity and brightness. Roasting degrades them; light roasts retain more.</string>
+    <string name="glossary_term_63">Quakers</string>
+    <string name="glossary_def_63">Under-ripe coffee beans that remain pale and fail to darken during roasting. They taste papery, peanutty, or \'bready\' and are considered a defect. Quality-focused roasters remove quakers during post-roast sorting.</string>
+    <string name="glossary_term_64">Washed Process</string>
+    <string name="glossary_def_64">Coffee processing method where fruit skin and pulp are mechanically removed, beans ferment in water tanks to loosen remaining mucilage, then are washed and dried. Produces clean, bright cups emphasizing origin character.</string>
+    <string name="glossary_term_65">Natural Process</string>
+    <string name="glossary_def_65">The oldest processing method: whole coffee cherries are dried in the sun with fruit intact for 2–4 weeks before hulling. Long fruit contact creates intense fruit-forward, winey, and heavy-bodied flavor profiles.</string>
 
     <!-- Grind size visual reference -->
     <string name="grind_vis_title">Grind Size Reference</string>
@@ -662,6 +707,10 @@
     <string name="brew_issue_gusher_advice">How to fix espresso that runs through in under 15 seconds, producing thin, underextracted, sour shots — grind finer, increase dose, check distribution.</string>
     <string name="brew_issue_fines_mud_advice">What causes excessive sediment and mud at the bottom of your French press cup — why your grinder may be producing too many fines or your plunge was too aggressive.</string>
     <string name="brew_issue_clogged_filter_advice">Why your pour-over stalls and takes forever to drain — diagnosing and fixing filter clogging from fines migration, overly fine grinding, or filter type.</string>
+    <string name="brew_issue_temp_loss">Temperature Loss / Flat taste</string>
+    <string name="brew_issue_temp_loss_advice">Why your brewed coffee tastes flat despite correct ratio — diagnosing and fixing temperature loss from kettle to slurry. Pre-heat everything, brew at the high end of your target range, and account for 3–8°C drop from kettle to slurry.</string>
+    <string name="brew_issue_grind_inconsistent">Inconsistent results day to day</string>
+    <string name="brew_issue_grind_inconsistent_advice">Why the same recipe produces different results on different days — diagnosing grind inconsistency from dull burrs, ambient humidity affecting static, or grinder retention mixing yesterday\'s stale grounds with today\'s fresh dose.</string>
 
     <!-- Flavor wheel -->
     <string name="flavor_wheel_title">Coffee Flavor Wheel</string>
@@ -923,7 +972,7 @@
     <string name="drink_bulletproof_body">Popularised by the keto and paleo communities, Bulletproof Coffee is regular black coffee blended with unsalted grass-fed butter and MCT oil or coconut oil until emulsified and frothy. The resulting drink is creamy, slightly oily, and exceptionally satiating — many use it as a breakfast replacement, claiming it provides sustained mental energy without the crash of carbohydrates. Created by Dave Asprey in the early 2010s, inspired by yak-butter tea he tried in Tibet.\n\nIngredients:\n• 250 ml hot black coffee\n• 1–2 tbsp unsalted grass-fed butter\n• 1 tbsp MCT oil or coconut oil\n• Total: ~280 ml\n\nSteps:\n1. Brew a cup of high-quality black coffee.\n2. Add the coffee, butter, and MCT/coconut oil to a blender.\n3. Blend on high for 20–30 seconds until the mixture turns creamy and frothy (do NOT just stir — it won\'t emulsify).\n4. Pour into a mug and drink immediately while hot.</string>
     <string name="drink_bicerin_name">Bicerin</string>
     <string name="drink_bicerin_summary">Turin\'s layered drink: espresso, chocolate and cream</string>
-    <string name="drink_bicerin_body">A traditional hot drink from Turin\'s historic Caffè Al Bicerin, dating to the 18th century. Three distinct layers — rich hot chocolate at the base, a shot of espresso in the middle, and lightly whipped cream on top — are served in a small clear glass without stirring.\n\nIngredients:\n• 1 shot espresso (~30 ml)\n• 60 ml thick hot chocolate (cioccolata calda)\n• Lightly whipped cream\n• Total: ~150 ml\n\nSteps:\n1. Prepare thick hot chocolate and pour it into a small clear glass (bottom layer).\n2. Slowly pour the hot espresso over the back of a spoon to create the middle layer.\n3. Spoon lightly whipped cream on top — do not stir.\n4. Drink through the cream, letting the layers gradually mix.</string>
+    <string name="drink_bicerin_body">Turin, Italy\'s legendary layered drink — hot chocolate, espresso, and lightly whipped cream served in a small glass without mixing. Dating to the 18th century at Caffè al Bicerin. Stir before drinking to combine the three layers.\n\nIngredients:\n• 1 shot espresso (~30 ml)\n• 60 ml thick hot chocolate (cioccolata calda)\n• Lightly whipped cream\n• Total: ~150 ml\n\nSteps:\n1. Prepare thick hot chocolate and pour it into a small clear glass (bottom layer).\n2. Slowly pour the hot espresso over the back of a spoon to create the middle layer.\n3. Spoon lightly whipped cream on top — do not stir.\n4. Drink through the cream, then stir to combine as you go.</string>
     <string name="drink_espresso_romano_name">Espresso Romano</string>
     <string name="drink_espresso_romano_summary">Espresso served with lemon peel, an Italian-American tradition</string>
     <string name="drink_espresso_romano_body">A simple but distinctive serve: a standard espresso shot with a strip of lemon zest or peel on the side (or rubbed on the rim). Despite its name, it\'s more Italian-American than Roman — likely originating from Italian immigrants in the US who found early espresso harsh and used lemon to soften the bitterness. The citrus oil brightens the coffee\'s aroma.\n\nIngredients:\n• 1 shot espresso (~30 ml)\n• A strip of fresh lemon peel\n• Optional: sugar to taste\n\nSteps:\n1. Pull a standard single espresso shot.\n2. Rub the lemon peel around the rim of the cup to release its oils, then drop it in or place on the saucer.\n3. Some squeeze a drop of lemon juice; purists only use the peel for aroma.\n4. Serve immediately.</string>
@@ -931,8 +980,8 @@
     <string name="drink_mazagran_summary">Portuguese cold brew coffee with lemonade, served over ice</string>
     <string name="drink_mazagran_body">A refreshing Portuguese iced coffee drink named after a fortress in Algeria, where French soldiers reportedly drank coffee syrup with cold water. The modern version combines strong cold brew or espresso with fresh lemonade and ice — the bright acidity of lemon cutting through the coffee\'s depth. Light, tangy and quenching, popular across Portugal during summer.\n\nIngredients:\n• 60 ml strong cold brew (or chilled espresso)\n• 60 ml fresh lemonade\n• Ice cubes\n• Optional: a splash of rum, mint sprig\n\nSteps:\n1. Fill a glass with ice cubes.\n2. Pour the cold brew coffee over the ice.\n3. Add fresh lemonade and stir gently.\n4. Garnish with a lemon slice and optional mint sprig.</string>
     <string name="drink_carajas_name">Carajillo</string>
-    <string name="drink_carajas_summary">Mexican drink with espresso, Licor 43, ice and whipped cream</string>
-    <string name="drink_carajas_body">A Mexican cocktail-coffee hybrid: equal parts espresso and Licor 43 (a sweet Spanish vanilla-citrus liqueur), shaken over ice for a creamy, frothy texture, then topped with whipped cream. The name comes from the Spanish "coraje" (courage) — it\'s the drink soldiers ordered before battle. Served after meals or as a pick-me-up in the late afternoon.\n\nIngredients:\n• 1 shot espresso (~30 ml)\n• 1 shot Licor 43 (~30 ml)\n• Ice\n• Whipped cream\n• Optional: cinnamon or coffee beans for garnish\n\nSteps:\n1. Pull a fresh espresso shot and let it cool slightly.\n2. Fill a shaker with ice, add the espresso and Licor 43.\n3. Shake vigorously for 10–15 seconds until frothy.\n4. Strain into a rocks glass over fresh ice.\n5. Top with whipped cream and garnish with cinnamon or coffee beans.</string>
+    <string name="drink_carajas_summary">Spanish after-dinner cocktail — espresso with brandy, rum, or Licor 43</string>
+    <string name="drink_carajas_body">Spanish after-dinner coffee cocktail — espresso with brandy, rum, or Licor 43, served over ice or hot. Legend says Spanish soldiers in Cuba drank this for courage (\'coraje\'). Modern version often includes a citrus peel twist.\n\nIngredients:\n• 1 shot espresso (~30 ml)\n• 1 shot Licor 43, brandy, or rum (~30 ml)\n• Ice (for iced version)\n• Optional: citrus peel twist\n\nSteps:\n1. Pull a fresh espresso shot.\n2. Hot version: add the spirit directly to the espresso and stir.\n3. Iced version: shake espresso and spirit with ice for 10–15 seconds, strain over fresh ice.\n4. Garnish with a citrus peel twist.\n5. Serve immediately — the name means \'courage\' in Spanish.</string>
     <string name="drink_asiatico_name">Asiático</string>
     <string name="drink_asiatico_summary">Spanish coffee with condensed milk, brandy, Licor 43 and spices</string>
     <string name="drink_asiatico_body">From Cartagena in southeastern Spain, this elaborate coffee cocktail layers condensed milk, brandy, Licor 43, hot espresso, and a twist of lemon peel, finished with cinnamon and sometimes a coffee bean on top. It\'s sweet, boozy, spicy and intensely aromatic — a full sensory experience served in a special thick-walled glass.\n\nIngredients:\n• 2 tbsp condensed milk\n• 1 shot brandy (~30 ml)\n• 1 shot Licor 43 (~30 ml)\n• 1 shot espresso (~30 ml)\n• Lemon peel\n• Cinnamon and 2 coffee beans for garnish\n\nSteps:\n1. Pour condensed milk into the bottom of the glass.\n2. Add brandy and Licor 43 as the next layers.\n3. Slowly pour hot espresso over the back of a spoon.\n4. Flambé if desired for caramelised top notes.\n5. Garnish with lemon peel, a cinnamon stick, and two coffee beans.</string>
@@ -1197,4 +1246,87 @@
     <string name="learn_l74_body">From Guatemala to Panama, Central America produces diverse, high-quality Arabica. Guatemala\'s Antigua region (volcanic soil) yields chocolate, spice, and smoky notes. Costa Rica pioneered honey processing and produces clean, sweet, citrusy coffees. Honduras (now the region\'s largest producer) offers caramel, vanilla, and tropical fruit. Panama\'s Boquete region achieved fame through Hacienda La Esmeralda\'s Geisha — the most expensive coffee in the world, with explosive jasmine, bergamot, and stone fruit flavors that shattered auction records ($10,000+/kg for the top lots).</string>
     <string name="learn_l75_title">Asia-Pacific Coffees</string>
     <string name="learn_l75_body">Indonesia (Sumatra, Java, Sulawesi) produces earthy, full-bodied coffees with low acidity — prized for adding weight to espresso blends. The wet-hulling process creates their signature profile. Vietnam is the world\'s #2 producer but grows almost exclusively Robusta for instant coffee — the source of traditional Vietnamese cà phê with condensed milk. India grows both Arabica and Robusta, including the unique monsoon-aged Malabar. Papua New Guinea produces clean, sweet coffees similar to Central American profiles. Thailand, Laos, and Myanmar are emerging origins with growing specialty sectors.</string>
+    <string name="equip_siphon_name">Siphon</string>
+    <string name="equip_siphon_tag">Theatrical &amp; aromatic</string>
+    <string name="equip_clever_name">Clever Dripper</string>
+    <string name="equip_clever_tag">Easiest great cup</string>
+    <string name="equip_switch_name">Hario Switch</string>
+    <string name="equip_switch_tag">Immersion + pour-over hybrid</string>
+    <string name="equip_phin_name">Vietnamese Phin</string>
+    <string name="equip_phin_tag">Strong single-cup drip</string>
+    <string name="equip_colddrip_name">Cold Drip Tower</string>
+    <string name="equip_colddrip_tag">Slow cold-water drip</string>
+
+    <!-- Cloud settings -->
+    <string name="settings_cloud_title">Cloud</string>
+    <string name="settings_cloud_signin">Sign in with Google</string>
+    <string name="settings_cloud_signed_as">Signed in as %s</string>
+    <string name="settings_cloud_signout">Sign out</string>
+    <string name="settings_cloud_error">Sign-in failed</string>
+    <string name="settings_cloud_backup">Backup to Drive</string>
+    <string name="settings_cloud_restore">Restore from Drive</string>
+    <string name="settings_cloud_backup_done">Backup saved to Drive</string>
+    <string name="settings_cloud_restore_done">Data restored. Restart the app.</string>
+    <string name="bean_detail_title">Bean Details</string>
+    <string name="bean_detail_roast_date">Roast date</string>
+    <string name="bean_detail_process">Process</string>
+    <string name="bean_detail_varietal">Varietal</string>
+    <string name="bean_detail_altitude">Altitude</string>
+    <string name="bean_detail_sca">SCA score</string>
+    <string name="bean_detail_purchase">Purchase date</string>
+    <string name="bean_detail_brewing">Brew this bean</string>
+
+    <!-- Coffee & Food Pairing -->
+    <string name="pairing_title">Coffee &amp; Food Pairing</string>
+    <string name="pairing_1_coffee">Ethiopian Yirgacheffe</string>
+    <string name="pairing_1_food">Lemon Blueberry Scone</string>
+    <string name="pairing_1_why">The coffee\'s natural blueberry and citrus notes amplify the same flavors in the pastry.</string>
+    <string name="pairing_2_coffee">Sumatra Dark Roast</string>
+    <string name="pairing_2_food">Dark Chocolate Brownie</string>
+    <string name="pairing_2_why">The earthy, full-bodied profile stands up to rich chocolate without being overpowered.</string>
+    <string name="pairing_3_coffee">Kenya AA</string>
+    <string name="pairing_3_food">Lemon Bar</string>
+    <string name="pairing_3_why">Kenya\'s grapefruit-like brightness cuts through sweet pastry and complements citrus.</string>
+    <string name="pairing_4_coffee">Colombian Medium Roast</string>
+    <string name="pairing_4_food">Cinnamon Coffee Cake</string>
+    <string name="pairing_4_why">Nutty caramel sweetness mirrors the brown sugar and cinnamon in coffee cake.</string>
+    <string name="pairing_5_coffee">Cold Brew Concentrate</string>
+    <string name="pairing_5_food">Vanilla Ice Cream (Affogato)</string>
+    <string name="pairing_5_why">The concentrated coffee\'s chocolatey notes create a perfect dessert pairing.</string>
+
+    <!-- Coffee Culture Facts -->
+    <string name="culture_title">Coffee Culture Facts</string>
+    <string name="culture_fact_1">Turkish coffee fortune telling (tasseography): After drinking, the cup is turned upside down. The patterns left by the grounds are \'read\' to tell the drinker\'s fortune — shapes suggesting birds (good news), fish (money), or snakes (enemies) each carry specific meanings from Ottoman palace culture.</string>
+    <string name="culture_fact_2">The Greek frappe was an accident (1957): A Nestlé employee at the Thessaloniki Trade Fair couldn\'t find hot water, so he shook instant coffee with cold water and ice — creating the iconic Greek frappe, still Greece\'s most popular coffee drink.</string>
+    <string name="culture_fact_3">Turkish coffee matrimonial custom: When a groom\'s family visits to ask for marriage, the bride serves Turkish coffee — but the groom\'s cup is made with salt instead of sugar. If he drinks it without showing displeasure, he proves he\'ll be a patient husband.</string>
+    <string name="culture_fact_4">The term \'cappuccino\' comes from Capuchin friars: The brown hooded robes of the Capuchin monastic order resemble the color of espresso mixed with frothed milk. The drink\'s name literally means \'little Capuchin\' in Italian, dating back to 17th century Vienna.</string>
+
+    <!-- New regional drinks (v4) -->
+    <string name="drink_cafezinho_name">Cafezinho</string>
+    <string name="drink_cafezinho_summary">Brazil\'s everyday coffee — very strong, very sweet, served in tiny cups</string>
+    <string name="drink_cafezinho_body">Brazil\'s everyday coffee ritual — intensely strong and heavily sweetened, brewed by pouring boiling water through a cloth filter filled with fine ground coffee and sugar already in the pot. Every Brazilian home, office, and mechanic shop keeps a thermos of cafezinho ready to offer anyone who walks through the door. It\'s less a drink and more a gesture of hospitality.\n\nIngredients:\n• 15–20 g fine ground coffee\n• 1–2 tbsp sugar (added to the grounds before brewing)\n• 100–150 ml boiling water\n• Cloth filter (saco de café)\n\nSteps:\n1. Mix sugar directly into the ground coffee in the filter.\n2. Slowly pour boiling water through the cloth filter.\n3. Collect the brew in a small cup or thermos — it should be very strong.\n4. Serve in tiny cups (50–80 ml). Sip slowly — it\'s concentrated and intensely sweet.</string>
+    <string name="drink_sumi_yaki_name">Sumiyaki</string>
+    <string name="drink_sumi_yaki_summary">Japanese charcoal-roasted coffee over binchōtan — remarkably clean, smooth, no bitterness</string>
+    <string name="drink_sumi_yaki_body">Japanese charcoal-roasted coffee where green beans are roasted over binchōtan (white charcoal) which burns at extremely high temperature with almost no smoke. This ancient method produces coffee with remarkably clean, smooth flavor and no charred bitterness — the high, even heat roasts the bean through without scorching. A specialty of traditional Japanese kissaten coffee houses, where the roasting itself is a slow, meditative performance.\n\nIngredients:\n• 20 g sumiyaki-roasted coffee beans\n• 300 ml water at 90–93°C\n• Pour-over or siphon brewer\n\nSteps:\n1. Grind sumiyaki-roasted beans medium-fine.\n2. Brew using a pour-over method (V60 or cloth filter preferred for clarity).\n3. Pour slowly in concentric circles — the clean roast profile rewards gentle extraction.\n4. Serve black in a pre-warmed cup. No milk, no sugar — taste the purity of the charcoal roast.</string>
+    <string name="drink_dibek_name">Dibek Kahvesi</string>
+    <string name="drink_dibek_summary">Traditional Turkish stone-ground coffee — smoother, less bitter, enhanced aromatic oils</string>
+    <string name="drink_dibek_body">Traditional Turkish coffee where the beans are pounded in a large stone mortar (dibek) with a wooden pestle instead of being ground between metal burrs. The stone-grinding produces a different particle shape that extracts more slowly, resulting in a smoother, less bitter cup with enhanced aromatic oils. Historically made in communal village dibeks — the rhythmic pounding was a social ritual as much as a culinary one.\n\nIngredients:\n• 7–10 g dibek-ground coffee (powder-fine)\n• 70–100 ml cold water\n• Sugar to taste (optional)\n\nSteps:\n1. Add cold water and coffee to a cezve — do not stir yet.\n2. Add sugar if desired, then stir gently.\n3. Heat on low, watching for the foam to rise (kaymak).\n4. Just before it boils over, remove from heat and pour the foam into the cup.\n5. Return to heat briefly, then pour the rest into the cup.\n6. Let the grounds settle for 1–2 minutes before drinking. The stone-ground texture gives a noticeably softer mouthfeel than regular Turkish coffee.</string>
+    <string name="drink_kopi_o_name">Kopi O</string>
+    <string name="drink_kopi_o_summary">Malaysian black coffee — robusta roasted with sugar and margarine, \'sock\' brewed</string>
+    <string name="drink_kopi_o_body">Malaysia and Singapore\'s classic black coffee: robusta beans roasted with sugar and margarine in a wok until caramelized and glossy black. Brewed through a long cloth \'sock\' filter that strains while adding a distinctive velvety texture. The roasting process creates a uniquely thick, buttery-sweet brew unlike any other coffee tradition. \'O\' means \'black\' (no milk) in Hokkien dialect. Order \'kopi\' for sweetened with condensed milk, \'kopi C\' for evaporated milk.\n\nIngredients:\n• 15–20 g local kopi powder (fine, pre-roasted with sugar/margarine)\n• 200–250 ml boiling water\n• Sweetened condensed milk (optional, for regular kopi)\n\nSteps:\n1. Place kopi powder in the cloth sock filter stretched over a metal ring.\n2. Pour boiling water through the grounds — the coffee drips into a tall mug below.\n3. For kopi O: serve black. For kopi: add condensed milk, stir vigorously.\n4. The pour-through technique creates aeration that enhances the creamy mouthfeel.\n5. Serve piping hot in thick ceramic cups — traditional kopitiams never use paper cups.</string>
+    <string name="drink_kopi_susu_name">Kopi Susu</string>
+    <string name="drink_kopi_susu_summary">Indonesian sweet milk coffee — strong robusta with condensed milk from street stalls</string>
+    <string name="drink_kopi_susu_body">Indonesian sweet milk coffee ubiquitous at warung (street stalls) across the archipelago. Finely ground robusta coffee — often from local Sumatran or Javanese plantations — is brewed strong and mixed with sweetened condensed milk. Unlike Malaysian kopi with its sock filter, Indonesian kopi susu typically uses a coarser grind steeped directly in the cup, with the grounds settling to the bottom. Served hot or over ice.\n\nIngredients:\n• 15–20 g fine ground robusta\n• 2–3 tbsp sweetened condensed milk\n• 200–250 ml boiling water\n• Ice (for iced version)\n\nSteps:\n1. Place condensed milk in the bottom of a tall glass.\n2. Add ground coffee directly on top.\n3. Pour boiling water over the coffee, filling the glass.\n4. Let steep for 1–2 minutes — the grounds will sink.\n5. Stir well, then let the remaining grounds settle.\n6. For es kopi susu: add ice cubes before pouring the coffee.\n7. Drink without disturbing the settled grounds at the bottom.</string>
+    <string name="drink_es_alpukat_name">Es Alpukat Kopi</string>
+    <string name="drink_es_alpukat_summary">Indonesian avocado coffee shake — creamy, cold, blended with condensed milk</string>
+    <string name="drink_es_alpukat_body">Indonesian avocado coffee shake that sounds unusual but is worshipped across Jakarta\'s coffee shops. Ripe avocado is blended with strong coffee, sweetened condensed milk, and ice into a thick milkshake. The creamy avocado adds luxurious body without fruitiness, and the coffee cuts through the richness perfectly. It\'s part smoothie, part coffee, entirely addictive — the drink that makes first-timers skeptical and converts them instantly.\n\nIngredients:\n• 1 ripe avocado, scooped\n• 1–2 shots espresso or 60 ml strong brewed coffee\n• 2–3 tbsp sweetened condensed milk\n• 150–200 ml ice cubes\n• Optional: chocolate syrup drizzle\n\nSteps:\n1. Blend avocado flesh with condensed milk and a splash of water until smooth.\n2. Add ice and strong coffee (cooled slightly so it doesn\'t melt all the ice).\n3. Blend again until thick and creamy — should be milkshake consistency.\n4. Pour into a tall glass.\n5. Drizzle with chocolate syrup if desired.\n6. Serve with a spoon and a straw — it\'s thick enough to need both.</string>
+    <string name="drink_menengic_name">Menengiç Kahvesi</string>
+    <string name="drink_menengic_summary">Turkish caffeine-free \'coffee\' from roasted terebinth berries — nutty, naturally sweet</string>
+    <string name="drink_menengic_body">Traditional Turkish caffeine-free \'coffee\' actually made from roasted and ground terebinth berries (menengiç, a pistachio relative), not coffee beans at all. Popular in southeastern Turkey, especially Gaziantep and Şanlıurfa. Brewed exactly like Turkish coffee in a cezve. Has a distinctive nutty, slightly resinous flavor with natural sweetness and a unique oily foam — perfect for evening drinking when caffeine isn\'t wanted but the coffee ritual is.\n\nIngredients:\n• 7–10 g menengiç powder (fine, roasted terebinth)\n• 70–100 ml cold water\n• Sugar to taste (optional — menengiç is naturally sweet)\n\nSteps:\n1. Add cold water and menengiç powder to a cezve.\n2. Stir gently to combine — menengiç is oilier than coffee and needs thorough mixing.\n3. Heat slowly on low. It will foam differently than coffee — watch for the rise.\n4. Pour the creamy, oily foam into a small cup first.\n5. Return to heat briefly, then pour the rest.\n6. Unlike Turkish coffee, menengiç doesn\'t leave gritty grounds — the sediment is softer.\n7. Serve plain — the natural nutty sweetness often needs no sugar.</string>
+    <string name="drink_mirra_name">Mirra</string>
+    <string name="drink_mirra_summary">Southeastern Turkish bitter coffee — dark roasted with cardamom, intense and ceremonial</string>
+    <string name="drink_mirra_body">Southeastern Turkish strong bitter coffee brewed extremely dark with cardamom, served in tiny handleless cups. Unlike regular Turkish coffee, mirra is prepared by repeatedly pouring the brew through the grounds using a special pot with multiple chambers — each pass intensifies the extraction. Very bitter, intensely caffeinated, traditionally served at ceremonies and to honored guests as a mark of respect. Refusing a cup of mirra is unthinkable in Mardin and Şanlıurfa hospitality culture.\n\nIngredients:\n• 15–20 g fine ground dark roast coffee\n• 2–3 green cardamom pods, crushed\n• 150–200 ml water\n\nSteps:\n1. Grind coffee very fine with crushed cardamom pods.\n2. In a traditional mirra pot (or a small saucepan), add coffee-cardamom mix and water.\n3. Bring to a simmer but do not let it boil over.\n4. Pour the brew into another container, then pour it back through the grounds.\n5. Repeat this passing 2–3 times — each pass deepens extraction and bitterness.\n6. Serve in very small cups (30–40 ml) — mirra is sipped, not drunk quickly.\n7. Traditionally served unsweetened. The bitterness is the point — it signals strength and respect.</string>
+
+    <string name="settings_about_footer">Made with love by a Turkish home barista. Open source, MIT licensed, no ads, no tracking.</string>
+    <string name="google_server_client_id">196980582414-fv03bbj1dba2g82t8jo37132gf3u9fbj.apps.googleusercontent.com</string>
 </resources>

@@ -66,6 +66,7 @@ data class BrewLogEntity(
     val flavorTags: String = "", // comma-separated flavor tags
     val beanId: Long? = null,
     val beanName: String = "",
+    val photoUri: String? = null,
 )
 
 /** A bag of coffee beans. Local-first, no account needed. */

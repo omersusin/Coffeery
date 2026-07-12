@@ -23,3 +23,19 @@
 -keepattributes *Annotation*
 -keep class kotlin.Metadata { *; }
 -dontwarn kotlin.**
+
+# Google Sign-In
+-keep class com.google.android.gms.auth.** { *; }
+-dontwarn com.google.android.gms.auth.**
+
+# Google Drive API
+-keep class com.google.api.services.drive.** { *; }
+-dontwarn com.google.api.services.drive.**
+-keep class com.google.api.client.http.** { *; }
+-dontwarn com.google.api.client.http.**
+-keep class com.google.http.client.** { *; }
+-dontwarn com.google.http.client.**
+-keep class org.apache.http.** { *; }
+-dontwarn org.apache.http.**
+-dontwarn javax.naming.**
+-dontwarn com.google.api.client.http.**

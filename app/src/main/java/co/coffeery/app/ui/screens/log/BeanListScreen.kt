@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -16,9 +17,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import co.coffeery.app.R
@@ -27,10 +30,13 @@ import co.coffeery.app.ui.components.AppText
 import co.coffeery.app.ui.components.AppTextField
 import co.coffeery.app.ui.components.CoffeeCard
 import co.coffeery.app.ui.components.CoffeeDialog
+import co.coffeery.app.ui.components.Glyph
+import co.coffeery.app.ui.components.LineIcon
 import co.coffeery.app.ui.components.PrimaryButton
 import co.coffeery.app.ui.components.ScreenHeader
 import co.coffeery.app.ui.components.SecondaryButton
 import co.coffeery.app.ui.screens.root.AppViewModel
+import co.coffeery.app.ui.screens.root.Route
 import co.coffeery.app.ui.theme.CoffeeTheme
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -46,8 +52,19 @@ fun BeanListScreen(vm: AppViewModel) {
         ScreenHeader(title = stringResource(R.string.beans_title))
 
         if (state.beans.isEmpty()) {
-            Spacer(Modifier.height(80.dp))
-            AppText(stringResource(R.string.beans_empty), style = CoffeeTheme.type.body, color = colors.textSecondary, modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp))
+            Spacer(Modifier.height(60.dp))
+            Column(
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                LineIcon(Glyph.BEAN, colors.textSecondary.copy(alpha = 0.4f), Modifier.size(64.dp))
+                Spacer(Modifier.height(16.dp))
+                AppText(stringResource(R.string.empty_beans_title), style = CoffeeTheme.type.title, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Spacer(Modifier.height(8.dp))
+                AppText(stringResource(R.string.empty_beans_sub), style = CoffeeTheme.type.body, color = colors.textSecondary, align = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Spacer(Modifier.height(16.dp))
+                PrimaryButton(stringResource(R.string.empty_beans_action), modifier = Modifier.fillMaxWidth()) { showAdd = true }
+            }
         } else {
             Column(
                 verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -57,9 +74,9 @@ fun BeanListScreen(vm: AppViewModel) {
                     BeanCard(bean, vm)
                 }
             }
+            Spacer(Modifier.height(12.dp))
+            PrimaryButton(stringResource(R.string.beans_add), Modifier.fillMaxWidth()) { showAdd = true }
         }
-        Spacer(Modifier.height(12.dp))
-        PrimaryButton(stringResource(R.string.beans_add), Modifier.fillMaxWidth()) { showAdd = true }
     }
 
     if (showAdd) {
@@ -73,7 +90,7 @@ fun BeanListScreen(vm: AppViewModel) {
 @Composable
 private fun BeanCard(bean: BeanEntity, vm: AppViewModel) {
     val colors = CoffeeTheme.colors
-    CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
+    CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 14, onClick = { vm.openRoute(Route.BeanDetail(bean.id)) }) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Column(Modifier.weight(1f)) {
                 AppText(bean.name, style = CoffeeTheme.type.headline, color = colors.textPrimary)

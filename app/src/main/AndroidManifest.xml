@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Google Sign-In requires google-services.json from Firebase Console -->
+    <!-- Place google-services.json in app/ directory and uncomment the plugin in build.gradle.kts -->
 
     <application
         android:name=".CoffeeApp"
@@ -19,6 +24,16 @@
             android:name=".service.TimerService"
             android:foregroundServiceType="specialUse"
             android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <receiver
             android:name=".service.TimerStopReceiver"

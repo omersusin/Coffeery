@@ -4,6 +4,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import android.content.Intent
 import android.net.Uri
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -23,8 +25,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -49,6 +53,8 @@ import co.coffeery.app.ui.components.SegmentedControl
 import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
 import co.coffeery.app.ui.theme.paletteColors
+import co.coffeery.app.util.CloudBackupManager
+import kotlinx.coroutines.launch
 
 @Composable
 fun SettingsScreen(vm: AppViewModel) {
@@ -56,6 +62,33 @@ fun SettingsScreen(vm: AppViewModel) {
     val ctx = LocalContext.current
     val colors = CoffeeTheme.colors
     var showImportDialog by remember { mutableStateOf(false) }
+    val cloud = remember { CloudBackupManager(ctx) }
+    var cloudSignedIn by remember { mutableStateOf(cloud.isSignedIn()) }
+    val cloudEmail = remember(cloudSignedIn) { cloud.getAccountEmail() ?: "" }
+    val scope = rememberCoroutineScope()
+
+    // Try silent sign-in on open
+    LaunchedEffect(Unit) {
+        if (!cloud.isPlayServicesAvailable()) {
+            android.widget.Toast.makeText(ctx, "Google Play Services not available", android.widget.Toast.LENGTH_LONG).show()
+        } else if (!cloud.isSignedIn()) {
+            cloud.silentSignIn()
+        }
+    }
+
+    val signInLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        cloud.handleSignInResult(result.data) { success, msg ->
+            cloudSignedIn = success
+            if (success) {
+                scope.launch {
+                    val json = vm.getExportJson()
+                    cloud.backupToDrive(ctx as android.app.Activity, json)
+                }
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -292,8 +325,64 @@ fun SettingsScreen(vm: AppViewModel) {
             }
         }
 
+        SettingsSection(R.string.settings_cloud_title) {
+            if (cloudSignedIn) {
+                AppText(
+                    stringResource(R.string.settings_cloud_signed_as, cloudEmail),
+                    style = CoffeeTheme.type.caption,
+                    color = colors.textSecondary,
+                )
+                Spacer(Modifier.height(12.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
+                    SecondaryButton(stringResource(R.string.settings_cloud_backup), Modifier.weight(1f)) {
+                        scope.launch {
+                            val json = vm.getExportJson()
+                            val result = cloud.backupToDrive(ctx as android.app.Activity, json)
+                            if (result.isSuccess) android.widget.Toast.makeText(ctx, R.string.settings_cloud_backup_done, android.widget.Toast.LENGTH_SHORT).show()
+                            else android.widget.Toast.makeText(ctx, R.string.settings_cloud_error, android.widget.Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+                Spacer(Modifier.height(8.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
+                    SecondaryButton(stringResource(R.string.settings_cloud_restore), Modifier.weight(1f)) {
+                        scope.launch {
+                            val result = cloud.restoreFromDrive(ctx)
+                            if (result.isSuccess) {
+                                vm.importFromJsonString(ctx, result.getOrDefault(""))
+                                android.widget.Toast.makeText(ctx, R.string.settings_cloud_restore_done, android.widget.Toast.LENGTH_SHORT).show()
+                            } else {
+                                android.widget.Toast.makeText(ctx, R.string.settings_cloud_error, android.widget.Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                }
+                Spacer(Modifier.height(12.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp), modifier = Modifier.fillMaxWidth()) {
+                    SecondaryButton(stringResource(R.string.settings_cloud_signout), Modifier.weight(1f)) {
+                        cloud.signOut(cloud.getSignInClient())
+                        cloudSignedIn = false
+                    }
+                }
+            } else {
+                PrimaryButton(
+                    stringResource(R.string.settings_cloud_signin),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    val client = cloud.getSignInClient()
+                    signInLauncher.launch(cloud.getSignInIntent(client))
+                }
+            }
+        }
+
         SettingsSection(R.string.settings_about) {
             AboutRow(R.string.settings_version, BuildConfig.VERSION_NAME)
+            AppText(
+                text = stringResource(R.string.settings_about_footer),
+                style = CoffeeTheme.type.caption,
+                color = CoffeeTheme.colors.textSecondary,
+            )
+            Spacer(Modifier.height(8.dp))
             ActionRow(stringResource(R.string.settings_github)) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/omersusin/Coffeery"))
                 ctx.startActivity(intent)
