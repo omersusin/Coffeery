@@ -70,7 +70,12 @@ fun SettingsScreen(vm: AppViewModel) {
         cloud.handleSignInResult(result.data) { success ->
             cloudSignedIn = success
             if (!success) {
-                android.widget.Toast.makeText(ctx, R.string.settings_cloud_error, android.widget.Toast.LENGTH_SHORT).show()
+                val msg = if (cloud.getServerClientId().startsWith("YOUR_")) {
+                    ctx.getString(R.string.settings_cloud_setup_needed)
+                } else {
+                    ctx.getString(R.string.settings_cloud_error)
+                }
+                android.widget.Toast.makeText(ctx, msg, android.widget.Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -353,6 +358,12 @@ fun SettingsScreen(vm: AppViewModel) {
 
         SettingsSection(R.string.settings_about) {
             AboutRow(R.string.settings_version, BuildConfig.VERSION_NAME)
+            AppText(
+                text = stringResource(R.string.settings_about_footer),
+                style = CoffeeTheme.type.caption,
+                color = CoffeeTheme.colors.textSecondary,
+            )
+            Spacer(Modifier.height(8.dp))
             ActionRow(stringResource(R.string.settings_github)) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/omersusin/Coffeery"))
                 ctx.startActivity(intent)

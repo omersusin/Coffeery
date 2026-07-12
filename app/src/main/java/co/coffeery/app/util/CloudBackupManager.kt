@@ -35,6 +35,8 @@ class CloudBackupManager(private val context: Context) {
 
     fun getAccountEmail(): String? = prefs.getString("account_email", null)
 
+    fun getServerClientId(): String = context.getString(R.string.google_server_client_id)
+
     fun getProfilePhotoUrl(): android.net.Uri? {
         val account = GoogleSignIn.getLastSignedInAccount(context)
         return account?.photoUrl
@@ -42,12 +44,13 @@ class CloudBackupManager(private val context: Context) {
 
     fun getSignInClient(): GoogleSignInClient {
         val serverClientId = context.getString(R.string.google_server_client_id)
-        val signInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        val builder = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
-            .requestIdToken(serverClientId)
             .requestScopes(Scope(DriveScopes.DRIVE_APPDATA))
-            .build()
-        return GoogleSignIn.getClient(context, signInOptions)
+        if (!serverClientId.startsWith("YOUR_")) {
+            builder.requestIdToken(serverClientId)
+        }
+        return GoogleSignIn.getClient(context, builder.build())
     }
 
     fun getSignInIntent(client: GoogleSignInClient): Intent = client.signInIntent
