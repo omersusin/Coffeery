@@ -34,6 +34,11 @@ class CloudBackupManager(private val context: Context) {
 
     fun getAccountEmail(): String? = prefs.getString("account_email", null)
 
+    fun getProfilePhotoUrl(): android.net.Uri? {
+        val account = GoogleSignIn.getLastSignedInAccount(context)
+        return account?.photoUrl
+    }
+
     fun getSignInClient(): GoogleSignInClient {
         val signInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()

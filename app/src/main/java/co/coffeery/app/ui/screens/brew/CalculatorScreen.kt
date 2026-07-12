@@ -5,6 +5,8 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -29,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.lerp
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -63,6 +66,8 @@ import co.coffeery.app.ui.screens.root.AppUiState
 import co.coffeery.app.ui.screens.root.AppViewModel
 import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
+import co.coffeery.app.util.CloudBackupManager
+import coil.compose.AsyncImage
 import co.coffeery.app.util.BrewMath
 import co.coffeery.app.util.BrewResult
 import co.coffeery.app.util.Format
@@ -101,13 +106,47 @@ fun CalculatorScreen(state: AppUiState, vm: AppViewModel) {
         ScreenHeader(
             title = stringResource(R.string.calc_title),
             trailing = {
-                LineIcon(
-                    Glyph.GEAR,
-                    CoffeeTheme.colors.textSecondary,
-                    Modifier.size(22.dp).clickable(indication = null, interactionSource = remember { MutableInteractionSource() }) {
-                        vm.openRoute(co.coffeery.app.ui.screens.root.Route.Settings)
-                    },
-                )
+                val cloud = remember { CloudBackupManager(ctx) }
+                if (cloud.isSignedIn()) {
+                    val photoUrl = cloud.getProfilePhotoUrl()
+                    Box(
+                        modifier = Modifier
+                            .size(28.dp)
+                            .clip(CircleShape)
+                            .clickable(indication = null, interactionSource = remember { MutableInteractionSource() }) {
+                                vm.openRoute(co.coffeery.app.ui.screens.root.Route.Settings)
+                            },
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (photoUrl != null) {
+                            AsyncImage(
+                                model = photoUrl,
+                                contentDescription = "Profile",
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        } else {
+                            val email = cloud.getAccountEmail() ?: "?"
+                            Box(
+                                Modifier.fillMaxSize().background(CoffeeTheme.colors.accent),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                AppText(
+                                    email.first().uppercase(),
+                                    color = CoffeeTheme.colors.onAccent
+                                )
+                            }
+                        }
+                    }
+                } else {
+                    LineIcon(
+                        Glyph.GEAR,
+                        CoffeeTheme.colors.textSecondary,
+                        Modifier.size(22.dp).clickable(indication = null, interactionSource = remember { MutableInteractionSource() }) {
+                            vm.openRoute(co.coffeery.app.ui.screens.root.Route.Settings)
+                        },
+                    )
+                }
             },
         )
 
