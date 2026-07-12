@@ -26,7 +26,7 @@ android {
             keyPassword = "coffeery123"
         }
         create("fixedDebug") {
-            storeFile = rootProject.file("debug.keystore")
+            storeFile = file("debug.keystore")
             storePassword = "android"
             keyAlias = "androiddebugkey"
             keyPassword = "android"
