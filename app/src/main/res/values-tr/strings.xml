@@ -427,6 +427,12 @@
     <string name="log_rating_out">%1$d/5</string>
     <string name="log_date_today">Bugün</string>
     <string name="log_date_yesterday">Dün</string>
+    <string name="log_compare_title">Demlemelerini karşılaştır</string>
+    <string name="log_compare_sub">Farklı yöntemlerin sonuçlarını gör</string>
+    <string name="log_compare_button">Karşılaştır</string>
+    <string name="log_compare_select">Karşılaştırmak için iki demleme seç</string>
+    <string name="log_share">Paylaş</string>
+    <string name="log_shared_via">Coffeery ile demlendi ☕</string>
 
     <!-- ===== Learn tools v2 ===== -->
     <string name="learn_extraction_calc_title">Ekstraksiyon Verimi Hesaplayıcı</string>
@@ -1263,4 +1269,29 @@
     <string name="bean_detail_purchase">Alış tarihi</string>
     <string name="bean_detail_brewing">Bu çekirdeği demle</string>
     <string name="google_server_client_id">YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+
+    <!-- Kahve & Yemek Eşleştirme -->
+    <string name="pairing_title">Kahve &amp; Yemek Eşleştirme</string>
+    <string name="pairing_1_coffee">Etiyopya Yirgacheffe</string>
+    <string name="pairing_1_food">Limonlu Yaban Mersinli Scone</string>
+    <string name="pairing_1_why">Kahvenin doğal yaban mersini ve narenciye notaları, hamur işindeki aynı tatları güçlendirir.</string>
+    <string name="pairing_2_coffee">Sumatra Koyu Kavrum</string>
+    <string name="pairing_2_food">Bitter Çikolatalı Brownie</string>
+    <string name="pairing_2_why">Topraksı, dolgun gövdesi, zengin çikolataya karşı baskılanmadan direnir.</string>
+    <string name="pairing_3_coffee">Kenya AA</string>
+    <string name="pairing_3_food">Limonlu Bar</string>
+    <string name="pairing_3_why">Kenya\'nın greyfurt benzeri parlaklığı tatlı hamur işini keser ve narenciyeyi tamamlar.</string>
+    <string name="pairing_4_coffee">Kolombiya Orta Kavrum</string>
+    <string name="pairing_4_food">Tarçınlı Kahveli Kek</string>
+    <string name="pairing_4_why">Fındıksı karamel tatlılığı, kahveli kekteki esmer şeker ve tarçını yansıtır.</string>
+    <string name="pairing_5_coffee">Cold Brew Konsantre</string>
+    <string name="pairing_5_food">Vanilyalı Dondurma (Affogato)</string>
+    <string name="pairing_5_why">Konsantre kahvenin çikolatamsı notaları mükemmel bir tatlı eşleşmesi oluşturur.</string>
+
+    <!-- Kahve Kültürü Gerçekleri -->
+    <string name="culture_title">Kahve Kültürü Gerçekleri</string>
+    <string name="culture_fact_1">Türk kahvesi falı (tasseografi): Kahve içildikten sonra fincan ters çevrilir. Telvenin bıraktığı desenler \'okunur\' — kuşları (iyi haber), balıkları (para) veya yılanları (düşman) anımsatan şekiller, Osmanlı saray kültüründen gelen özel anlamlar taşır.</string>
+    <string name="culture_fact_2">Yunan frappe\'si bir kazaydı (1957): Selanik Ticaret Fuarı\'ndaki bir Nestlé çalışanı sıcak su bulamayınca, hazır kahveyi soğuk su ve buzla çalkaladı — Yunanistan\'ın hâlâ en popüler kahve içeceği olan ikonik frappe\'yi yarattı.</string>
+    <string name="culture_fact_3">Türk kahvesi evlilik geleneği: Damadın ailesi evlenmeye talip olmaya geldiğinde, gelin Türk kahvesi yapar — ancak damadın fincanı şeker yerine tuzla hazırlanır. Eğer hoşnutsuzluk göstermeden içerse, sabırlı bir koca olacağını kanıtlar.</string>
+    <string name="culture_fact_4">\'Cappuccino\' terimi Kapuçin rahiplerinden gelir: Kapuçin manastır tarikatının kahverengi kapüşonlu cüppeleri, köpürtülmüş sütle karışmış espressonun rengini andırır. İçeceğin adı İtalyanca\'da kelimenin tam anlamıyla \'küçük Kapuçin\' anlamına gelir ve kökleri 17. yüzyıl Viyana\'sına dayanır.</string>
 </resources>

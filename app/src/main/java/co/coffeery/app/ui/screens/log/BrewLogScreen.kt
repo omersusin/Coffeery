@@ -1,5 +1,6 @@
 package co.coffeery.app.ui.screens.log
 
+import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -48,6 +49,7 @@ import co.coffeery.app.ui.components.SecondaryButton
 import co.coffeery.app.ui.components.glyph
 import co.coffeery.app.ui.screens.root.AppViewModel
 import co.coffeery.app.ui.screens.root.NavTab
+import co.coffeery.app.ui.theme.CoffeeShapes
 import co.coffeery.app.ui.theme.CoffeeTheme
 import co.coffeery.app.util.Format
 import java.text.SimpleDateFormat
@@ -100,6 +102,29 @@ private fun bestRecipeFromLogs(logs: List<BrewLogEntity>): BestRecipeSuggestion?
         tempCelsius = if (temps.isNotEmpty()) medianOf(temps) else 93,
         grind = modeOf(top.map { it.grind }),
     )
+}
+
+private fun formatDuration(totalSeconds: Int): String {
+    val m = totalSeconds / 60
+    val s = totalSeconds % 60
+    return "${m}m ${s}s"
+}
+
+private fun shareBrewAsText(context: Context, log: BrewLogEntity) {
+    val text = buildString {
+        appendLine("\u2615 ${log.equipmentName}")
+        appendLine("${Format.grams(log.coffeeGrams)}g coffee \u00B7 ${log.waterMl}ml water \u00B7 1:${Format.ratio(log.ratioDenominator)}")
+        appendLine("Grind: ${log.grind} \u00B7 ${log.tempCelsius}\u00B0C \u00B7 ${formatDuration(log.totalDurationSec)}")
+        if (log.rating > 0) appendLine("Rating: ${\"\u2605\".repeat(log.rating)}")
+        if (log.tastingNotes.isNotBlank()) appendLine("\"${log.tastingNotes}\"")
+        appendLine()
+        appendLine("Brewed with Coffeery \u2615")
+    }
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        type = "text/plain"
+        putExtra(Intent.EXTRA_TEXT, text)
+    }
+    context.startActivity(Intent.createChooser(intent, "Share brew"))
 }
 
 @Composable
@@ -283,6 +308,7 @@ private fun StreakBanner(streak: Int) {
 @Composable
 private fun BrewLogContent(state: co.coffeery.app.ui.screens.root.AppUiState, vm: AppViewModel) {
     val colors = CoffeeTheme.colors
+    var showCompare by remember { mutableStateOf(false) }
 
     if (state.brewLogs.isEmpty()) {
         Spacer(Modifier.height(40.dp))
@@ -317,6 +343,18 @@ private fun BrewLogContent(state: co.coffeery.app.ui.screens.root.AppUiState, vm
         ) {
             StreakBanner(streak)
             BrewHeatmap(state.brewLogs)
+            if (state.brewLogs.size >= 2) {
+                CoffeeCard(modifier = Modifier.fillMaxWidth().clickable { showCompare = true }, contentPadding = 14) {
+                    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            AppText(stringResource(R.string.log_compare_title), style = CoffeeTheme.type.headline, color = colors.textPrimary)
+                            Spacer(Modifier.height(2.dp))
+                            AppText(stringResource(R.string.log_compare_sub), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                        }
+                        PrimaryButton(text = stringResource(R.string.log_compare_button), modifier = Modifier) { showCompare = true }
+                    }
+                }
+            }
             if (state.brewLogs.size >= 3) {
                 AnalyticsCard(state.brewLogs)
             }
@@ -341,6 +379,9 @@ private fun BrewLogContent(state: co.coffeery.app.ui.screens.root.AppUiState, vm
                     BrewLogCard(log, state.equipment, vm)
                 }
             }
+        }
+        if (showCompare) {
+            CompareBrewsDialog(state.brewLogs, state.equipment) { showCompare = false }
         }
     }
 }
@@ -425,9 +466,88 @@ private fun BestRecipeBanner(best: BestRecipeSuggestion, vm: AppViewModel) {
 }
 
 @Composable
+private fun CompareBrewsDialog(logs: List<BrewLogEntity>, equipmentList: List<Equipment>, onDismiss: () -> Unit) {
+    val colors = CoffeeTheme.colors
+    var brew1Index by remember { mutableIntStateOf(-1) }
+    var brew2Index by remember { mutableIntStateOf(-1) }
+
+    CoffeeDialog(onDismiss = onDismiss) {
+        AppText(stringResource(R.string.log_compare_title), style = CoffeeTheme.type.title, color = colors.textPrimary)
+        Spacer(Modifier.height(4.dp))
+        AppText(stringResource(R.string.log_compare_select), style = CoffeeTheme.type.body, color = colors.textSecondary)
+        Spacer(Modifier.height(14.dp))
+
+        CoffeeCard(modifier = Modifier.fillMaxWidth(), contentPadding = 8) {
+            logs.forEachIndexed { index, log ->
+                val glyph = equipmentList.firstOrNull { it.id == log.equipmentId }?.category?.glyph() ?: Glyph.CUP
+                val selected = index == brew1Index || index == brew2Index
+                val bg = if (selected) colors.accentSoft.copy(alpha = 0.3f) else Color.Transparent
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(CoffeeShapes.small)
+                        .background(bg)
+                        .clickable {
+                            if (brew1Index == -1 || brew2Index != -1) { brew1Index = index; brew2Index = -1 }
+                            else if (brew1Index != index) brew2Index = index
+                        }
+                        .padding(horizontal = 10.dp, vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    LineIcon(glyph, if (selected) colors.accent else colors.textSecondary, Modifier.size(18.dp))
+                    Spacer(Modifier.width(8.dp))
+                    AppText(log.equipmentName, style = CoffeeTheme.type.headline, color = colors.textPrimary, modifier = Modifier.weight(1f))
+                    AppText(logDate(log.timestamp), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                }
+            }
+        }
+
+        if (brew1Index >= 0 && brew2Index >= 0) {
+            val log1 = logs[brew1Index]
+            val log2 = logs[brew2Index]
+            Spacer(Modifier.height(16.dp))
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                Column(Modifier.weight(1f).padding(end = 8.dp)) {
+                    val g1 = equipmentList.firstOrNull { it.id == log1.equipmentId }?.category?.glyph() ?: Glyph.CUP
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        LineIcon(g1, colors.accent, Modifier.size(16.dp))
+                        Spacer(Modifier.width(6.dp))
+                        AppText(log1.equipmentName, style = CoffeeTheme.type.headline, color = colors.textPrimary)
+                    }
+                    Spacer(Modifier.height(6.dp))
+                    AppText("${Format.grams(log1.coffeeGrams)}g \u00B7 ${log1.waterMl}ml \u00B7 1:${Format.ratio(log1.ratioDenominator)}", style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                    AppText("${log1.grind} \u00B7 ${log1.tempCelsius}\u00B0C", style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                    if (log1.rating > 0) AppText("\u2605".repeat(log1.rating), style = CoffeeTheme.type.caption, color = colors.accent)
+                    AppText(formatDuration(log1.totalDurationSec), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                    if (log1.tastingNotes.isNotBlank()) AppText("\u201C${log1.tastingNotes}\u201D", style = CoffeeTheme.type.caption, color = colors.textPrimary, maxLines = 2)
+                }
+                Column(Modifier.weight(1f).padding(start = 8.dp)) {
+                    val g2 = equipmentList.firstOrNull { it.id == log2.equipmentId }?.category?.glyph() ?: Glyph.CUP
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        LineIcon(g2, colors.accent, Modifier.size(16.dp))
+                        Spacer(Modifier.width(6.dp))
+                        AppText(log2.equipmentName, style = CoffeeTheme.type.headline, color = colors.textPrimary)
+                    }
+                    Spacer(Modifier.height(6.dp))
+                    AppText("${Format.grams(log2.coffeeGrams)}g \u00B7 ${log2.waterMl}ml \u00B7 1:${Format.ratio(log2.ratioDenominator)}", style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                    AppText("${log2.grind} \u00B7 ${log2.tempCelsius}\u00B0C", style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                    if (log2.rating > 0) AppText("\u2605".repeat(log2.rating), style = CoffeeTheme.type.caption, color = colors.accent)
+                    AppText(formatDuration(log2.totalDurationSec), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+                    if (log2.tastingNotes.isNotBlank()) AppText("\u201C${log2.tastingNotes}\u201D", style = CoffeeTheme.type.caption, color = colors.textPrimary, maxLines = 2)
+                }
+            }
+        }
+
+        Spacer(Modifier.height(16.dp))
+        SecondaryButton(stringResource(R.string.action_close), Modifier.fillMaxWidth()) { onDismiss() }
+    }
+}
+
+@Composable
 private fun BrewLogCard(log: BrewLogEntity, equipment: List<Equipment>, vm: AppViewModel) {
     val colors = CoffeeTheme.colors
     var showDelete by remember { mutableStateOf(false) }
+    val context = LocalContext.current
     val glyph = equipment.firstOrNull { it.id == log.equipmentId }?.category?.glyph() ?: Glyph.CUP
     CoffeeCard(onClick = { vm.applyBrewLog(log) }, modifier = Modifier.fillMaxWidth(), contentPadding = 14) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
@@ -436,7 +556,11 @@ private fun BrewLogCard(log: BrewLogEntity, equipment: List<Equipment>, vm: AppV
                 Spacer(Modifier.width(8.dp))
                 AppText(log.equipmentName, style = CoffeeTheme.type.headline, color = colors.textPrimary)
             }
-            AppText("\u2715", style = CoffeeTheme.type.caption, color = colors.textSecondary, modifier = Modifier.padding(start = 8.dp).clickable { showDelete = true })
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                AppText(stringResource(R.string.log_share), style = CoffeeTheme.type.caption, color = colors.accent, modifier = Modifier.clickable { shareBrewAsText(context, log) })
+                Spacer(Modifier.width(12.dp))
+                AppText("\u2715", style = CoffeeTheme.type.caption, color = colors.textSecondary, modifier = Modifier.padding(start = 0.dp).clickable { showDelete = true })
+            }
         }
         Spacer(Modifier.height(4.dp))
         AppText(logDate(log.timestamp), style = CoffeeTheme.type.caption, color = colors.textSecondary)

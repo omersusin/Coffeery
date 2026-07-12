@@ -427,6 +427,12 @@
     <string name="log_rating_out">%1$d/5</string>
     <string name="log_date_today">Today</string>
     <string name="log_date_yesterday">Yesterday</string>
+    <string name="log_compare_title">Compare your brews</string>
+    <string name="log_compare_sub">See how different methods stack up</string>
+    <string name="log_compare_button">Compare</string>
+    <string name="log_compare_select">Select two brews to compare</string>
+    <string name="log_share">Share</string>
+    <string name="log_shared_via">Brewed with Coffeery ☕</string>
 
     <!-- ===== Learn tools v2 ===== -->
     <string name="learn_extraction_calc_title">Extraction Yield Calculator</string>
@@ -1263,4 +1269,29 @@
     <string name="bean_detail_purchase">Purchase date</string>
     <string name="bean_detail_brewing">Brew this bean</string>
     <string name="google_server_client_id">YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+
+    <!-- Coffee & Food Pairing -->
+    <string name="pairing_title">Coffee &amp; Food Pairing</string>
+    <string name="pairing_1_coffee">Ethiopian Yirgacheffe</string>
+    <string name="pairing_1_food">Lemon Blueberry Scone</string>
+    <string name="pairing_1_why">The coffee\'s natural blueberry and citrus notes amplify the same flavors in the pastry.</string>
+    <string name="pairing_2_coffee">Sumatra Dark Roast</string>
+    <string name="pairing_2_food">Dark Chocolate Brownie</string>
+    <string name="pairing_2_why">The earthy, full-bodied profile stands up to rich chocolate without being overpowered.</string>
+    <string name="pairing_3_coffee">Kenya AA</string>
+    <string name="pairing_3_food">Lemon Bar</string>
+    <string name="pairing_3_why">Kenya\'s grapefruit-like brightness cuts through sweet pastry and complements citrus.</string>
+    <string name="pairing_4_coffee">Colombian Medium Roast</string>
+    <string name="pairing_4_food">Cinnamon Coffee Cake</string>
+    <string name="pairing_4_why">Nutty caramel sweetness mirrors the brown sugar and cinnamon in coffee cake.</string>
+    <string name="pairing_5_coffee">Cold Brew Concentrate</string>
+    <string name="pairing_5_food">Vanilla Ice Cream (Affogato)</string>
+    <string name="pairing_5_why">The concentrated coffee\'s chocolatey notes create a perfect dessert pairing.</string>
+
+    <!-- Coffee Culture Facts -->
+    <string name="culture_title">Coffee Culture Facts</string>
+    <string name="culture_fact_1">Turkish coffee fortune telling (tasseography): After drinking, the cup is turned upside down. The patterns left by the grounds are \'read\' to tell the drinker\'s fortune — shapes suggesting birds (good news), fish (money), or snakes (enemies) each carry specific meanings from Ottoman palace culture.</string>
+    <string name="culture_fact_2">The Greek frappe was an accident (1957): A Nestlé employee at the Thessaloniki Trade Fair couldn\'t find hot water, so he shook instant coffee with cold water and ice — creating the iconic Greek frappe, still Greece\'s most popular coffee drink.</string>
+    <string name="culture_fact_3">Turkish coffee matrimonial custom: When a groom\'s family visits to ask for marriage, the bride serves Turkish coffee — but the groom\'s cup is made with salt instead of sugar. If he drinks it without showing displeasure, he proves he\'ll be a patient husband.</string>
+    <string name="culture_fact_4">The term \'cappuccino\' comes from Capuchin friars: The brown hooded robes of the Capuchin monastic order resemble the color of espresso mixed with frothed milk. The drink\'s name literally means \'little Capuchin\' in Italian, dating back to 17th century Vienna.</string>
 </resources>

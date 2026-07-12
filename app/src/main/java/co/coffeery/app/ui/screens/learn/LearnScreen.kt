@@ -151,6 +151,10 @@ fun LearnScreen(vm: AppViewModel) {
 
         GlossaryCard()
 
+        FoodPairingCard()
+
+        CultureFactsCard()
+
         if (searchActive && filteredCards.isEmpty()) {
             AppText(
                 stringResource(R.string.search_no_results),
@@ -627,6 +631,55 @@ private fun GlossaryCard() {
                 color = colors.textSecondary,
             )
             Spacer(Modifier.height(10.dp))
+        }
+    }
+}
+
+@Composable
+private fun FoodPairingCard() {
+    val colors = CoffeeTheme.colors
+    val pairings = listOf(
+        Triple(R.string.pairing_1_coffee, R.string.pairing_1_food, R.string.pairing_1_why),
+        Triple(R.string.pairing_2_coffee, R.string.pairing_2_food, R.string.pairing_2_why),
+        Triple(R.string.pairing_3_coffee, R.string.pairing_3_food, R.string.pairing_3_why),
+        Triple(R.string.pairing_4_coffee, R.string.pairing_4_food, R.string.pairing_4_why),
+        Triple(R.string.pairing_5_coffee, R.string.pairing_5_food, R.string.pairing_5_why),
+    )
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            LineIcon(Glyph.BEAN, colors.accent, Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            AppText(stringResource(R.string.pairing_title), style = CoffeeTheme.type.title)
+        }
+        Spacer(Modifier.height(8.dp))
+        pairings.forEach { (coffee, food, why) ->
+            AppText(stringResource(coffee), style = CoffeeTheme.type.headline)
+            AppText("+ ${stringResource(food)}", style = CoffeeTheme.type.body, color = colors.accent)
+            AppText(stringResource(why), style = CoffeeTheme.type.caption, color = colors.textSecondary)
+            Spacer(Modifier.height(8.dp))
+        }
+    }
+}
+
+@Composable
+private fun CultureFactsCard() {
+    val colors = CoffeeTheme.colors
+    val facts = listOf(
+        R.string.culture_fact_1,
+        R.string.culture_fact_2,
+        R.string.culture_fact_3,
+        R.string.culture_fact_4,
+    )
+    CoffeeCard(modifier = Modifier.fillMaxWidth()) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            LineIcon(Glyph.BOOK, colors.accent, Modifier.size(20.dp))
+            Spacer(Modifier.width(8.dp))
+            AppText(stringResource(R.string.culture_title), style = CoffeeTheme.type.title)
+        }
+        Spacer(Modifier.height(8.dp))
+        facts.forEach { fact ->
+            AppText(stringResource(fact), style = CoffeeTheme.type.body, color = colors.textSecondary)
+            Spacer(Modifier.height(6.dp))
         }
     }
 }
