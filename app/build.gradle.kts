@@ -25,12 +25,7 @@ android {
             keyAlias = "coffeery"
             keyPassword = "coffeery123"
         }
-        create("debug") {
-            storeFile = rootProject.file("debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
-        }
+    }
     }
 
     buildTypes {
@@ -44,7 +39,12 @@ android {
             )
         }
         debug {
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("debug").apply {
+                storeFile = rootProject.file("debug.keystore")
+                storePassword = "android"
+                keyAlias = "androiddebugkey"
+                keyPassword = "android"
+            }
             applicationIdSuffix = ".debug"
             isMinifyEnabled = false
         }
