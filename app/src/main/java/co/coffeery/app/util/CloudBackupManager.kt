@@ -23,6 +23,7 @@ class CloudBackupManager(private val context: Context) {
         val builder = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .requestProfile()
+            .requestIdToken(context.getString(R.string.google_server_client_id))
         return GoogleSignIn.getClient(context, builder.build())
     }
 
