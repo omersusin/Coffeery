@@ -198,7 +198,7 @@
     <string name="learn_quiz_title">Hızlı Test</string>
     <string name="learn_quiz_correct">Doğru!</string>
     <string name="learn_quiz_wrong">Tam değil</string>
-    <string name="learn_quiz_score">Skor: %1$d/12 bugün doğru</string>
+    <string name="learn_quiz_score">Skor: %1$d/30 bugün doğru</string>
     <string name="taste_sour">Ekşi</string>
     <string name="taste_bitter">Acı</string>
     <string name="taste_astringent">Buruk</string>
@@ -799,6 +799,7 @@
     <string name="settings_import_paste">Panodan yapıştır</string>
     <string name="settings_import_manual">Yedek metni gir</string>
     <string name="settings_import_dialog_title">JSON yedeğini yapıştır veya yaz</string>
+    <string name="settings_import_invalid">Geçersiz yedek verisi</string>
     <string name="settings_backup">Yedekleme ve Geri Yükleme</string>
     <string name="settings_restore_defaults">Varsayılanlara sıfırla</string>
     <string name="settings_restore_confirm">Bu işlem tüm verilerini silecek — tarifler, demleme günlüğü, çekirdekler ve özel ekipman. Ayarlar sıfırlanacak. Geri alınamaz.</string>

@@ -198,7 +198,7 @@
     <string name="learn_quiz_title">Quick Quiz</string>
     <string name="learn_quiz_correct">Correct!</string>
     <string name="learn_quiz_wrong">Not quite</string>
-    <string name="learn_quiz_score">Score: %1$d/12 correct today</string>
+    <string name="learn_quiz_score">Score: %1$d/30 correct today</string>
     <string name="taste_sour">Sour</string>
     <string name="taste_bitter">Bitter</string>
     <string name="taste_astringent">Astringent</string>
@@ -799,6 +799,7 @@
     <string name="settings_import_paste">Paste from clipboard</string>
     <string name="settings_import_manual">Enter backup text</string>
     <string name="settings_import_dialog_title">Paste or type your backup JSON</string>
+    <string name="settings_import_invalid">Invalid backup data</string>
     <string name="settings_backup">Backup &amp; Restore</string>
     <string name="settings_restore_defaults">Reset to defaults</string>
     <string name="settings_restore_confirm">This will delete all your data — recipes, brew logs, beans, and custom gear. Settings will be reset. This cannot be undone.</string>

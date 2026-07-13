@@ -376,8 +376,17 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 val clipboard = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager
                 val text = clipboard?.primaryClip?.getItemAt(0)?.text?.toString()
                 if (text != null) {
-                    repo.importFromJson(text)
-                    Toast.makeText(ctx, "Data imported. Restart the app.", Toast.LENGTH_SHORT).show()
+                    val trimmed = text.trimStart()
+                    if (!trimmed.startsWith("{") && !trimmed.startsWith("[")) {
+                        Toast.makeText(ctx, ctx.getString(co.coffeery.app.R.string.settings_import_invalid), Toast.LENGTH_SHORT).show()
+                        return@launch
+                    }
+                    try {
+                        repo.importFromJson(text)
+                        Toast.makeText(ctx, "Data imported. Restart the app.", Toast.LENGTH_SHORT).show()
+                    } catch (e: org.json.JSONException) {
+                        Toast.makeText(ctx, ctx.getString(co.coffeery.app.R.string.settings_import_invalid), Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     Toast.makeText(ctx, "Copy JSON backup to clipboard first, then tap Import.", Toast.LENGTH_LONG).show()
                 }
