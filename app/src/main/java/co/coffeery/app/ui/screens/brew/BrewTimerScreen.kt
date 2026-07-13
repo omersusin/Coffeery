@@ -91,6 +91,7 @@ import co.coffeery.app.data.model.StepKind
 import co.coffeery.app.util.BrewMath
 import co.coffeery.app.util.Format
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.infiniteRepeatable
